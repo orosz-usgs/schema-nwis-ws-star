@@ -37,3 +37,7 @@ create or replace synonym sitetype for sitetype_00000;
 --changeset drsteini:1SchemaSynonymsAI
 create or replace synonym state for state_00000;
 --rollback drop synonym state;
+
+--changeset drsteini:1SchemaSynonymsAJ
+create or replace synonym us_counties_dis for us_counties_dis_20121015;
+--rollback drop synonym us_counties_dis;

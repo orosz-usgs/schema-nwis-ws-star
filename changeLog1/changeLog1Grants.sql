@@ -37,3 +37,15 @@ grant select on sitetype_00000 to nwis_ws_user;
 --changeset drsteini:1SchemaGrantsAI
 grant select on state_00000 to nwis_ws_user;
 --rollback revoke select on state_00000 from nwis_ws_user;
+
+--changeset drsteini:1SchemaGrantsAJ
+grant select on us_counties_dis_20121015 to nwis_ws_user;
+--rollback revoke select on us_counties_dis_20121015 from nwis_ws_user;
+
+--changeset drsteini:1SchemaGrantsAK
+grant select on huc8_conus_hi_ak_pr_dis to nwis_ws_user;
+--rollback revoke select on huc8_conus_hi_ak_pr_dis from nwis_ws_user;
+
+--changeset drsteini:1SchemaGrantsAL
+grant select on states to nwis_ws_user;
+--rollback revoke select on states from nwis_ws_user;
