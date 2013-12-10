@@ -45,3 +45,40 @@ grant select on nwis_di_org_00000 to nwis_ws_user;
 --changeset drsteini:0SchemaGrantsAK
 grant execute on pkg_dynamic_list to nwis_ws_user;
 --rollback revoke execute on pkg_dynamic_list from nwis_ws_user;
+
+--changeset drsteini:0SchemaGrantsAL
+grant execute on typ_vctbl to nwis_ws_user;
+--rollback revoke execute on typ_vctbl from nwis_ws_user;
+
+--changeset drsteini:0SchemaGrantsAM
+grant select on characteristicname_00000 to nwis_ws_user;
+--rollback revoke select on characteristicname_00000 from nwis_ws_user;
+
+--changeset drsteini:0SchemaGrantsAN
+grant select on characteristictype_00000 to nwis_ws_user;
+--rollback revoke select on characteristictype_00000 from nwis_ws_user;
+
+--changeset drsteini:0SchemaGrantsAO
+grant select on country_00000 to nwis_ws_user;
+--rollback revoke select on country_00000 from nwis_ws_user;
+
+--changeset drsteini:0SchemaGrantsAP
+grant select on county_00000 to nwis_ws_user;
+--rollback revoke select on county_00000 from nwis_ws_user;
+
+--changeset drsteini:0SchemaGrantsAQ
+grant select on organization_00000 to nwis_ws_user;
+--rollback revoke select on organization_00000 from nwis_ws_user;
+
+--changeset drsteini:0SchemaGrantsAR
+grant select on samplemedia_00000 to nwis_ws_user;
+--rollback revoke select on samplemedia_00000 from nwis_ws_user;
+
+--changeset drsteini:0SchemaGrantsAS
+grant select on sitetype_00000 to nwis_ws_user;
+--rollback revoke select on sitetype_00000 from nwis_ws_user;
+
+--changeset drsteini:0SchemaGrantsAT
+grant select on state_00000 to nwis_ws_user;
+--rollback revoke select on state_00000 from nwis_ws_user;
+

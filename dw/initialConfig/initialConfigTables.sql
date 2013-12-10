@@ -497,7 +497,7 @@ create table sitefile
 );
 --rollback drop table sitefile cascade constraints purge;
 
---changeset drsteini:1SchemaTablesAM
+--changeset drsteini:0SchemaTablesAM
 create table characteristicname_00000
 (code_value                     varchar2(32 char)
 ,description                    varchar2(4000 char)
@@ -505,7 +505,7 @@ create table characteristicname_00000
 );
 --rollback drop table characteristicname_00000 cascade constraints purge;
 
---changeset drsteini:1SchemaTablesAO
+--changeset drsteini:0SchemaTablesAO
 create table characteristictype_00000
 (code_value                     varchar2(32 char)
 ,description                    varchar2(4000 char)
@@ -513,7 +513,7 @@ create table characteristictype_00000
 );
 --rollback drop table characteristictype_00000 cascade constraints purge;
 
---changeset drsteini:1SchemaTablesAP
+--changeset drsteini:0SchemaTablesAP
 create table country_00000
 (code_value                     varchar2(2 char)
 ,description                    varchar2(48 char)
@@ -521,7 +521,7 @@ create table country_00000
 );
 --rollback drop table country_00000 cascade constraints purge;
 
---changeset drsteini:1SchemaTablesAQ
+--changeset drsteini:0SchemaTablesAQ
 create table county_00000
 (code_value                     varchar2(9 char)
 ,description                    varchar2(107 char)
@@ -531,7 +531,7 @@ create table county_00000
 );
 --rollback drop table county_00000 cascade constraints purge;
 
---changeset drsteini:1SchemaTablesAR
+--changeset drsteini:0SchemaTablesAR
 create table organization_00000
 (code_value                     varchar2(500 char)
 ,description                    varchar2(4000 char)
@@ -541,7 +541,7 @@ create table organization_00000
 );
 --rollback drop table organization_00000 cascade constraints purge;
 
---changeset drsteini:1SchemaTablesAS
+--changeset drsteini:0SchemaTablesAS
 create table samplemedia_00000
 (code_value                     varchar2(30 char)
 ,description                    varchar2(4000 char)
@@ -549,7 +549,7 @@ create table samplemedia_00000
 );
 --rollback drop table samplemedia_00000 cascade constraints purge;
 
---changeset drsteini:1SchemaTablesAT
+--changeset drsteini:0SchemaTablesAT
 create table sitetype_00000
 (code_value                     varchar2(500 char)
 ,description                    varchar2(4000 char)
@@ -557,7 +557,7 @@ create table sitetype_00000
 );
 --rollback drop table sitetype_00000 cascade constraints purge;
 
---changeset drsteini:1SchemaTablesAU
+--changeset drsteini:0SchemaTablesAU
 create table state_00000
 (code_value                     varchar2(5 char)
 ,description_with_country       varchar2(57 char)
