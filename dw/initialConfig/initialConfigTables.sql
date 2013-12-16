@@ -549,3 +549,20 @@ create table state_00000
 ,sort_order                     number
 );
 --rollback drop table state_00000 cascade constraints purge;
+
+--changeset drsteini:0SchemaTablesAW
+create table public_srsnames_00000
+(parm_cd                        char(5 byte)            not null enable, 
+,description                    varchar2(170 byte), 
+,characteristicname             varchar2(1200 byte)     not null enable, 
+,measureunitcode                varchar2(10 byte), 
+,resultsamplefraction           varchar2(24 byte), 
+,resulttemperaturebasis         varchar2(12 byte), 
+,resultstatisticalbasis         varchar2(25 byte), 
+,resulttimebasis                varchar2(12 byte), 
+,resultweightbasis              varchar2(15 byte), 
+,resultparticlesizebasis        varchar2(64 byte), 
+,last_rev_dt                    date, 
+,max_last_rev_dt                date
+);
+--rollback drop table public_srsnames_00000 cascade constraints purge;

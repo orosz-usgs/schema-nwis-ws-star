@@ -186,3 +186,7 @@ create or replace synonym state_fips for state_fips@nwis_ws_stg_dbstage.er.usgs.
 --changeset drsteini:0SchemaSynonymsBZ
 create or replace synonym storet_sum for storet_sum@storetmodern_dbdw.er.usgs.gov;
 --rollback drop synonym storet_sum;
+
+--changeset drsteini:0SchemaSynonymsCA
+create or replace synonym public_srsnames for public_srsnames_00000;
+--rollback drop synonym public_srsnames;
