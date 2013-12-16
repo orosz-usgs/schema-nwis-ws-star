@@ -48,7 +48,7 @@ create bitmap index char_type_bm_i_00000 on fa_regular_result_00000 (characteris
 --rollback drop index char_type_bm_i_00000;
 
 --changeset drsteini:0SchemaIndexesAL
-create index fk_station2_i_00000 on series_catalog_00000 (fk_station) nologging compress;
+create index fk_station2_i_00000 on series_catalog_00000 (fk_station) nologging;
 --rollback drop index fk_station2_i_00000;
 
 --changeset drsteini:0SchemaIndexesAM

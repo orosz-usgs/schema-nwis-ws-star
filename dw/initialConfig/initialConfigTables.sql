@@ -76,7 +76,6 @@ create table fa_regular_result_00000
 ,sample_collect_method_ctx      varchar2(25 byte)
 ,sample_id                      number(11)
 )
-compress pctfree 0 nologging
 partition by range(activity_start_date_time)
 (partition fa_regular_result_pre_1990 values less than (to_date('01-JAN-1990', 'DD-MON-YYYY'))
 ,partition fa_regular_result_1990     values less than (to_date('01-JAN-1991', 'DD-MON-YYYY'))
@@ -102,8 +101,7 @@ partition by range(activity_start_date_time)
 ,partition fa_regular_result_2010     values less than (to_date('01-JAN-2011', 'DD-MON-YYYY'))
 ,partition fa_regular_result_2011     values less than (to_date('01-JAN-2012', 'DD-MON-YYYY'))
 ,partition fa_regular_result_last     values less than (maxvalue)
-)
-cache parallel 4;
+);
 --rollback drop table fa_regular_result_00000 cascade constraints purge;
 
 --changeset drsteini:0SchemaTablesAB
@@ -150,10 +148,7 @@ create table fa_station_00000
 ,wqx_station_type               varchar2(32 byte)
 ,geom                           mdsys.sdo_geometry
 ,state_fips                     integer
-)
-compress pctfree 0 nologging
-cache
-;
+);
 --rollback drop table fa_station_00000 cascade constraints purge;
 
 --changeset drsteini:0SchemaTablesAC
@@ -172,7 +167,6 @@ create table nwis_result_ct_sum_00000
 ,parameter_code        varchar2(5 byte)
 ,result_count          number(9)
 )
-pctfree 0 compress nologging
 partition by list(characteristic_type)
 (partition nwis_result_ct_sum_sediment    values ('Sediment')
 ,partition nwis_result_ct_sum_organics    values ('Organics, PCBs')
@@ -190,8 +184,7 @@ partition by list(characteristic_type)
 ,partition nwis_result_ct_sum_biological  values ('Biological')
 ,partition nwis_result_ct_sum_organics3   values ('Organics, Other')
 ,partition nwis_result_ct_sum_default     values (default)
-)
-parallel 4;
+);
 --rollback drop table nwis_result_ct_sum_00000 cascade constraints purge;
 
 --changeset drsteini:0SchemaTablesAD
@@ -204,7 +197,6 @@ create table nwis_result_nr_sum_00000
 ,activity_start_date_time  date
 ,result_count              number(9)
 )
-pctfree 0 compress nologging
 partition by range(activity_start_date_time)
 (partition nwis_result_nr_sum_pre_1990 values less than (to_date('01-JAN-1990', 'DD-MON-YYYY'))
 ,partition nwis_result_nr_sum_1990     values less than (to_date('01-JAN-1991', 'DD-MON-YYYY'))
@@ -230,8 +222,7 @@ partition by range(activity_start_date_time)
 ,partition nwis_result_nr_sum_2010     values less than (to_date('01-JAN-2011', 'DD-MON-YYYY'))
 ,partition nwis_result_nr_sum_2011     values less than (to_date('01-JAN-2012', 'DD-MON-YYYY'))
 ,partition nwis_result_nr_sum_last     values less than (maxvalue)
-)
-parallel 4;
+);
 --rollback drop table nwis_result_nr_sum_00000 cascade constraints purge;
 
 --changeset drsteini:0SchemaTablesAE
@@ -251,7 +242,6 @@ create table nwis_result_sum_00000
 ,parameter_code            varchar2(5 byte)
 ,result_count              number(9)
 )
-compress pctfree 0 nologging
 partition by range(activity_start_date_time)
 (partition nwis_result_sum_pre_1990 values less than (to_date('01-JAN-1990', 'DD-MON-YYYY'))
 ,partition nwis_result_sum_1990     values less than (to_date('01-JAN-1991', 'DD-MON-YYYY'))
@@ -277,8 +267,7 @@ partition by range(activity_start_date_time)
 ,partition nwis_result_sum_2010     values less than (to_date('01-JAN-2011', 'DD-MON-YYYY'))
 ,partition nwis_result_sum_2011     values less than (to_date('01-JAN-2012', 'DD-MON-YYYY'))
 ,partition nwis_result_sum_last     values less than (maxvalue)
-)
-parallel 4;
+);
 --rollback drop table nwis_result_sum_00000 cascade constraints purge;
 
 --changeset drsteini:0SchemaTablesAF
@@ -300,8 +289,7 @@ create table nwis_station_sum_00000
 ,well_depth_ft_blw_land_sfc_va  number
 ,well_depth_ft_blw_land_sfc_un  varchar2(2 byte)
 ,result_count                   number(8)
-)
-compress pctfree 0 nologging;
+);
 --rollback drop table nwis_station_sum_00000 cascade constraints purge;
 
 --changeset drsteini:0SchemaTablesAG
@@ -310,16 +298,14 @@ create table nwis_lctn_loc_00000
 ,state_fips         varchar2(2 byte)
 ,organization_id    varchar2(7 byte)
 ,organization_name  varchar2(86 byte)
-)
-compress pctfree 0 nologging;
+);
 --rollback drop table nwis_lctn_loc_00000 cascade constraints purge;
 
 --changeset drsteini:0SchemaTablesAH
 create table nwis_di_org_00000
 (organization_id    varchar2(7 byte)
 ,organization_name  varchar2(86 byte)
-)
-compress pctfree 0 nologging;
+);
 --rollback drop table nwis_di_org_00000 cascade constraints purge;
 
 --changeset drsteini:0SchemaTablesAI
@@ -337,8 +323,7 @@ create table series_catalog_00000
 ,end_date_text         varchar2(10 byte)
 ,count_nu              number(8)
 ,series_catalog_md     date
-)
-compress pctfree 0 nologging;
+);
 --rollback drop table series_catalog_00000 cascade constraints purge;
 
 --changeset drsteini:0SchemaTablesAJ
@@ -358,9 +343,7 @@ create table qwportal_summary_00000
 ,results_past_12_months  number(7)
 ,results_past_60_months  number(7)
 ,results_all_time        number(7)
-)
-compress pctfree 0 nologging
-cache;
+);
 --rollback drop table qwportal_summary_00000 cascade constraints purge;
 
 --changeset drsteini:0SchemaTablesAK
