@@ -439,44 +439,44 @@ create table temp_series_catalog
 
 --changeset drsteini:0SchemaTablesAN
 create table sitefile
-(site_id               number(10)
-,agency_cd              varchar2(5 byte)
-,site_no                varchar2(15 byte)
-,nwis_host              varchar2(12 byte)
-,db_no                  varchar2(2 byte)
-,station_nm             varchar2(50 byte)
-,dec_lat_va             number(16,8)
-,dec_long_va            number(16,8)
-,coord_meth_cd          varchar2(1 byte)
-,coord_acy_cd           varchar2(1 byte)
-,district_cd            varchar2(3 byte)
-,country_cd             varchar2(2 byte)
-,state_cd               varchar2(2 byte)
-,county_cd              varchar2(3 byte)
-,land_net_ds            varchar2(23 byte)
-,map_scale_fc           varchar2(7 byte)
-,alt_va                 varchar2(8 byte)
-,alt_meth_cd            varchar2(1 byte)
-,alt_acy_va             varchar2(3 byte)
-,alt_datum_cd           varchar2(10 byte)
-,huc_cd                 varchar2(16 byte)
-,basin_cd               varchar2(2 byte)
-,site_tp_cd             varchar2(7 byte)
-,site_rmks_tx           varchar2(50 byte)
-,drain_area_va          varchar2(8 byte)
-,contrib_drain_area_va  varchar2(8 byte)
-,construction_dt        varchar2(8 byte)
-,aqfr_type_cd           varchar2(1 byte)
-,aqfr_cd                varchar2(8 byte)
-,nat_aqfr_cd            varchar2(10 byte)
-,well_depth_va          varchar2(8 byte)
-,hole_depth_va          varchar2(8 byte)
-,site_web_cd            varchar2(1 byte)
-,dec_coord_datum_cd     varchar2(10 byte)
-,site_cn                varchar2(8 byte)
-,site_cr                date
-,site_mn                varchar2(8 byte)
-,site_md                date
+(site_id                        number(10)
+,agency_cd                      varchar2(5 byte)
+,site_no                        varchar2(15 byte)
+,nwis_host                      varchar2(12 byte)
+,db_no                          varchar2(2 byte)
+,station_nm                     varchar2(50 char)
+,dec_lat_va                     number(16,8)
+,dec_long_va                    number(16,8)
+,coord_meth_cd                  varchar2(1 byte)
+,coord_acy_cd                   varchar2(1 byte)
+,district_cd                    varchar2(3 byte)
+,country_cd                     varchar2(2 byte)
+,state_cd                       varchar2(2 byte)
+,county_cd                      varchar2(3 byte)
+,land_net_ds                    varchar2(23 byte)
+,map_scale_fc                   varchar2(7 byte)
+,alt_va                         varchar2(8 byte)
+,alt_meth_cd                    varchar2(1 byte)
+,alt_acy_va                     varchar2(3 byte)
+,alt_datum_cd                   varchar2(10 byte)
+,huc_cd                         varchar2(16 byte)
+,basin_cd                       varchar2(2 byte)
+,site_tp_cd                     varchar2(7 byte)
+,site_rmks_tx                   varchar2(50 byte)
+,drain_area_va                  varchar2(8 byte)
+,contrib_drain_area_va          varchar2(8 byte)
+,construction_dt                varchar2(8 byte)
+,aqfr_type_cd                   varchar2(1 byte)
+,aqfr_cd                        varchar2(8 byte)
+,nat_aqfr_cd                    varchar2(10 byte)
+,well_depth_va                  varchar2(8 byte)
+,hole_depth_va                  varchar2(8 byte)
+,site_web_cd                    varchar2(1 byte)
+,dec_coord_datum_cd             varchar2(10 byte)
+,site_cn                        varchar2(8 byte)
+,site_cr                        date
+,site_mn                        varchar2(8 byte)
+,site_md                        date
 );
 --rollback drop table sitefile cascade constraints purge;
 
@@ -552,17 +552,17 @@ create table state_00000
 
 --changeset drsteini:0SchemaTablesAW
 create table public_srsnames_00000
-(parm_cd                        char(5 byte)            not null enable, 
-,description                    varchar2(170 byte), 
-,characteristicname             varchar2(1200 byte)     not null enable, 
-,measureunitcode                varchar2(10 byte), 
-,resultsamplefraction           varchar2(24 byte), 
-,resulttemperaturebasis         varchar2(12 byte), 
-,resultstatisticalbasis         varchar2(25 byte), 
-,resulttimebasis                varchar2(12 byte), 
-,resultweightbasis              varchar2(15 byte), 
-,resultparticlesizebasis        varchar2(64 byte), 
-,last_rev_dt                    date, 
+(parm_cd                        char(5 byte)            not null enable
+,description                    varchar2(170 byte)
+,characteristicname             varchar2(1200 byte)     not null enable
+,measureunitcode                varchar2(10 byte)
+,resultsamplefraction           varchar2(24 byte)
+,resulttemperaturebasis         varchar2(12 byte)
+,resultstatisticalbasis         varchar2(25 byte)
+,resulttimebasis                varchar2(12 byte)
+,resultweightbasis              varchar2(15 byte)
+,resultparticlesizebasis        varchar2(64 byte)
+,last_rev_dt                    date
 ,max_last_rev_dt                date
 );
 --rollback drop table public_srsnames_00000 cascade constraints purge;
