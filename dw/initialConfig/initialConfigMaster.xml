@@ -13,9 +13,9 @@
 	<include file="initialConfigTables.sql" relativeToChangelogFile="true"/>
 	<include file="initialConfigTypes.sql" relativeToChangelogFile="true"/>
     <include file="initialConfigFuncProcPack.sql" relativeToChangelogFile="true"/>
-    <include file="initialConfigRI.sql" relativeToChangelogFile="true"/>
-    <include file="initialConfigIndexes.sql" relativeToChangelogFile="true"/>
-    <include file="initialConfigGrants.sql" relativeToChangelogFile="true"/>
-    <include file="initialConfigSynonyms.sql" relativeToChangelogFile="true"/>
+<!--     <include file="initialConfigRI.sql" relativeToChangelogFile="true"/> -->
+<!--     <include file="initialConfigIndexes.sql" relativeToChangelogFile="true"/> -->
+<!--     <include file="initialConfigGrants.sql" relativeToChangelogFile="true"/> -->
+<!--     <include file="initialConfigSynonyms.sql" relativeToChangelogFile="true"/> -->
 
 </databaseChangeLog>
