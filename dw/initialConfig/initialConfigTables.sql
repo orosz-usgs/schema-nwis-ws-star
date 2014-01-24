@@ -156,7 +156,6 @@ create table fa_station_00000
 ,wqx_station_type               varchar2(32 byte)
 ,geom                           mdsys.sdo_geometry
 ,state_fips                     integer
-,site_type                      varchar2(82 byte)
 );
 --rollback drop table fa_station_00000 cascade constraints purge;
 
