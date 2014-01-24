@@ -68,8 +68,16 @@ create table fa_regular_result_00000
 ,analytical_method_citation     varchar2(50 byte)
 ,activity_start_date_tx         varchar2(10 byte)
 ,activity_start_time_tx         varchar2(8 byte)
+,act_start_time_zone_local      varchar2(6 byte)
+,activity_start_date_tx_utc     varchar2(10 byte)
+,activity_start_time_tx_utc     varchar2(8 byte)
+,act_start_time_zone_utc        varchar2(6 byte)
 ,activity_stop_date_tx          varchar2(10 byte)
 ,activity_stop_time_tx          varchar2(8 byte)
+,act_stop_time_zone_local       varchar2(6 byte)
+,activity_stop_date_tx_utc      varchar2(10 byte)
+,activity_stop_time_tx_utc      varchar2(8 byte)
+,act_stop_time_zone_utc         varchar2(6 byte)
 ,sample_collect_equip_name      varchar2(80 byte)
 ,sample_collect_method_name     varchar2(80 byte)
 ,sample_collect_method_id       number
@@ -482,7 +490,7 @@ create table sitefile
 
 --changeset drsteini:0SchemaTablesAO
 create table characteristicname_00000
-(code_value                     varchar2(32 char)
+(code_value                     varchar2(500 char)
 ,description                    varchar2(4000 char)
 ,sort_order                     number
 );
@@ -490,7 +498,7 @@ create table characteristicname_00000
 
 --changeset drsteini:0SchemaTablesAP
 create table characteristictype_00000
-(code_value                     varchar2(32 char)
+(code_value                     varchar2(500 char)
 ,description                    varchar2(4000 char)
 ,sort_order                     number
 );
