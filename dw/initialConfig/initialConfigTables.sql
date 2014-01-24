@@ -10,7 +10,7 @@ create table fa_regular_result_00000
 ,characteristic_name            varchar2(500 byte)
 ,srsid                          number(10)
 ,result_value                   number
-,result_unit                    varchar2(10 byte) not null
+,result_unit                    varchar2(10 byte)
 ,result_value_text              varchar2(80 byte)
 ,sample_fraction_type           varchar2(24 byte)
 ,result_value_type              varchar2(10 byte)
@@ -22,7 +22,7 @@ create table fa_regular_result_00000
 ,analytical_procedure_source    varchar2(4 byte)
 ,analytical_procedure_id        varchar2(5 byte)
 ,lab_name                       varchar2(59 byte)
-,analysis_date_time             varchar2(10 byte)
+,analysis_date_time             varchar2(26 byte)
 ,analysis_time_zone             varchar2(2 byte)
 ,lower_quantitation_limit       varchar2(2 byte)
 ,upper_quantitation_limit       varchar2(2 byte)
@@ -45,7 +45,7 @@ create table fa_regular_result_00000
 ,activity_upper_depth           varchar2(12 byte)
 ,activity_lower_depth           varchar2(12 byte)
 ,upr_lwr_depth_unit             varchar2(6 byte)
-,result_comment                 varchar2(898 byte)
+,result_comment                 varchar2(640 byte)
 ,cas_number                     varchar2(12 byte)
 ,itis_number                    number(10)
 ,activity_comment               varchar2(300 byte)
@@ -54,7 +54,7 @@ create table fa_regular_result_00000
 ,sample_tissue_taxonomic_name   varchar2(161 byte)
 ,activity_media_name            varchar2(30 byte)
 ,activity_media_subdiv_name     varchar2(64 byte)
-,analysis_prep_date_tx          varchar2(10 byte)
+,analysis_prep_date_tx          varchar2(26 byte)
 ,sample_aqfr_name               varchar2(70 byte)
 ,hydrologic_condition_name      varchar2(64 byte)
 ,hydrologic_event_name          varchar2(64 byte)
@@ -62,7 +62,7 @@ create table fa_regular_result_00000
 ,activity_uprlwr_depth_ref_pt   varchar2(24 byte)
 ,sample_tissue_anatomy_name     varchar2(32 byte)
 ,parameter_code                 varchar2(5 byte)
-,characteristic_type            varchar2(40 byte)
+,characteristic_type            varchar2(32 byte)
 ,activity_conducting_org        varchar2(59 byte)
 ,analytical_method_name         varchar2(32 byte)
 ,analytical_method_citation     varchar2(50 byte)
@@ -156,6 +156,7 @@ create table fa_station_00000
 ,wqx_station_type               varchar2(32 byte)
 ,geom                           mdsys.sdo_geometry
 ,state_fips                     integer
+,site_type                      varchar2(82 byte)
 );
 --rollback drop table fa_station_00000 cascade constraints purge;
 
@@ -170,7 +171,7 @@ create table nwis_result_ct_sum_00000
 ,organization_id       varchar2(7 byte)
 ,hydrologic_unit_code  varchar2(16 byte)
 ,activity_media_name   varchar2(30 byte)
-,characteristic_type   varchar2(40 byte)
+,characteristic_type   varchar2(500 byte)
 ,characteristic_name   varchar2(500 byte)
 ,parameter_code        varchar2(5 byte)
 ,result_count          number(9)
@@ -199,7 +200,7 @@ partition by list(characteristic_type)
 create table nwis_result_nr_sum_00000
 (fk_station                number(10)
 ,activity_media_name       varchar2(30 byte)
-,characteristic_type       varchar2(40 byte)
+,characteristic_type       varchar2(500 byte)
 ,characteristic_name       varchar2(500 byte)
 ,parameter_code            varchar2(5 byte)
 ,activity_start_date_time  date
@@ -244,7 +245,7 @@ create table nwis_result_sum_00000
 ,organization_id           varchar2(7 byte)
 ,hydrologic_unit_code      varchar2(16 byte)
 ,activity_media_name       varchar2(30 byte)
-,characteristic_type       varchar2(40 byte)
+,characteristic_type       varchar2(500 byte)
 ,characteristic_name       varchar2(500 byte)
 ,activity_start_date_time  date
 ,parameter_code            varchar2(5 byte)
@@ -336,21 +337,21 @@ create table series_catalog_00000
 
 --changeset drsteini:0SchemaTablesAJ
 create table qwportal_summary_00000
-(fips_state_code         varchar2(2 byte)
-,fips_county_code        varchar2(3 byte)
-,fips_state_and_county   varchar2(5 byte)
-,nwis_or_epa             varchar2(1 byte)
-,site_type               varchar2(30 byte)
-,huc8                    varchar2(8 byte)
-,huc12                   varchar2(12 byte)
+(fips_state_code         varchar2(2 char)
+,fips_county_code        varchar2(3 char)
+,fips_state_and_county   varchar2(5 char)
+,nwis_or_epa             varchar2(1 char)
+,site_type               varchar2(30 char)
+,huc8                    varchar2(8 char)
+,huc12                   varchar2(12 char)
 ,min_date                date
 ,max_date                date
-,samples_past_12_months  number(7)
-,samples_past_60_months  number(7)
-,samples_all_time        number(7)
-,results_past_12_months  number(7)
-,results_past_60_months  number(7)
-,results_all_time        number(7)
+,samples_past_12_months  number
+,samples_past_60_months  number
+,samples_all_time        number
+,results_past_12_months  number
+,results_past_60_months  number
+,results_all_time        number
 );
 --rollback drop table qwportal_summary_00000 cascade constraints purge;
 
