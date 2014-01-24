@@ -81,4 +81,3 @@ grant select on sitetype_00000 to nwis_ws_user;
 --changeset drsteini:0SchemaGrantsAT
 grant select on state_00000 to nwis_ws_user;
 --rollback revoke select on state_00000 from nwis_ws_user;
-
