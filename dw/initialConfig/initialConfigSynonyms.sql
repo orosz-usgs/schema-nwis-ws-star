@@ -82,7 +82,6 @@ create or replace synonym sitetype for sitetype_00000;
 create or replace synonym state for state_00000;
 --rollback drop synonym state;
 
---NOTE: the following synonyms require the database links to exist. They are not run as part of the automated script since they require passwords...
 --changeset drsteini:0SchemaSynonymsBA
 create or replace synonym lu_tz for lu_tz@nwq_stg_dbstage.er.usgs.gov;
 --rollback drop synonym lu_tz;
