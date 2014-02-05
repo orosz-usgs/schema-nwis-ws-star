@@ -20,7 +20,7 @@ alter table nwis_station_sum_00000 modify(primary_site_type varchar2(40 char));
 --rollback alter table nwis_station_sum_00000 modify(primary_site_type varchar2(82 byte));
 
 
---changeset drsteini:0SchemaTablesADIndexes
+--changeset drsteini:1SchemaTablesADIndexes
 drop index nwis_result_sum_3_00000;
 --rollback create bitmap index nwis_result_sum_3_00000 on nwis_result_sum_00000 (substr(station_type_name || ':', 1, instr(station_type_name || ':', ':') - 1)   ) local nologging;
 
@@ -33,7 +33,7 @@ alter table nwis_result_sum_00000 modify(primary_site_type varchar2(40 char));
 --rollback alter table nwis_result_sum_00000 modify(primary_site_type varchar2(82 byte));
 
 
---changeset drsteini:0SchemaTablesAFIndexes
+--changeset drsteini:1SchemaTablesAFIndexes
 drop index nwis_result_ct_sum_3_00000;
 --rollback create bitmap index nwis_result_ct_sum_3_00000 on nwis_result_ct_sum_00000 (substr(station_type_name || ':', 1, instr(station_type_name || ':', ':') - 1)   ) local nologging;
 
