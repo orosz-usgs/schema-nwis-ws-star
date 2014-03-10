@@ -46,18 +46,18 @@ alter table nwis_result_ct_sum_00000 modify(primary_site_type varchar2(40 char))
 --rollback alter table nwis_result_ct_sum_00000 modify(primary_site_type varchar2(82 byte));
 
 --changeset drsteini:1SchemaTablesAH
-alter table fa_regular_result_00000 add nemi_url varchar2(256 char));
+alter table fa_regular_result_00000 add (nemi_url varchar2(256 char));
 --rollback alter table fa_regular_result_00000 drop column nemi_url;
 
 --changeset drsteini:1SchemaTablesAI
-alter table nwis_result_sum_00000 add nemi_url varchar2(256 char));
+alter table nwis_result_sum_00000 add (nemi_url varchar2(256 char));
 --rollback alter table nwis_result_sum_00000 drop column nemi_url;
 
 --changeset drsteini:1SchemaTablesAJ
-alter table nwis_result_nr_sum_00000 add nemi_url varchar2(256 char));
+alter table nwis_result_nr_sum_00000 add (nemi_url varchar2(256 char));
 --rollback alter table nwis_result_nr_sum_00000 drop column nemi_url;
 
 --changeset drsteini:1SchemaTablesAK
-alter table nwis_result_ct_sum_00000 add nemi_url varchar2(256 char));
+alter table nwis_result_ct_sum_00000 add (nemi_url varchar2(256 char));
 --rollback alter table nwis_result_ct_sum_00000 drop column nemi_url;
 
