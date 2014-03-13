@@ -81,3 +81,19 @@ grant select on sitetype_00000 to nwis_ws_user;
 --changeset drsteini:0SchemaGrantsAT
 grant select on state_00000 to nwis_ws_user;
 --rollback revoke select on state_00000 from nwis_ws_user;
+
+--changeset drsteini:0SchemaGrantsAU
+grant select on huc8_conus_hi_ak_pr_dis to nwis_ws_user;
+--rollback revoke select on huc8_conus_hi_ak_pr_dis from nwis_ws_user;
+
+--changeset drsteini:0SchemaGrantsAV
+grant select on states to nwis_ws_user;
+--rollback revoke select on states from nwis_ws_user;
+
+--changeset drsteini:0SchemaGrantsAW
+grant select on usgs_organizations to nwis_ws_user;
+--rollback revoke select on usgs_organizations from nwis_ws_user;
+
+--changeset drsteini:0SchemaGrantsAX
+grant select on us_counties_dis_20121015 to nwis_ws_user;
+--rollback revoke select on us_counties_dis_20121015 from nwis_ws_user;

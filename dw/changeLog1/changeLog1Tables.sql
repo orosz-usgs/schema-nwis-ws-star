@@ -60,4 +60,3 @@ alter table nwis_result_nr_sum_00000 add (nemi_url varchar2(256 char));
 --changeset drsteini:1SchemaTablesAK
 alter table nwis_result_ct_sum_00000 add (nemi_url varchar2(256 char));
 --rollback alter table nwis_result_ct_sum_00000 drop column nemi_url;
-

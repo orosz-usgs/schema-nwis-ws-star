@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<databaseChangeLog 
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd"> 
+
+	<preConditions>
+		<dbms type="oracle" />
+		<runningAs username="NWIS_WS_STAR" />
+    </preConditions>
+
+    <changeSet author="drsteini" id="loadClearDb" runAlways="true">
+        <sqlFile dbms="oracle" path="data/clearDb.sql" relativeToChangelogFile="true"/>
+    </changeSet>
+
+    <changeSet author="drsteini" id="loadCharacteristicName" runAlways="true">
+        <sqlFile dbms="oracle" path="data/characteristicname.sql" relativeToChangelogFile="true"/>
+    </changeSet>
+
+    <changeSet author="drsteini" id="loadCharacteristicType" runAlways="true">
+        <sqlFile dbms="oracle" path="data/characteristictype.sql" relativeToChangelogFile="true"/>
+    </changeSet>
+
+    <changeSet author="drsteini" id="loadCountry" runAlways="true">
+        <sqlFile dbms="oracle" path="data/country.sql" relativeToChangelogFile="true"/>
+    </changeSet>
+
+    <changeSet author="drsteini" id="loadCounty" runAlways="true">
+        <sqlFile dbms="oracle" path="data/county.sql" relativeToChangelogFile="true"/>
+    </changeSet>
+
+<!--     <changeSet author="drsteini" id="loadFaRegularResult" runAlways="true"> -->
+<!--         <sqlFile dbms="oracle" path="data/fa_regular_result.sql" relativeToChangelogFile="true"/> -->
+<!--     </changeSet> -->
+
+    <changeSet author="drsteini" id="loadFaStation" runAlways="true">
+        <sqlFile dbms="oracle" path="data/fa_station.sql" relativeToChangelogFile="true"/>
+    </changeSet>
+
+    <changeSet author="drsteini" id="loadOrganization" runAlways="true">
+        <sqlFile dbms="oracle" path="data/organization.sql" relativeToChangelogFile="true"/>
+    </changeSet>
+
+    <changeSet author="drsteini" id="loadPublicSrsNames" runAlways="true">
+        <sqlFile dbms="oracle" path="data/public_srsnames.sql" relativeToChangelogFile="true"/>
+    </changeSet>
+
+    <changeSet author="drsteini" id="loadQwPortalSummary" runAlways="true">
+        <sqlFile dbms="oracle" path="data/qw_portal_summary.sql" relativeToChangelogFile="true"/>
+    </changeSet>
+
+    <changeSet author="drsteini" id="loadResultCtSum" runAlways="true">
+        <sqlFile dbms="oracle" path="data/result_ct_sum.sql" relativeToChangelogFile="true"/>
+    </changeSet>
+
+    <changeSet author="drsteini" id="loadResultNrSum" runAlways="true">
+        <sqlFile dbms="oracle" path="data/result_nr_sum.sql" relativeToChangelogFile="true"/>
+    </changeSet>
+
+    <changeSet author="drsteini" id="loadResultSum" runAlways="true">
+        <sqlFile dbms="oracle" path="data/result_sum.sql" relativeToChangelogFile="true"/>
+    </changeSet>
+
+    <changeSet author="drsteini" id="loadSampleMedia" runAlways="true">
+        <sqlFile dbms="oracle" path="data/samplemedia.sql" relativeToChangelogFile="true"/>
+    </changeSet>
+
+    <changeSet author="drsteini" id="loadSeriesCatalog" runAlways="true">
+        <sqlFile dbms="oracle" path="data/series_catalog.sql" relativeToChangelogFile="true"/>
+    </changeSet>
+
+    <changeSet author="drsteini" id="loadSitetype" runAlways="true">
+        <sqlFile dbms="oracle" path="data/sitetype.sql" relativeToChangelogFile="true"/>
+    </changeSet>
+
+    <changeSet author="drsteini" id="loadState" runAlways="true">
+        <sqlFile dbms="oracle" path="data/state.sql" relativeToChangelogFile="true"/>
+    </changeSet>
+
+    <changeSet author="drsteini" id="loadStationSum" runAlways="true">
+        <sqlFile dbms="oracle" path="data/station_sum.sql" relativeToChangelogFile="true"/>
+    </changeSet>
+
+</databaseChangeLog>

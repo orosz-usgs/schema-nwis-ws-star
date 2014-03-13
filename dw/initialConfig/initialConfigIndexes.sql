@@ -163,3 +163,30 @@ create bitmap index nwis_result_nr_sum_3_00000 on nwis_result_nr_sum_00000 (char
 --changeset drsteini:0SchemaIndexesBN
 create bitmap index nwis_result_nr_sum_4_00000 on nwis_result_nr_sum_00000 (characteristic_name) local nologging;
 --rollback drop index nwis_result_nr_sum_4_00000;
+
+--changeset drsteini:0SchemaIndexesBO
+insert into user_sdo_geom_metadata
+    values('HUC8_CONUS_HI_AK_PR_DIS', 'GEOM', mdsys.sdo_dim_array(mdsys.sdo_dim_element('X', -179.133392333984, 179.788208007813, 0.005), mdsys.sdo_dim_element('Y', 17.674692153931, 71.398048400879, 0.005)), 4269);
+--rollback delete from user_sdo_geom_metadata where table_name = 'HUC8_CONUS_HI_AK_PR_DIS';
+
+--changeset drsteini:0SchemaIndexesBP
+create index hc8_cns_h_k_pr_ds_geom_spix on huc8_conus_hi_ak_pr_dis (geom) indextype is mdsys.spatial_index parameters ('SDO_INDX_DIMS=2');
+--rollback drop index hc8_cns_h_k_pr_ds_geom_spix;
+
+--changeset drsteini:0SchemaIndexesBQ
+insert into user_sdo_geom_metadata
+    values('STATES', 'GEOM', mdsys.sdo_dim_array(mdsys.sdo_dim_element('X', -180, 180, 0.00000005), mdsys.sdo_dim_element('Y', -90, 90, 0.00000005)), 8265);
+--rollback delete from user_sdo_geom_metadata where table_name = 'STATES';
+
+--changeset drsteini:0SchemaIndexesBR
+create index states_sdx on states (geom) indextype is mdsys.spatial_index parameters (' ');
+--rollback drop index states_sdx;
+
+--changeset drsteini:0SchemaIndexesBS
+insert into user_sdo_geom_metadata
+    values('US_COUNTIES_DIS_20121015', 'GEOM', mdsys.sdo_dim_array(mdsys.sdo_dim_element('X', -179.14734, 179.77848, 0.005), mdsys.sdo_dim_element('Y', 17.674395666, 71.389210465, 0.005)), 4269);
+--rollback delete from user_sdo_geom_metadata where table_name = 'US_COUNTIES_DIS_20121015';
+
+--changeset drsteini:0SchemaIndexesBT
+create index s_cnts_ds_20121015_geom_spix on us_counties_dis_20121015 (geom) indextype is mdsys.spatial_index parameters ('sdo_indx_dims=2');
+--rollback drop index s_cnts_ds_20121015_geom_spix;
