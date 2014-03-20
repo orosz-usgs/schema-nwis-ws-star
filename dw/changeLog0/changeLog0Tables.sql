@@ -84,6 +84,7 @@ create table fa_regular_result_00000
 ,sample_collect_method_ctx      varchar2(25 byte)
 ,sample_id                      number(11)
 ,nemi_url                       varchar2(256 char)
+)
 compress basic
 partition by range(activity_start_date_time)
 (partition fa_regular_result_pre_1990 values less than (to_date('01-JAN-1990', 'DD-MON-YYYY'))
