@@ -183,7 +183,7 @@ create or replace synonym state_fips for state_fips@nwis_ws_stg.er.usgs.gov;
 --rollback drop synonym state_fips;
 
 --changeset drsteini:0SchemaSynonymsBZ
-create or replace synonym storet_sum for storet_sum@storetmodern_dbdw.er.usgs.gov;
+create or replace synonym storet_sum for storet_sum@storetmodern.er.usgs.gov;
 --rollback drop synonym storet_sum;
 
 --changeset drsteini:0SchemaSynonymsCA
