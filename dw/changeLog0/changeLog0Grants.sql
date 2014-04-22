@@ -117,3 +117,11 @@ grant select on state_00000 to ars_stewards;
 --changeset drsteini:0SchemaGrantsBC
 grant select on public_srsnames_00000 to nwis_ws_user;
 --rollback revoke select on public_srsnames_00000 from nwis_ws_user;
+
+--changeset drsteini:0SchemaGrantsBD
+grant execute on typ_vctbl to nwis_ws_user;
+--rollback revoke execute on typ_vctbl from nwis_ws_user;
+
+--changeset drsteini:0SchemaGrantsBE
+grant execute on pkg_dynamic_list to nwis_ws_user;
+--rollback revoke execute on pkg_dynamic_list from nwis_ws_user;
