@@ -53,7 +53,7 @@ create bitmap index nwis_station_sum_1_00000 on nwis_station_sum_00000 (station_
       
 --changeset drsteini:0SchemaIndexesAN
 insert into user_sdo_geom_metadata
-	values('NWIS_STATION_SUM_00000', 'GEOM', mdsys.sdo_dim_array(mdsys.sdo_dim_element('X', -180, 180, 0.005), mdsys.sdo_dim_element('Y', -90, 90, 0.005)), 8265);
+     values('NWIS_STATION_SUM_00000', 'GEOM', mdsys.sdo_dim_array(mdsys.sdo_dim_element('X', -180, 180, 0.005), mdsys.sdo_dim_element('Y', -90, 90, 0.005)), 8265);
 --rollback delete from user_sdo_geom_metadata where table_name = 'NWIS_STATION_SUM_00000';
 
 --changeset drsteini:0SchemaIndexesAO

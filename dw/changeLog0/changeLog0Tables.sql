@@ -4,7 +4,7 @@
  
 --changeset drsteini:0SchemaTablesAA
 create table fa_regular_result_00000
-(fk_station						number(10)
+(fk_station                              number(10)
 ,activity_start_date_time       date
 ,act_start_time_zone            varchar2(6 byte)
 ,characteristic_name            varchar2(500 byte)
