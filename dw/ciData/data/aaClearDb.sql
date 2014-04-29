@@ -1,5 +1,5 @@
 delete from characteristicname;
-delete from CHARACTERISTICTYPE;
+delete from characteristictype;
 delete from country;
 delete from county;
 delete from fa_regular_result;
