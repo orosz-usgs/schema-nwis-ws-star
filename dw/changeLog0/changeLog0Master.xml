@@ -5,13 +5,13 @@
   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
                       http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd"> 
 
-	<preConditions>
-		<dbms type="oracle" />
-		<runningAs username="NWIS_WS_STAR" />
+     <preConditions>
+          <dbms type="oracle" />
+          <runningAs username="NWIS_WS_STAR" />
     </preConditions>
 
-	<include file="changeLog0Tables.sql" relativeToChangelogFile="true"/>
-	<include file="changeLog0Types.sql" relativeToChangelogFile="true"/>
+     <include file="changeLog0Tables.sql" relativeToChangelogFile="true"/>
+     <include file="changeLog0Types.sql" relativeToChangelogFile="true"/>
     <include file="changeLog0FuncProcPack.sql" relativeToChangelogFile="true"/>
     <include file="changeLog0RI.sql" relativeToChangelogFile="true"/>
     <include file="changeLog0Indexes.sql" relativeToChangelogFile="true"/>
