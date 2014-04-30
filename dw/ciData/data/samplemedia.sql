@@ -1,24 +1,13 @@
-Insert into NWIS_WS_STAR.SAMPLEMEDIA
-   (CODE_VALUE, SORT_ORDER)
- Values
-   ('Air', 1);
-Insert into NWIS_WS_STAR.SAMPLEMEDIA
-   (CODE_VALUE, SORT_ORDER)
- Values
-   ('Biological Tissue', 2);
-Insert into NWIS_WS_STAR.SAMPLEMEDIA
-   (CODE_VALUE, SORT_ORDER)
- Values
-   ('Other', 3);
-Insert into NWIS_WS_STAR.SAMPLEMEDIA
-   (CODE_VALUE, SORT_ORDER)
- Values
-   ('Sediment', 4);
-Insert into NWIS_WS_STAR.SAMPLEMEDIA
-   (CODE_VALUE, SORT_ORDER)
- Values
-   ('Soil', 5);
-Insert into NWIS_WS_STAR.SAMPLEMEDIA
-   (CODE_VALUE, SORT_ORDER)
- Values
-   ('Water', 6);
+delete from samplemedia;
+insert into samplemedia (code_value, sort_order)
+ values ('Air', 1);
+insert into samplemedia (code_value, sort_order)
+ values ('Biological Tissue', 2);
+insert into samplemedia (code_value, sort_order)
+ values ('Other', 3);
+insert into samplemedia (code_value, sort_order)
+ values ('Sediment', 4);
+insert into samplemedia (code_value, sort_order)
+ values ('Soil', 5);
+insert into samplemedia (code_value, sort_order)
+ values ('Water', 6);

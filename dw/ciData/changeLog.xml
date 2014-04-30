@@ -10,76 +10,84 @@
           <runningAs username="NWIS_WS_STAR" />
     </preConditions>
 
-    <changeSet author="drsteini" id="loadClearDb" runAlways="true">
-        <sqlFile dbms="oracle" path="data/aaClearDb.sql" relativeToChangelogFile="true"/>
-    </changeSet>
-
     <changeSet author="drsteini" id="loadCharacteristicName" runAlways="true">
         <sqlFile dbms="oracle" path="data/characteristicname.sql" relativeToChangelogFile="true"/>
+        <rollback>delete from characteristicname</rollback>
     </changeSet>
 
     <changeSet author="drsteini" id="loadCharacteristicType" runAlways="true">
         <sqlFile dbms="oracle" path="data/characteristictype.sql" relativeToChangelogFile="true"/>
+        <rollback>delete from characteristictype</rollback>
     </changeSet>
 
     <changeSet author="drsteini" id="loadCountry" runAlways="true">
         <sqlFile dbms="oracle" path="data/country.sql" relativeToChangelogFile="true"/>
+        <rollback>delete from country</rollback>
     </changeSet>
 
     <changeSet author="drsteini" id="loadCounty" runAlways="true">
         <sqlFile dbms="oracle" path="data/county.sql" relativeToChangelogFile="true"/>
+        <rollback>delete from county</rollback>
     </changeSet>
 
-<!--     <changeSet author="drsteini" id="loadFaRegularResult" runAlways="true"> -->
-<!--         <sqlFile dbms="oracle" path="data/fa_regular_result.sql" relativeToChangelogFile="true"/> -->
-<!--     </changeSet> -->
+    <changeSet author="drsteini" id="loadFaRegularResult" runAlways="true">
+        <sqlFile dbms="oracle" path="data/fa_regular_result.sql" relativeToChangelogFile="true"/>
+        <rollback>delete from fa_regular_result</rollback>
+    </changeSet>
 
     <changeSet author="drsteini" id="loadFaStation" runAlways="true">
         <sqlFile dbms="oracle" path="data/fa_station.sql" relativeToChangelogFile="true"/>
+        <rollback>delete from fa_station</rollback>
     </changeSet>
 
     <changeSet author="drsteini" id="loadOrganization" runAlways="true">
         <sqlFile dbms="oracle" path="data/organization.sql" relativeToChangelogFile="true"/>
+        <rollback>delete from organization</rollback>
     </changeSet>
 
     <changeSet author="drsteini" id="loadPublicSrsNames" runAlways="true">
         <sqlFile dbms="oracle" path="data/public_srsnames.sql" relativeToChangelogFile="true"/>
+        <rollback>delete from public_srsnames</rollback>
     </changeSet>
 
     <changeSet author="drsteini" id="loadQwPortalSummary" runAlways="true">
         <sqlFile dbms="oracle" path="data/qw_portal_summary.sql" relativeToChangelogFile="true"/>
+        <rollback>delete from qwportal_summary</rollback>
     </changeSet>
 
     <changeSet author="drsteini" id="loadResultCtSum" runAlways="true">
         <sqlFile dbms="oracle" path="data/result_ct_sum.sql" relativeToChangelogFile="true"/>
+        <rollback>delete from nwis_result_ct_sum</rollback>
     </changeSet>
 
     <changeSet author="drsteini" id="loadResultNrSum" runAlways="true">
         <sqlFile dbms="oracle" path="data/result_nr_sum.sql" relativeToChangelogFile="true"/>
+        <rollback>delete from nwis_result_nr_sum</rollback>
     </changeSet>
 
     <changeSet author="drsteini" id="loadResultSum" runAlways="true">
         <sqlFile dbms="oracle" path="data/result_sum.sql" relativeToChangelogFile="true"/>
+        <rollback>delete from nwis_result_sum</rollback>
     </changeSet>
 
     <changeSet author="drsteini" id="loadSampleMedia" runAlways="true">
         <sqlFile dbms="oracle" path="data/samplemedia.sql" relativeToChangelogFile="true"/>
-    </changeSet>
-
-    <changeSet author="drsteini" id="loadSeriesCatalog" runAlways="true">
-        <sqlFile dbms="oracle" path="data/series_catalog.sql" relativeToChangelogFile="true"/>
+        <rollback>delete from samplemedia</rollback>
     </changeSet>
 
     <changeSet author="drsteini" id="loadSitetype" runAlways="true">
         <sqlFile dbms="oracle" path="data/sitetype.sql" relativeToChangelogFile="true"/>
+        <rollback>delete from sitetype</rollback>
     </changeSet>
 
     <changeSet author="drsteini" id="loadState" runAlways="true">
         <sqlFile dbms="oracle" path="data/state.sql" relativeToChangelogFile="true"/>
+        <rollback>delete from state</rollback>
     </changeSet>
 
     <changeSet author="drsteini" id="loadStationSum" runAlways="true">
         <sqlFile dbms="oracle" path="data/station_sum.sql" relativeToChangelogFile="true"/>
+        <rollback>delete from nwis_station_sum</rollback>
     </changeSet>
 
 </databaseChangeLog>

@@ -1,56 +1,29 @@
-Insert into NWIS_WS_STAR.SITETYPE
-   (CODE_VALUE, SORT_ORDER)
- Values
-   ('Aggregate groundwater use', 1);
-Insert into NWIS_WS_STAR.SITETYPE
-   (CODE_VALUE, SORT_ORDER)
- Values
-   ('Aggregate surface-water-use', 2);
-Insert into NWIS_WS_STAR.SITETYPE
-   (CODE_VALUE, SORT_ORDER)
- Values
-   ('Atmosphere', 3);
-Insert into NWIS_WS_STAR.SITETYPE
-   (CODE_VALUE, SORT_ORDER)
- Values
-   ('Estuary', 4);
-Insert into NWIS_WS_STAR.SITETYPE
-   (CODE_VALUE, SORT_ORDER)
- Values
-   ('Facility', 5);
-Insert into NWIS_WS_STAR.SITETYPE
-   (CODE_VALUE, SORT_ORDER)
- Values
-   ('Glacier', 6);
-Insert into NWIS_WS_STAR.SITETYPE
-   (CODE_VALUE, SORT_ORDER)
- Values
-   ('Lake, Reservoir, Impoundment', 7);
-Insert into NWIS_WS_STAR.SITETYPE
-   (CODE_VALUE, SORT_ORDER)
- Values
-   ('Land', 8);
-Insert into NWIS_WS_STAR.SITETYPE
-   (CODE_VALUE, SORT_ORDER)
- Values
-   ('Ocean', 9);
-Insert into NWIS_WS_STAR.SITETYPE
-   (CODE_VALUE, SORT_ORDER)
- Values
-   ('Spring', 10);
-Insert into NWIS_WS_STAR.SITETYPE
-   (CODE_VALUE, SORT_ORDER)
- Values
-   ('Stream', 11);
-Insert into NWIS_WS_STAR.SITETYPE
-   (CODE_VALUE, SORT_ORDER)
- Values
-   ('Subsurface', 12);
-Insert into NWIS_WS_STAR.SITETYPE
-   (CODE_VALUE, SORT_ORDER)
- Values
-   ('Well', 13);
-Insert into NWIS_WS_STAR.SITETYPE
-   (CODE_VALUE, SORT_ORDER)
- Values
-   ('Wetland', 14);
+delete from sitetype;
+insert into sitetype (code_value, sort_order)
+ values ('Aggregate groundwater use', 1);
+insert into sitetype (code_value, sort_order)
+ values ('Aggregate surface-water-use', 2);
+insert into sitetype (code_value, sort_order)
+ values ('Atmosphere', 3);
+insert into sitetype (code_value, sort_order)
+ values ('Estuary', 4);
+insert into sitetype (code_value, sort_order)
+ values ('Facility', 5);
+insert into sitetype (code_value, sort_order)
+ values ('Glacier', 6);
+insert into sitetype (code_value, sort_order)
+ values ('Lake, Reservoir, Impoundment', 7);
+insert into sitetype (code_value, sort_order)
+ values ('Land', 8);
+insert into sitetype (code_value, sort_order)
+ values ('Ocean', 9);
+insert into sitetype (code_value, sort_order)
+ values ('Spring', 10);
+insert into sitetype (code_value, sort_order)
+ values ('Stream', 11);
+insert into sitetype (code_value, sort_order)
+ values ('Subsurface', 12);
+insert into sitetype (code_value, sort_order)
+ values ('Well', 13);
+insert into sitetype (code_value, sort_order)
+ values ('Wetland', 14);
