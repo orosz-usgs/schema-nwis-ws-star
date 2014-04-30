@@ -32,7 +32,10 @@
 
     <changeSet author="drsteini" id="loadFaStationAndRegularResult" runAlways="true">
         <sqlFile dbms="oracle" path="data/fa_station_fa_regular_result.sql" relativeToChangelogFile="true"/>
-        <rollback>delete from fa_regular_result; delete from fa_station;</rollback>
+        <rollback>
+            delete from fa_regular_result;
+            delete from fa_station;
+        </rollback>
     </changeSet>
 
     <changeSet author="drsteini" id="loadOrganization" runAlways="true">
