@@ -16,8 +16,7 @@ insert into fa_station
     'Well', 'Interpolated from map', '5', 'seconds', '.01', 
     'feet', 'Sand and gravel aquifers (glaciated regions)', 'Holocene Alluvium', 57, 57, 
     '19760101', 'feet', 'USGS Iowa Water Science Center', 19, 'Well');
-    SET DEFINE OFF;
-insert into fa_station
+ insert into fa_station
    (pk_isn, station_id, station_name, organization_id, latitude, 
     longitude, hydrologic_unit_code, source_system, horiz_datum_name, country_cd, 
     country_name, state_cd, state_name, county_cd, county_name, 
