@@ -30,14 +30,14 @@
         <rollback>delete from county</rollback>
     </changeSet>
 
-    <changeSet author="drsteini" id="loadFaRegularResult" runAlways="true">
-        <sqlFile dbms="oracle" path="data/fa_regular_result.sql" relativeToChangelogFile="true"/>
-        <rollback>delete from fa_regular_result</rollback>
-    </changeSet>
-
     <changeSet author="drsteini" id="loadFaStation" runAlways="true">
         <sqlFile dbms="oracle" path="data/fa_station.sql" relativeToChangelogFile="true"/>
         <rollback>delete from fa_station</rollback>
+    </changeSet>
+
+    <changeSet author="drsteini" id="loadFaRegularResult" runAlways="true">
+        <sqlFile dbms="oracle" path="data/fa_regular_result.sql" relativeToChangelogFile="true"/>
+        <rollback>delete from fa_regular_result</rollback>
     </changeSet>
 
     <changeSet author="drsteini" id="loadOrganization" runAlways="true">
