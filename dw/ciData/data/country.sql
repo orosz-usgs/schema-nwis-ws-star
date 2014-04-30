@@ -1,33 +1,3 @@
 delete from country;
-Insert into NWIS_WS_STAR.COUNTRY
-   (CODE_VALUE, DESCRIPTION, SORT_ORDER)
- Values
-   ('US', 'UNITED STATES OF AMERICA', 1);
-Insert into NWIS_WS_STAR.COUNTRY
-   (CODE_VALUE, DESCRIPTION, SORT_ORDER)
- Values
-   ('PE', 'PERU', 2);
-Insert into NWIS_WS_STAR.COUNTRY
-   (CODE_VALUE, DESCRIPTION, SORT_ORDER)
- Values
-   ('MX', 'MEXICO', 3);
-Insert into NWIS_WS_STAR.COUNTRY
-   (CODE_VALUE, DESCRIPTION, SORT_ORDER)
- Values
-   ('RM', 'MARSHALL ISLANDS', 4);
-Insert into NWIS_WS_STAR.COUNTRY
-   (CODE_VALUE, DESCRIPTION, SORT_ORDER)
- Values
-   ('IZ', 'IRAQ', 5);
-Insert into NWIS_WS_STAR.COUNTRY
-   (CODE_VALUE, DESCRIPTION, SORT_ORDER)
- Values
-   ('GT', 'GUATEMALA', 6);
-Insert into NWIS_WS_STAR.COUNTRY
-   (CODE_VALUE, DESCRIPTION, SORT_ORDER)
- Values
-   ('CV', 'CAPE VERDE', 7);
-Insert into NWIS_WS_STAR.COUNTRY
-   (CODE_VALUE, DESCRIPTION, SORT_ORDER)
- Values
-   ('CN', 'CANADA', 8);
+insert into country_00000 (code_value, description, sort_order)
+ values ('US', 'UNITED STATES OF AMERICA', 1);
