@@ -7,7 +7,7 @@ insert into fa_station
     state_name, county_cd, county_name, state_postal_cd, land_net_ds, 
     station_type_name, geopositioning_method, geopositioning_accuracy_value, geopositioning_accuracy_units, vertical_accuracy_value, 
     vertical_accuracy_units, nat_aqfr_name, aqfr_name, well_depth_ft_blw_land_sfc_va, hole_depth_ft_blw_land_sfc_va, 
-    construction_date_tx, elev_units, organization_name, state_fips, primary_site_type)
+    construction_date_tx, elev_units, organization_name, state_fips, primary_site_type, geom)
  values
    (782868, 'USGS-420158093562001', '083N27W01ABCA 41167 1976Ogden 5', 'USGS-IA', 42.0327602, 
     -93.9391185, '24000', '883.33', '07100004', 'NWISWeb', 
@@ -15,19 +15,21 @@ insert into fa_station
     'IOWA', '015', 'BOONE', 'IA', 'SWNWNES01 T083N R27W  5', 
     'Well', 'Interpolated from map', '5', 'seconds', '.01', 
     'feet', 'Sand and gravel aquifers (glaciated regions)', 'Holocene Alluvium', 57, 57, 
-    '19760101', 'feet', 'USGS Iowa Water Science Center', 19, 'Well');
+    '19760101', 'feet', 'USGS Iowa Water Science Center', 19, 'Well',
+    mdsys.sdo_geometry(2001,8265,mdsys.sdo_point_type(round(-93.9391185, 7),round(42.0327602, 7), null), null, null));
  insert into fa_station
    (pk_isn, station_id, station_name, organization_id, latitude, 
     longitude, hydrologic_unit_code, source_system, horiz_datum_name, country_cd, 
     country_name, state_cd, state_name, county_cd, county_name, 
     state_postal_cd, station_type_name, geopositioning_method, geopositioning_accuracy_value, geopositioning_accuracy_units, 
-    organization_name, state_fips, primary_site_type)
+    organization_name, state_fips, primary_site_type, geom)
  values
    (1364422, 'USGS-435313089392000', 'PATRICK LAKE NEAR GRAND MARSH, WI', 'USGS-WI', 43.8869189, 
     -89.6556799, '04030201', 'NWISWeb', 'NAD83', 'US', 
     'UNITED STATES OF AMERICA', '55', 'WISCONSIN', '001', 'ADAMS', 
     'WI', 'Lake, Reservoir, Impoundment', 'Interpolated from map', '1', 'seconds', 
-    'USGS Wisconsin Water Science Center', 55, 'Lake, Reservoir, Impoundment');
+    'USGS Wisconsin Water Science Center', 55, 'Lake, Reservoir, Impoundment',
+    mdsys.sdo_geometry(2001,8265,mdsys.sdo_point_type(round(-89.6556799, 7),round(43.8869189, 7), null), null, null));
 
 Insert into NWIS_WS_STAR.FA_REGULAR_RESULT
    (FK_STATION, ACTIVITY_START_DATE_TIME, CHARACTERISTIC_NAME, SRSID, RESULT_UNIT, 

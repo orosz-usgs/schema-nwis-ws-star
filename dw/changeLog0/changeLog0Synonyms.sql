@@ -11,7 +11,7 @@ create or replace synonym fa_regular_result for fa_regular_result_00000;
 --rollback drop synonym fa_regular_result;
 
 --changeset drsteini:0SchemaSynonymsAC
-create or replace synonym series_catalog for series_catalog_00000;       
+create or replace synonym series_catalog for series_catalog_00000;
 --rollback drop synonym series_catalog;
 
 --changeset drsteini:0SchemaSynonymsAD
