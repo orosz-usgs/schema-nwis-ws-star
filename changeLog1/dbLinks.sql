@@ -10,6 +10,10 @@ create database link nwq_stg.er.usgs.gov connect to nwq_stg identified by "${nwq
 create database link nwis_ws_stg.er.usgs.gov connect to nwis_ws_stg identified by "${nwis_ws_stg_pwd}" using 'dbstage.er.usgs.gov';
 --rollback drop database link nwis_ws_stg.er.usgs.gov;
 
---changeset drsteini:1DBLinksAB
+--changeset drsteini:1DBLinksAC
 create database link nemi.er.usgs.gov connect to nemi_data identified by "${nemi_data_pwd}" using 'dbtrans.er.usgs.gov';
+--rollback drop database link nemi.er.usgs.gov;
+
+--changeset drsteini:1DBLinksAD
+create database link nwq_data_checks.er.usgs.gov connect to nwq_data_checks identified by "${nwq_data_checks_pwd}" using 'devdw.er.usgs.gov';
 --rollback drop database link nemi.er.usgs.gov;
