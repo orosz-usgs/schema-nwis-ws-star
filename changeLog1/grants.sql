@@ -121,3 +121,7 @@ grant select on wqp_nemi_nwis_crosswalk to wqp_core;
 --changeset drsteini:1GrantsBD
 grant select on z_cit_meth to wqp_core;
 --rollback revoke select on z_cit_meth from wqp_core;
+
+--changeset drsteini:1GrantsBE
+grant select on nawqa_sites to wqp_core;
+--rollback revoke select on nawqa_sites from wqp_core;
