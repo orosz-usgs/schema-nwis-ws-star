@@ -203,6 +203,7 @@ create table wqp_nemi_nwis_crosswalk
 ,method_id						number
 ,wqp_source						varchar2(100 byte)
 ,method_type					varchar2(100 byte)
+,nemi_url						varchar2(4000 char)
 ) parallel 4 compress pctfree 0 nologging;
 --rollback drop table wqp_nemi_nwis_crosswalk cascade constraints purge;
 
@@ -560,3 +561,38 @@ create table nawqa_sites
 ,site_ld                        varchar2(37 byte)
 ) parallel 4 compress pctfree 0 nologging;
 --rollback drop table nawqa_sites cascade constraints purge;
+
+--changeset drsteini:1TablesBF
+create table z_parm_meth
+(parm_cd						varchar2(5 char)
+,meth_cd						varchar2(5 char)
+,multiplier						varchar2(6 char)
+) parallel 4 compress pctfree 0 nologging;
+--rollback drop table z_parm_meth cascade constraints purge;
+
+--changeset drsteini:1TablesBG
+create table parm
+(parm_unt_tx					varchar2(10 char)
+,parm_frac_tx					varchar2(24 char)
+,parm_medium_tx					varchar2(30 char)
+,parm_stat_tx					varchar2(25 char)
+,parm_wt_tx						varchar2(15 char)
+,parm_temp_tx					varchar2(12 char)
+,parm_tm_tx						varchar2(12 char)
+,parm_cd						varchar2(5 char)
+,parm_size_tx					varchar2(64 char)
+,parm_seq_grp_nm				varchar2(32 char)
+,srsname						varchar2(1200 char)
+,srsid							varchar2(1200 char)
+,casrn							varchar2(1200 char)
+,multiplier						varchar2(6 char)
+) parallel 4 compress pctfree 0 nologging;
+--rollback drop table parm cascade constraints purge;
+
+--changeset drsteini:1TablesBH
+create table meth_with_cit
+(meth_cd						varchar2(5 char)
+,meth_nm						varchar2(32 char)
+,cit_nm							varchar2(50 char)
+) parallel 4 compress pctfree 0 nologging;
+--rollback drop table meth_with_cit cascade constraints purge;
