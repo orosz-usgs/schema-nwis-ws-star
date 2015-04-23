@@ -125,3 +125,19 @@ grant select on z_cit_meth to wqp_core;
 --changeset drsteini:1GrantsBE
 grant select on nawqa_sites to wqp_core;
 --rollback revoke select on nawqa_sites from wqp_core;
+
+--changeset drsteini:1GrantsBF
+grant select on z_parm_meth to wqp_core;
+--rollback revoke select on z_parm_meth from wqp_core;
+
+--changeset drsteini:1GrantsBG
+grant select on parm to wqp_core;
+--rollback revoke select on parm from wqp_core;
+
+--changeset drsteini:1GrantsBH
+grant select on meth_with_cit to wqp_core;
+--rollback revoke select on meth_with_cit from wqp_core;
+
+--changeset drsteini:1GrantsBI
+grant select on sample_parameter to wqp_core;
+--rollback revoke select on sample_parameter from wqp_core;
