@@ -18,9 +18,9 @@ end etl_helper;
 --changeset drsteini:1EtlHelperAB endDelimiter:/ splitStatements:false
 create or replace package body etl_helper as
 	
-	nawqa	varchar2(4000 char) := 'National Water Quality Assessment Program';
-	nasqan	varchar2(4000 char) := 'National Stream Quality Accounting Network';
-	nmn		varchar2(4000 char) := 'National Monitoring Network';
+	nawqa	varchar2(4000 char) := 'National Water Quality Assessment (NAWQA) Program';
+	nasqan	varchar2(4000 char) := 'National Stream Quality Accounting Network (NASQAN)';
+	nmn		varchar2(4000 char) := 'National Monitoring Network (NMN)';
 	
 	function determine_project_id(p_site_no           in nawqa_sites.site_no%type,
                                   p_50280_value       in qw_result.result_unrnd_va%type,
