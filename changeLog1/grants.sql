@@ -141,3 +141,7 @@ grant select on meth_with_cit to wqp_core;
 --changeset drsteini:1GrantsBI
 grant select on sample_parameter to wqp_core;
 --rollback revoke select on sample_parameter from wqp_core;
+
+--changeset drsteini:1GrantsBJ
+grant execute on etl_helper to wqp_core;
+--rollback revoke execute on etl_helper from wqp_core;
