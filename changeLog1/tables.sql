@@ -495,73 +495,6 @@ create table z_cit_meth
 ) parallel 4 compress pctfree 0 nologging;
 --rollback drop table z_cit_meth cascade constraints purge;
 
---changeset drsteini:1TablesBE
-create table nawqa_sites
-(nwis_host_nm                   varchar2(14 char)
-,db_no                          varchar2(2 char)
-,agency_cd                      varchar2(5 char)
-,site_no                        varchar2(15 char)
-,station_nm                     varchar2(50 char)
-,station_ix                     varchar2(50 char)
-,lat_va                         varchar2(11 char)
-,long_va                        varchar2(12 char)
-,dec_lat_va                     varchar2(40 char)
-,dec_long_va                    varchar2(40 char)
-,coord_meth_cd                  varchar2(1 char)
-,coord_acy_cd                   varchar2(1 char)
-,coord_datum_cd                 varchar2(10 char)
-,district_cd                    varchar2(3 char)
-,land_net_ds                    varchar2(23 char)
-,map_nm                         varchar2(20 char)
-,country_cd                     varchar2(2 char)
-,state_cd                       varchar2(2 char)
-,county_cd                      varchar2(3 char)
-,mcd_cd                         varchar2(5 char)
-,map_scale_fc                   varchar2(7 char)
-,alt_va                         varchar2(8 char)
-,alt_meth_cd                    varchar2(1 char)
-,alt_acy_va                     varchar2(3 char)
-,alt_datum_cd                   varchar2(10 char)
-,huc_cd                         varchar2(16 char)
-,agency_use_cd                  varchar2(1 char)
-,basin_cd                       varchar2(2 char)
-,site_tp_cd                     varchar2(7 char)
-,topo_cd                        varchar2(1 char)
-,data_types_cd                  varchar2(30 char)
-,instruments_cd                 varchar2(30 char)
-,site_rmks_tx                   varchar2(50 char)
-,inventory_dt                   varchar2(8 char)
-,drain_area_va                  varchar2(8 char)
-,contrib_drain_area_va          varchar2(8 char)
-,tz_cd                          varchar2(6 char)
-,local_time_fg                  varchar2(1 char)
-,gw_file_cd                     varchar2(30 char)
-,construction_dt                varchar2(8 char)
-,reliability_cd                 varchar2(1 char)
-,aqfr_cd                        varchar2(8 char)
-,nat_aqfr_cd                    varchar2(10 char)
-,site_use_1_cd                  varchar2(1 char)
-,site_use_2_cd                  varchar2(1 char)
-,site_use_3_cd                  varchar2(1 char)
-,water_use_1_cd                 varchar2(1 char)
-,water_use_2_cd                 varchar2(1 char)
-,water_use_3_cd                 varchar2(1 char)
-,nat_water_use_cd               varchar2(2 char)
-,aqfr_type_cd                   varchar2(1 char)
-,well_depth_va                  varchar2(8 char)
-,hole_depth_va                  varchar2(8 char)
-,depth_src_cd                   varchar2(1 char)
-,project_no                     varchar2(12 char)
-,site_web_cd                    varchar2(1 char)
-,site_cn                        varchar2(104 char)
-,site_cr                        timestamp(6)        not null
-,site_mn                        varchar2(104 char)
-,site_md                        timestamp(6)        not null
-,deprecated_fg                  varchar2(1 char)
-,site_ld                        varchar2(37 char)
-) parallel 4 compress pctfree 0 nologging;
---rollback drop table nawqa_sites cascade constraints purge;
-
 --changeset drsteini:1TablesBF
 create table z_parm_meth
 (parm_cd						varchar2(5 char)
@@ -617,3 +550,45 @@ create table sample_parameter
 ,v84164_fxd_tx					varchar2(80 char)
 ) parallel 4 compress pctfree 0 nologging;
 --rollback drop table sample_parameter cascade constraints purge;
+
+--changeset drsteini:1TablesBJ
+create table nwis_activity
+(sample_id                     number
+,station_id                    number
+,site_id                       varchar2(4000 char)
+,event_date                    date
+,activity                      varchar2(4000 char)
+,sample_media                  varchar2(4000 char)
+,organization                  varchar2(4000 char)
+,site_type                     varchar2(4000 char)
+,huc                           varchar2(4000 char)
+,governmental_unit_code        varchar2(4000 char)
+,organization_name             varchar2(4000 char)
+,activity_type_code            varchar2(4000 char)
+,activity_media_subdiv_name    varchar2(4000 char)
+,activity_start_time           varchar2(4000 char)
+,act_start_time_zone           varchar2(4000 char)
+,activity_stop_date            varchar2(4000 char)
+,activity_stop_time            varchar2(4000 char)
+,act_stop_time_zone            varchar2(4000 char)
+,activity_depth                varchar2(4000 char)
+,activity_depth_unit           varchar2(4000 char)
+,activity_depth_ref_point      varchar2(4000 char)
+,activity_upper_depth          varchar2(4000 char)
+,activity_upper_depth_unit     varchar2(4000 char)
+,activity_lower_depth          varchar2(4000 char)
+,activity_lower_depth_unit     varchar2(4000 char)
+,project_id                    varchar2(4000 char)
+,activity_conducting_org       varchar2(4000 char)
+,activity_comment              varchar2(4000 char)
+,sample_aqfr_name              varchar2(4000 char)
+,hydrologic_condition_name     varchar2(4000 char)
+,hydrologic_event_name         varchar2(4000 char)
+,sample_collect_method_id      varchar2(4000 char)
+,sample_collect_method_ctx     varchar2(4000 char)
+,sample_collect_method_name    varchar2(4000 char)
+,sample_collect_equip_name     varchar2(4000 char)
+,sample_tissue_taxonomic_name  varchar2(4000 char)
+,body_part_nm                  varchar2(4000 char)
+) parallel 4 compress pctfree 0 nologging;
+--rollback drop table nwis_activity cascade constraints purge;
