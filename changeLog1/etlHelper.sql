@@ -33,30 +33,32 @@ create or replace package body etl_helper as
     begin
 	    rtn := p_project_cd;
 	    
-		if p_sample_start_date >= to_date('2001-10-01', 'yyyy-mm-dd') then
-			if p_71999_value = 20 then
-				rtn := nasqan;
-			else
-				if p_71999_value = 25 then
-					rtn := nmn;
+	    if p_site_no is not null then
+	    	--Only sites in the nawqa_sites file are eligible 
+			if p_sample_start_date >= to_date('2001-10-01', 'yyyy-mm-dd') then
+				if p_71999_value = 20 then
+					rtn := nasqan;
 				else
-					if p_site_no is not null and 
-	                   (p_71999_value = 15 or
-	                    (p_71999_value is null and
-                         p_50280_value is not null)) then
-                    	rtn := nawqa;
-                    end if;
-                end if;
-            end if;
-		else
-       		if p_site_no is not null and
-               (p_71999_value = 15 or
-                p_50280_value is not null) then
-            	rtn := nawqa;
-            end if;
-        end if;
+					if p_71999_value = 25 then
+						rtn := nmn;
+					else
+						if p_71999_value = 15 or
+		                   (p_71999_value is null and
+	                        p_50280_value is not null) then
+	                    	rtn := nawqa;
+	                    end if;
+	                end if;
+	            end if;
+			else
+	       		if p_71999_value = 15 or
+	               p_50280_value is not null) then
+	            	rtn := nawqa;
+	            end if;
+	        end if;
+	    end if;
         
         if rtn is null then
+        	--Default project code to USGS is it is null at this point.
         	rtn := 'USGS';
         end if; 
         
