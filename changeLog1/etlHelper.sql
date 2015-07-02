@@ -51,7 +51,7 @@ create or replace package body etl_helper as
 	            end if;
 			else
 	       		if p_71999_value = 15 or
-	               p_50280_value is not null) then
+	               p_50280_value is not null then
 	            	rtn := nawqa;
 	            end if;
 	        end if;
