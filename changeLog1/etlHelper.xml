@@ -7,7 +7,7 @@
 
     <preConditions>
         <dbms type="oracle" />
-        <runningAs username="WQP_CORE" />
+        <runningAs username="NWIS_WS_STAR" />
     </preConditions>
 
     <changeSet author="drsteini" id="1EtlHelperAA">
