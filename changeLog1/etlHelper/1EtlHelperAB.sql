@@ -1,21 +1,3 @@
---liquibase formatted sql
-
---This is for the nwis_ws_star schema
-
---changeset drsteini:1EtlHelperAA endDelimiter:/ splitStatements:false
-create or replace package etl_helper as
-
-	function determine_project_id(p_site_no           in nawqa_sites.site_no%type,
-                                  p_50280_value       in qw_result.result_unrnd_va%type,
-                                  p_71999_value       in qw_result.result_unrnd_va%type,
-                                  p_sample_start_date in qw_sample.sample_start_dt%type,
-                                  p_project_cd        in qw_sample.project_cd%type)
-		return varchar2;
-
-end etl_helper;
---rollback drop package etl_helper;
-
---changeset drsteini:1EtlHelperAB endDelimiter:/ splitStatements:false
 create or replace package body etl_helper as
 	
 	nawqa	varchar2(4000 char) := 'National Water Quality Assessment (NAWQA) Program';
@@ -66,4 +48,3 @@ create or replace package body etl_helper as
 	end determine_project_id;
 
 end etl_helper;
---rollback drop package body etl_helper;
