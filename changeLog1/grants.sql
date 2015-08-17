@@ -145,3 +145,7 @@ grant select on sample_parameter to wqp_core;
 --changeset drsteini:1GrantsBJ
 grant execute on etl_helper to wqp_core;
 --rollback revoke execute on etl_helper from wqp_core;
+
+--changeset drsteini:1GrantsBK
+grant select on sitefile to nwq_stg;
+--rollback revoke select on sitefile from nwq_stg;
