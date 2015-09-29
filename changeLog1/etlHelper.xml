@@ -29,4 +29,9 @@
         <rollback changeSetId="1EtlHelperAB" changeSetAuthor="drsteini"/>
     </changeSet>
 
+    <changeSet author="drsteini" id="1EtlHelperAD">
+        <createProcedure path="etlHelper/1EtlHelperAD.sql" relativeToChangelogFile="true" />
+        <rollback changeSetId="1EtlHelperAC" changeSetAuthor="drsteini"/>
+    </changeSet>
+
 </databaseChangeLog>
