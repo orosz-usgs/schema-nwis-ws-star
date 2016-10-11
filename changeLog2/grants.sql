@@ -14,9 +14,9 @@ grant select on altitude_method to wqp_core;
 grant select on aqfr to wqp_core;
 --rollback revoke select on aqfr from wqp_core;
 
---changeset drsteini:grant_select_on_aquifer_type_code_to_wqp_core
-grant select on aquifer_type_code to wqp_core;
---rollback revoke select on aquifer_type_code from wqp_core;
+--changeset drsteini:grant_select_on_aquifer_type_to_wqp_core
+grant select on aquifer_type to wqp_core;
+--rollback revoke select on aquifer_type from wqp_core;
 
 --changeset drsteini:grant_select_on_cit_meth_to_wqp_core
 grant select on cit_meth to wqp_core;

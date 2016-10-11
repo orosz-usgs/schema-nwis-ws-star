@@ -1,0 +1,69 @@
+"LEGACY_NWIS_MEDIUM_CD","NWIS_MEDIUM_CD","NWIS_MEDIUM_NM","WQX_ACT_MED_NM","WQX_ACT_MED_SUB","LOAD_DATE"
+"$","WT","Treated water supply","Water","Finished Water",2009-02-17
+"%","WE","Effluent, not landfill","Water","Effluent",2009-02-17
+"&","AS","Soil gas","Air","Soil Gas",2009-02-17
+"(","SLQ","QC sample - Sludge","Other","Sludge",2009-02-17
+"*","AA","Air","Air","Ambient Air",2009-02-17
+"0","ON","Not Determined","Other","Other",2009-02-17
+"1","SS","Suspended sediment","Sediment","Suspended",2009-02-17
+"2","WL","Leachate","Water","Leachate",2009-02-17
+"3","SD","Dry deposition","Other","Dry Fall Material",2009-02-17
+"4","WF","Landfill effluent","Water","Landfill effluent",2009-02-17
+"5","WU","Elutriation","Water","Elutriation",2009-02-17
+"6","WG","Ground water","Water","Groundwater",2009-02-17
+"7","WW","Wet deposition","Water","Wet Fall Material",2009-02-17
+"8","OB","Bulk deposition","Water","Bulk deposition",2009-02-17
+"9","WS","Surface water","Water","Surface Water",2009-02-17
+"<","SOQ","QC sample - Soil","Soil","",2009-02-17
+"=","WLQ","QC sample - Leachate","Water","Leachate",2009-02-17
+">","WHQ","QC sample - Hyporheic zone","Water","Hyporheic zone",2009-02-17
+"@","SCQ","QC sample - Core material","Other","Core material",2009-02-17
+"A","OA","Artificial","Other","Artificial",2009-02-17
+"B","ST","Solids (street sweepings, etc)","Other","Street sweepings, etc",2009-02-17
+"C","BA","Animal tissue","Biological Tissue","",2009-02-17
+"D","BP","Plant tissue","Biological Tissue","",2009-02-17
+"E","SC","Core material","Other","Core material",2009-02-17
+"F","WI","Interstitial water","Water","Interstitial",2009-02-17
+"G","SO","Soil","Soil","",2009-02-17
+"H","SB","Bottom material","Sediment","Bottom material",2009-02-17
+"J","SL","Sludge","Other","Sludge",2009-02-17
+"K","WM","Soil moisture","Water","Soil moisture",2009-02-17
+"L","BH","Phytoplanktonic species composition and enumeration (quantitative)","Biological Tissue","",2009-02-17
+"M","BY","Phytoplanktonic species composition (qualitative)","Biological Tissue","",2009-02-17
+"N","BE","Periphytic species composition (qualitative)","Biological Tissue","",2009-02-17
+"O","BI","Benthic invertebrates species composition and enumeration (quantitative)","Biological Tissue","",2009-02-17
+"P","BD","Periphytic diatoms species composition and enumeration","Biological Tissue","",2009-02-17
+"Q","OAQ","QC sample - Artificial","Other","Artificial",2009-02-17
+"R","WSQ","QC sample - Surface water","Water","Surface Water",2009-02-17
+"S","WGQ","QC sample - Ground water","Water","Groundwater",2009-02-17
+"T","WWQ","QC sample - Wet deposition","Water","Wet Fall Material",2009-02-17
+"U","OBQ","QC sample - Bulk deposition","Water","Bulk deposition",2009-02-17
+"V","SSQ","QC sample - Suspended sediment","Sediment","Suspended",2009-02-17
+"W","SBQ","QC sample - Bottom material","Sediment","Bottom material",2009-02-17
+"X","BAQ","QC sample - Animal tissue","Biological Tissue","",2009-02-17
+"Y","BPQ","QC sample - Plant tissue","Biological Tissue","",2009-02-17
+"Z","WIQ","QC sample - Interstitial water","Water","Interstitial",2009-02-17
+"[","AAQ","QC sample - Air","Air","Ambient Air",2009-02-17
+"\","WC","Canopy water","Water","Canopy",2009-02-17
+"]","ASQ","QC sample - Soil gas","Air","Soil Gas",2009-02-17
+"{","WTQ","QC sample - Treated water supply","Water","Finished Water",2009-02-17
+"}","WEQ","QC sample - Effluent, not landfill","Water","Effluent",2009-02-17
+"~","WH","Hyporheic zone","Water","Hyporheic zone",2009-02-17
+"","BDQ","QC sample - Periphyton (quan)","Biological Tissue","",2009-02-17
+"","WUQ","QC sample - Elutriation","Water","Elutriation",2009-02-17
+"","BYQ","QC sample - Phytoplankton (qual)","Biological Tissue","",2009-02-17
+"","STQ","QC sample - Solids","Other","Street sweepings, etc",2009-02-17
+"","SU","Borehole cuttings","Other","Borehole cuttings",2009-02-17
+"","WA","Air moisture","Water","Ambient Air",2009-02-17
+"","BEQ","QC sample - Periphyton (qual)","Biological Tissue","",2009-02-17
+"","SUQ","QC sample - Borehole cuttings","Other","Borehole cuttings",2009-02-17
+"","WAQ","QC sample - Air moisture","Water","Ambient Air",2009-02-17
+"","WB","Untreated water supply","Water","",2009-02-17
+"","WBQ","QC samp - Untreated water supply","Water","",2009-02-17
+"","WCQ","QC sample - Canopy water","Water","Canopy",2009-02-17
+"","BHQ","QC sample - Phytoplankton (quan)","Biological Tissue","",2009-02-17
+"","ONQ","QC sample - Not determined","Other","Other",2009-02-17
+"","WFQ","QC sample - Landfill effluent","Water","Landfill effluent",2009-02-17
+"","BIQ","QC samp - Benthic invert (quan)","Biological Tissue","",2009-02-17
+"","SDQ","QC sample - Dry deposition","Other","Dry Fall Material",2009-02-17
+"","WMQ","QC sample - Soil moisture","Water","Soil moisture",2009-02-17

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.2.xsd">
+
+    <preConditions>
+          <dbms type="oracle" />
+          <runningAs username="NWIS_WS_STAR" />
+    </preConditions>
+
+    <changeSet author="drsteini" id="load-lat_long_accuracy" runOnChange="true">
+        <delete tableName="lat_long_accuracy"/>
+        <loadData encoding="UTF-8"
+                  file="data/lat_long_accuracy.csv"
+                  tableName="lat_long_accuracy">
+        </loadData>
+        <rollback>select 'no rollback - you must restore previous csv and rerun manually' from dual</rollback>
+    </changeSet>
+
+    <changeSet author="drsteini" id="load-nwis_district_cds_by_host" runOnChange="true">
+        <delete tableName="nwis_district_cds_by_host"/>
+        <loadData encoding="UTF-8"
+                  file="data/nwis_district_cds_by_host.csv"
+                  tableName="nwis_district_cds_by_host">
+            <column name="LAST_UPD_DATE" type="DATE"/>
+        </loadData>
+        <rollback>select 'no rollback - you must restore previous csv and rerun manually' from dual</rollback>
+    </changeSet>
+
+    <changeSet author="drsteini" id="load-nwis_wqx_medium_cd" runOnChange="true">
+        <delete tableName="nwis_wqx_medium_cd"/>
+        <loadData encoding="UTF-8"
+                  file="data/nwis_wqx_medium_cd.csv"
+                  tableName="nwis_wqx_medium_cd">
+            <column name="LOAD_DATE" type="DATE"/>
+        </loadData>
+        <rollback>select 'no rollback - you must restore previous csv and rerun manually' from dual</rollback>
+    </changeSet>
+
+    <changeSet author="drsteini" id="load-nwis_wqx_rpt_lev_cd" runOnChange="true">
+        <delete tableName="nwis_wqx_rpt_lev_cd"/>
+        <loadData encoding="UTF-8"
+                  file="data/nwis_wqx_rpt_lev_cd.csv"
+                  tableName="nwis_wqx_rpt_lev_cd">
+        </loadData>
+        <rollback>select 'no rollback - you must restore previous csv and rerun manually' from dual</rollback>
+    </changeSet>
+
+</databaseChangeLog>
