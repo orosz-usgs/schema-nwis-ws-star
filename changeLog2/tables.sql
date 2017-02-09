@@ -371,3 +371,79 @@ drop table z_parm_meth cascade constraints purge;
 --rollback ,multiplier						varchar2(6 char)
 --rollback ) parallel 4 compress pctfree 0 nologging;
 
+--changeset drsteini:WQP-1060-drop-parm
+--preconditions onFail:MARK_RAN onError:HALT
+--precondition-sql-check expectedResult:1 select count(*) from user_tables where table_name = 'PARM'
+-- We need to drop and recreate the table since dropping columns is not allowed on compressed tables.
+drop table parm cascade constraints purge;
+--rollback create table parm
+--rollback (parm_cd						varchar2(5 char)	constraint nn_parm_pk not null
+--rollback ,parm_nm						varchar2(29 char)
+--rollback ,parm_rmk_tx					varchar2(256 char)
+--rollback ,parm_unt_tx					varchar2(10 char)
+--rollback ,parm_seq_nu					number
+--rollback ,parm_seq_grp_cd				varchar2(3 char)
+--rollback ,parm_ds						varchar2(170 char)
+--rollback ,parm_medium_tx					varchar2(30 char)
+--rollback ,parm_frac_tx					varchar2(24 char)
+--rollback ,parm_temp_tx					varchar2(12 char)
+--rollback ,parm_stat_tx					varchar2(25 char)
+--rollback ,parm_tm_tx						varchar2(12 char)
+--rollback ,parm_wt_tx						varchar2(15 char)
+--rollback ,parm_size_tx					varchar2(64 char)
+--rollback ,parm_entry_fg					varchar2(1 char)
+--rollback ,parm_public_fg					varchar2(1 char)
+--rollback ,parm_neg_fg					varchar2(1 char)
+--rollback ,parm_zero_fg					varchar2(1 char)
+--rollback ,parm_null_fg					varchar2(1 char)
+--rollback ,parm_ts_fg						varchar2(1 char)
+--rollback ,parm_init_dt					date
+--rollback ,parm_init_nm					varchar2(16 char)
+--rollback ,parm_rev_dt					date
+--rollback ,parm_rev_nm					varchar2(16 char)
+--rollback ,parm_seq_grp_nm				varchar2(32 char)
+--rollback ,srsname						varchar2(1200 char)
+--rollback ,srsid							varchar2(1200 char)
+--rollback ,casrn							varchar2(1200 char)
+--rollback ,multiplier						varchar2(6 char)
+--rollback ,constraint parm_pk
+--rollback   primary key (parm_cd)
+--rollback ) parallel 4 compress pctfree 0 nologging;
+
+--changeset drsteini:WQP-1060-create-parm
+--preconditions onFail:HALT onError:HALT
+--precondition-sql-check expectedResult:0 select count(*) from user_tables where table_name = 'PARM'
+-- We need to drop and recreate the table since dropping columns is not allowed on compressed tables.
+create table parm
+(parm_cd						varchar2(5 char)	constraint nn_parm_pk not null
+,parm_nm						varchar2(29 char)
+,parm_rmk_tx					varchar2(256 char)
+,parm_unt_tx					varchar2(10 char)
+,parm_seq_nu					number
+,parm_seq_grp_cd				varchar2(3 char)
+,parm_ds						varchar2(170 char)
+,parm_medium_tx					varchar2(30 char)
+,parm_frac_tx					varchar2(24 char)
+,parm_temp_tx					varchar2(12 char)
+,parm_stat_tx					varchar2(25 char)
+,parm_tm_tx						varchar2(12 char)
+,parm_wt_tx						varchar2(15 char)
+,parm_size_tx					varchar2(64 char)
+,parm_entry_fg					varchar2(1 char)
+,parm_public_fg					varchar2(1 char)
+,parm_neg_fg					varchar2(1 char)
+,parm_zero_fg					varchar2(1 char)
+,parm_null_fg					varchar2(1 char)
+,parm_ts_fg						varchar2(1 char)
+,parm_init_dt					date
+,parm_init_nm					varchar2(16 char)
+,parm_rev_dt					date
+,parm_rev_nm					varchar2(16 char)
+,parm_seq_grp_nm				varchar2(32 char)
+,wqpcrosswalk					varchar2(1200 char)
+,srsname						varchar2(1200 char)
+,multiplier						varchar2(6 char)
+,constraint parm_pk
+  primary key (parm_cd)
+) parallel 4 compress pctfree 0 nologging;
+--rollback drop table parm cascade constraints purge;
