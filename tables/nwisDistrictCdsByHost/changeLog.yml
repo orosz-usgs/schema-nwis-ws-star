@@ -1,0 +1,19 @@
+databaseChangeLog:
+  - preConditions:
+    - dbms:
+        type: oracle
+
+  - changeSet:
+      author: drsteini
+      id: "create.table.nwis_district_cds_by_host"
+      preConditions:
+        - onFail: MARK_RAN
+        - onError: HALT
+        - not:
+          - tableExists:
+              tableName: nwis_district_cds_by_host
+      changes:
+        - sqlFile:
+            path: nwisDistrictCdsByHost.sql
+            relativeToChangelogFile: true
+        - rollback: drop table nwis_district_cds_by_host cascade constraints purge;

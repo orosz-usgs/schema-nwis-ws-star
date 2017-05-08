@@ -1,0 +1,19 @@
+databaseChangeLog:
+  - preConditions:
+    - dbms:
+        type: oracle
+
+  - changeSet:
+      author: drsteini
+      preConditions:
+        - onFail: MARK_RAN
+        - onError: HALT
+        - not:
+          - tableExists:
+              tableName: wqp_nemi_nwis_crosswalk
+      id: "create.table.wqp_nemi_nwis_crosswalk"
+      changes:
+        - sqlFile:
+            path: wqpNemiNwisCrosswalk.sql
+            relativeToChangelogFile: true
+        - rollback: drop table wqp_nemi_nwis_crosswalk cascade constraints purge;

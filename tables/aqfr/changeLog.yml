@@ -1,0 +1,19 @@
+databaseChangeLog:
+  - preConditions:
+    - dbms:
+        type: oracle
+
+  - changeSet:
+      author: drsteini
+      id: "create.table.aqfr"
+      preConditions:
+        - onFail: MARK_RAN
+        - onError: HALT
+        - not:
+          - tableExists:
+              tableName: aqfr
+      changes:
+        - sqlFile:
+            path: aqfr.sql
+            relativeToChangelogFile: true
+        - rollback: drop table aqfr cascade constraints purge;

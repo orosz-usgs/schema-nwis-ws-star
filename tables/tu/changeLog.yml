@@ -1,0 +1,19 @@
+databaseChangeLog:
+  - preConditions:
+    - dbms:
+        type: oracle
+
+  - changeSet:
+      author: drsteini
+      preConditions:
+        - onFail: MARK_RAN
+        - onError: HALT
+        - not:
+          - tableExists:
+              tableName: tu
+      id: "create.table.tu"
+      changes:
+        - sqlFile:
+            path: tu.sql
+            relativeToChangelogFile: true
+        - rollback: drop table tu cascade constraints purge;

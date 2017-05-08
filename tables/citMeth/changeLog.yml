@@ -1,0 +1,19 @@
+databaseChangeLog:
+  - preConditions:
+    - dbms:
+        type: oracle
+
+  - changeSet:
+      author: drsteini
+      id: "create.table.cit_meth"
+      preConditions:
+        - onFail: MARK_RAN
+        - onError: HALT
+        - not:
+          - tableExists:
+              tableName: cit_meth
+      changes:
+        - sqlFile:
+            path: citMeth.sql
+            relativeToChangelogFile: true
+        - rollback: drop table cit_meth cascade constraints purge;

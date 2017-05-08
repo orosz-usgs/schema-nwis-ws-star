@@ -1,0 +1,19 @@
+databaseChangeLog:
+  - preConditions:
+    - dbms:
+        type: oracle
+
+  - changeSet:
+      author: drsteini
+      id: "create.table.parm"
+      preConditions:
+        - onFail: MARK_RAN
+        - onError: HALT
+        - not:
+          - tableExists:
+              tableName: parm
+      changes:
+        - sqlFile:
+            path: parm.sql
+            relativeToChangelogFile: true
+        - rollback: drop table parm cascade constraints purge;

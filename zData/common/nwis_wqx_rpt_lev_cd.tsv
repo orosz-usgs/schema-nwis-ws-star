@@ -1,0 +1,7 @@
+RPT_LEV_CD	RPT_LEV_NM	WQX_RPT_LEV_NM
+IRL	Interim reporting level	Estimated Detection Level
+LRL	Laboratory reporting level	Laboratory Reporting Level
+LT-MDL	Long term method detection level	Long Term Method Detection Level
+MDL	Method detection limit	Method Detection Limit (MDL)
+MRL	Minimum reporting level	Lower Reporting Limit
+SSMDC	Sample-specific min detect concentration	Sample-specific Minimum Detectable Concentration
