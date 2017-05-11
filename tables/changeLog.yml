@@ -136,10 +136,6 @@ databaseChangeLog:
       relativeToChangelogFile: true
 
   - include:
-      file: "tempSeriesCatalog/changeLog.yml"
-      relativeToChangelogFile: true
-
-  - include:
       file: "tu/changeLog.yml"
       relativeToChangelogFile: true
 

@@ -6,7 +6,6 @@ databaseChangeLog:
   - changeSet:
       author: drsteini
       id: "create.table.nat_aqfr"
-      context: ci
       preConditions:
         - onFail: MARK_RAN
         - onError: HALT
