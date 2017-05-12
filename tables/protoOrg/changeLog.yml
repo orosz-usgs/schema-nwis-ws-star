@@ -1,0 +1,19 @@
+databaseChangeLog:
+  - preConditions:
+    - dbms:
+        type: oracle
+
+  - changeSet:
+      author: drsteini
+      id: "create.table.proto_org"
+      preConditions:
+        - onFail: MARK_RAN
+        - onError: HALT
+        - not:
+          - tableExists:
+              tableName: proto_org
+      changes:
+        - sqlFile:
+            path: protoOrg.sql
+            relativeToChangelogFile: true
+        - rollback: drop table proto_org cascade constraints purge;

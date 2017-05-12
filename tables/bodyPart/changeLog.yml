@@ -1,0 +1,19 @@
+databaseChangeLog:
+  - preConditions:
+    - dbms:
+        type: oracle
+
+  - changeSet:
+      author: drsteini
+      id: "create.table.body_part"
+      preConditions:
+        - onFail: MARK_RAN
+        - onError: HALT
+        - not:
+          - tableExists:
+              tableName: body_part
+      changes:
+        - sqlFile:
+            path: bodyPart.sql
+            relativeToChangelogFile: true
+        - rollback: drop table body_part cascade constraints purge;

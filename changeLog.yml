@@ -1,0 +1,26 @@
+databaseChangeLog:
+  - preConditions:
+    - dbms:
+        type: oracle
+    - runningAs:
+        username: NWIS_WS_STAR
+
+  - include:
+      file: "databaseLinks/changeLog.yml"
+      relativeToChangelogFile: true
+
+  - include:
+      file: "tables/changeLog.yml"
+      relativeToChangelogFile: true
+
+  - include:
+      file: "packages/changeLog.yml"
+      relativeToChangelogFile: true
+
+  - include:
+      file: "grants/changeLog.yml"
+      relativeToChangelogFile: true
+
+  - include:
+      file: "zData/changeLog.yml"
+      relativeToChangelogFile: true

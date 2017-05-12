@@ -1,0 +1,148 @@
+databaseChangeLog:
+  - preConditions:
+    - dbms:
+        type: oracle
+
+  - include:
+      file: "altitudeMethod/changeLog.yml"
+      relativeToChangelogFile: true
+
+  - include:
+      file: "aqfr/changeLog.yml"
+      relativeToChangelogFile: true
+
+  - include:
+      file: "aquiferType/changeLog.yml"
+      relativeToChangelogFile: true
+
+  - include:
+      file: "bodyPart/changeLog.yml"
+      relativeToChangelogFile: true
+
+  - include:
+      file: "citMeth/changeLog.yml"
+      relativeToChangelogFile: true
+
+  - include:
+      file: "country/changeLog.yml"
+      relativeToChangelogFile: true
+
+  - include:
+      file: "county/changeLog.yml"
+      relativeToChangelogFile: true
+
+  - include:
+      file: "fxd/changeLog.yml"
+      relativeToChangelogFile: true
+
+  - include:
+      file: "hydCondCd/changeLog.yml"
+      relativeToChangelogFile: true
+
+  - include:
+      file: "hydEventCd/changeLog.yml"
+      relativeToChangelogFile: true
+
+  - include:
+      file: "intQwResult/changeLog.yml"
+      relativeToChangelogFile: true
+
+  - include:
+      file: "intQwSample/changeLog.yml"
+      relativeToChangelogFile: true
+
+  - include:
+      file: "intSitefile/changeLog.yml"
+      relativeToChangelogFile: true
+
+  - include:
+      file: "latLongAccuracy/changeLog.yml"
+      relativeToChangelogFile: true
+
+  - include:
+      file: "latLongDatum/changeLog.yml"
+      relativeToChangelogFile: true
+
+  - include:
+      file: "latLongMethod/changeLog.yml"
+      relativeToChangelogFile: true
+
+  - include:
+      file: "meth/changeLog.yml"
+      relativeToChangelogFile: true
+
+  - include:
+      file: "methWithCit/changeLog.yml"
+      relativeToChangelogFile: true
+
+  - include:
+      file: "natAqfr/changeLog.yml"
+      relativeToChangelogFile: true
+
+  - include:
+      file: "nawqaSites/changeLog.yml"
+      relativeToChangelogFile: true
+
+  - include:
+      file: "nwisDistrictCdsByHost/changeLog.yml"
+      relativeToChangelogFile: true
+
+  - include:
+      file: "nwisWqxMediumCd/changeLog.yml"
+      relativeToChangelogFile: true
+
+  - include:
+      file: "nwisWqxRptLevCd/changeLog.yml"
+      relativeToChangelogFile: true
+
+  - include:
+      file: "parm/changeLog.yml"
+      relativeToChangelogFile: true
+
+  - include:
+      file: "parmAlias/changeLog.yml"
+      relativeToChangelogFile: true
+
+  - include:
+      file: "parmMeth/changeLog.yml"
+      relativeToChangelogFile: true
+
+  - include:
+      file: "protoOrg/changeLog.yml"
+      relativeToChangelogFile: true
+
+  - include:
+      file: "qwResult/changeLog.yml"
+      relativeToChangelogFile: true
+
+  - include:
+      file: "qwSample/changeLog.yml"
+      relativeToChangelogFile: true
+
+  - include:
+      file: "sampleParameter/changeLog.yml"
+      relativeToChangelogFile: true
+
+  - include:
+      file: "sitefile/changeLog.yml"
+      relativeToChangelogFile: true
+
+  - include:
+      file: "siteTp/changeLog.yml"
+      relativeToChangelogFile: true
+
+  - include:
+      file: "state/changeLog.yml"
+      relativeToChangelogFile: true
+
+  - include:
+      file: "tu/changeLog.yml"
+      relativeToChangelogFile: true
+
+  - include:
+      file: "valQualCd/changeLog.yml"
+      relativeToChangelogFile: true
+
+  - include:
+      file: "wqpNemiNwisCrosswalk/changeLog.yml"
+      relativeToChangelogFile: true

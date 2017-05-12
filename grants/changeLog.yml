@@ -1,0 +1,12 @@
+databaseChangeLog:
+  - preConditions:
+    - dbms:
+        type: oracle
+
+  - include:
+      file: "external/changeLog.yml"
+      relativeToChangelogFile: true
+
+  - include:
+      file: "internal/changeLog.yml"
+      relativeToChangelogFile: true

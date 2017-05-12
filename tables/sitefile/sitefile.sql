@@ -1,0 +1,40 @@
+create table sitefile
+(site_id                        number
+,agency_cd                      varchar2(5 char)
+,site_no                        varchar2(15 char)
+,nwis_host                      varchar2(12 char)
+,db_no                          varchar2(2 char)
+,station_nm                     varchar2(50 char)
+,dec_lat_va                     number
+,dec_long_va                    number
+,coord_meth_cd                  varchar2(1 char)
+,coord_acy_cd                   varchar2(1 char)
+,district_cd                    varchar2(3 char)
+,country_cd                     varchar2(2 char)
+,state_cd                       varchar2(2 char)
+,county_cd                      varchar2(3 char)
+,land_net_ds                    varchar2(23 char)
+,map_scale_fc                   varchar2(7 char)
+,alt_va                         varchar2(8 char)
+,alt_meth_cd                    varchar2(1 char)
+,alt_acy_va                     varchar2(3 char)
+,alt_datum_cd                   varchar2(10 char)
+,huc_cd                         varchar2(16 char)
+,basin_cd                       varchar2(2 char)
+,site_tp_cd                     varchar2(7 char)
+,site_rmks_tx                   varchar2(50 char)
+,drain_area_va                  varchar2(8 char)
+,contrib_drain_area_va          varchar2(8 char)
+,construction_dt                varchar2(8 char)
+,aqfr_type_cd                   varchar2(1 char)
+,aqfr_cd                        varchar2(8 char)
+,nat_aqfr_cd                    varchar2(10 char)
+,well_depth_va                  varchar2(8 char)
+,hole_depth_va                  varchar2(8 char)
+,site_web_cd                    varchar2(1 char)
+,dec_coord_datum_cd             varchar2(10 char)
+,site_cn                        varchar2(8 char)
+,site_cr                        date
+,site_mn                        varchar2(8 char)
+,site_md                        date
+) parallel 4 compress pctfree 0 nologging;
