@@ -5,24 +5,272 @@ databaseChangeLog:
 
   - changeSet:
       author: drsteini
-      id: "grant.select.int_qw_result.${externalOwnerName}"
+      id: "grant.select.altitude_method.${internalOwnerName}"
       changes:
         - sql:
-            sql: grant select on int_qw_result to ${externalOwnerName};
-        - rollback: revoke select on int_qw_result from ${externalOwnerName};
+            sql: grant select on altitude_method to ${internalOwnerName};
+        - rollback: revoke select on altitude_method from ${internalOwnerName};
 
   - changeSet:
       author: drsteini
-      id: "grant.select.int_qw_sample.${externalOwnerName}"
+      id: "grant.select.aqfr.${internalOwnerName}"
       changes:
         - sql:
-            sql: grant select on int_qw_sample to ${externalOwnerName};
-        - rollback: revoke select on int_qw_sample from ${externalOwnerName};
+            sql: grant select on aqfr to ${internalOwnerName};
+        - rollback: revoke select on aqfr from ${internalOwnerName};
 
   - changeSet:
       author: drsteini
-      id: "grant.select.int_sitefile.${externalOwnerName}"
+      id: "grant.select.aquifer_type.${internalOwnerName}"
       changes:
         - sql:
-            sql: grant select on int_sitefile to ${externalOwnerName};
-        - rollback: revoke select on int_sitefile from ${externalOwnerName};
+            sql: grant select on aquifer_type to ${internalOwnerName};
+        - rollback: revoke select on aquifer_type from ${internalOwnerName};
+
+  - changeSet:
+      author: drsteini
+      id: "grant.select.body_part.${internalOwnerName}"
+      changes:
+        - sql:
+            sql: grant select on body_part to ${internalOwnerName};
+        - rollback: revoke select on body_part from ${internalOwnerName};
+
+  - changeSet:
+      author: drsteini
+      id: "grant.select.cit_meth.${internalOwnerName}"
+      changes:
+        - sql:
+            sql: grant select on cit_meth to ${internalOwnerName};
+        - rollback: revoke select on cit_meth from ${internalOwnerName};
+
+  - changeSet:
+      author: drsteini
+      id: "grant.select.country.${internalOwnerName}"
+      changes:
+        - sql:
+            sql: grant select on country to ${internalOwnerName};
+        - rollback: revoke select on country from ${internalOwnerName};
+
+  - changeSet:
+      author: drsteini
+      id: "grant.select.county.${internalOwnerName}"
+      changes:
+        - sql:
+            sql: grant select on county to ${internalOwnerName};
+        - rollback: revoke select on county from ${internalOwnerName};
+
+  - changeSet:
+      author: drsteini
+      id: "grant.execute.etl_helper.${internalOwnerName}"
+      changes:
+        - sql:
+            sql: grant execute on etl_helper to ${internalOwnerName};
+        - rollback: revoke execute on etl_helper from ${internalOwnerName};
+
+  - changeSet:
+      author: drsteini
+      id: "grant.select.fxd.${internalOwnerName}"
+      changes:
+        - sql:
+            sql: grant select on fxd to ${internalOwnerName};
+        - rollback: revoke select on fxd from ${internalOwnerName};
+
+  - changeSet:
+      author: drsteini
+      id: "grant.select.hyd_cond_cd.${internalOwnerName}"
+      changes:
+        - sql:
+            sql: grant select on hyd_cond_cd to ${internalOwnerName};
+        - rollback: revoke select on hyd_cond_cd from ${internalOwnerName};
+
+  - changeSet:
+      author: drsteini
+      id: "grant.select.hyd_event_cd.${internalOwnerName}"
+      changes:
+        - sql:
+            sql: grant select on hyd_event_cd to ${internalOwnerName};
+        - rollback: revoke select on hyd_event_cd from ${internalOwnerName};
+
+  - changeSet:
+      author: drsteini
+      id: "grant.select.lat_long_accuracy.${internalOwnerName}"
+      changes:
+        - sql:
+            sql: grant select on lat_long_accuracy to ${internalOwnerName};
+        - rollback: revoke select on lat_long_accuracy from ${internalOwnerName};
+
+  - changeSet:
+      author: drsteini
+      id: "grant.select.lat_long_datum.${internalOwnerName}"
+      changes:
+        - sql:
+            sql: grant select on lat_long_datum to ${internalOwnerName};
+        - rollback: revoke select on lat_long_datum from ${internalOwnerName};
+
+  - changeSet:
+      author: drsteini
+      id: "grant.select.lat_long_method.${internalOwnerName}"
+      changes:
+        - sql:
+            sql: grant select on lat_long_method to ${internalOwnerName};
+        - rollback: revoke select on lat_long_method from ${internalOwnerName};
+
+  - changeSet:
+      author: drsteini
+      id: "grant.select.meth.${internalOwnerName}"
+      changes:
+        - sql:
+            sql: grant select on meth to ${internalOwnerName};
+        - rollback: revoke select on meth from ${internalOwnerName};
+
+  - changeSet:
+      author: drsteini
+      id: "grant.select.meth_with_cit.${internalOwnerName}"
+      changes:
+        - sql:
+            sql: grant select on meth_with_cit to ${internalOwnerName};
+        - rollback: revoke select on meth_with_cit from ${internalOwnerName};
+
+  - changeSet:
+      author: drsteini
+      id: "grant.select.nat_aqfr.${internalOwnerName}"
+      changes:
+        - sql:
+            sql: grant select on nat_aqfr to ${internalOwnerName};
+        - rollback: revoke select on nat_aqfr from ${internalOwnerName};
+
+  - changeSet:
+      author: drsteini
+      id: "grant.select.nawqa_sites.${internalOwnerName}"
+      changes:
+        - sql:
+            sql: grant select on nawqa_sites to ${internalOwnerName};
+        - rollback: revoke select on nawqa_sites from ${internalOwnerName};
+
+  - changeSet:
+      author: drsteini
+      id: "grant.select.nwis_district_cds_by_host.${internalOwnerName}"
+      changes:
+        - sql:
+            sql: grant select on nwis_district_cds_by_host to ${internalOwnerName};
+        - rollback: revoke select on nwis_district_cds_by_host from ${internalOwnerName};
+
+  - changeSet:
+      author: drsteini
+      id: "grant.select.nwis_wqx_medium_cd.${internalOwnerName}"
+      changes:
+        - sql:
+            sql: grant select on nwis_wqx_medium_cd to ${internalOwnerName};
+        - rollback: revoke select on nwis_wqx_medium_cd from ${internalOwnerName};
+
+  - changeSet:
+      author: drsteini
+      id: "grant.select.nwis_wqx_rpt_lev_cd.${internalOwnerName}"
+      changes:
+        - sql:
+            sql: grant select on nwis_wqx_rpt_lev_cd to ${internalOwnerName};
+        - rollback: revoke select on nwis_wqx_rpt_lev_cd from ${internalOwnerName};
+
+  - changeSet:
+      author: drsteini
+      id: "grant.select.parm.${internalOwnerName}"
+      changes:
+        - sql:
+            sql: grant select on parm to ${internalOwnerName};
+        - rollback: revoke select on parm from ${internalOwnerName};
+
+  - changeSet:
+      author: drsteini
+      id: "grant.select.parm_alias.${internalOwnerName}"
+      changes:
+        - sql:
+            sql: grant select on parm_alias to ${internalOwnerName};
+        - rollback: revoke select on parm_alias from ${internalOwnerName};
+
+  - changeSet:
+      author: drsteini
+      id: "grant.select.parm_meth.${internalOwnerName}"
+      changes:
+        - sql:
+            sql: grant select on parm_meth to ${internalOwnerName};
+        - rollback: revoke select on parm_meth from ${internalOwnerName};
+
+  - changeSet:
+      author: drsteini
+      id: "grant.select.proto_org.${internalOwnerName}"
+      changes:
+        - sql:
+            sql: grant select on proto_org to ${internalOwnerName};
+        - rollback: revoke select on proto_org from ${internalOwnerName};
+
+  - changeSet:
+      author: drsteini
+      id: "grant.select.sample_parameter.${internalOwnerName}"
+      changes:
+        - sql:
+            sql: grant select on sample_parameter to ${internalOwnerName};
+        - rollback: revoke select on sample_parameter from ${internalOwnerName};
+
+  - changeSet:
+      author: drsteini
+      id: "grant.select.site_tp.${internalOwnerName}"
+      changes:
+        - sql:
+            sql: grant select on site_tp to ${internalOwnerName};
+        - rollback: revoke select on site_tp from ${internalOwnerName};
+
+  - changeSet:
+      author: drsteini
+      id: "grant.select.state.${internalOwnerName}"
+      changes:
+        - sql:
+            sql: grant select on state to ${internalOwnerName};
+        - rollback: revoke select on state from ${internalOwnerName};
+
+  - changeSet:
+      author: drsteini
+      id: "grant.select.tu.${internalOwnerName}"
+      changes:
+        - sql:
+            sql: grant select on tu to ${internalOwnerName};
+        - rollback: revoke select on tu from ${internalOwnerName};
+
+  - changeSet:
+      author: drsteini
+      id: "grant.select.val_qual_cd.${internalOwnerName}"
+      changes:
+        - sql:
+            sql: grant select on val_qual_cd to ${internalOwnerName};
+        - rollback: revoke select on val_qual_cd from ${internalOwnerName};
+
+  - changeSet:
+      author: drsteini
+      id: "grant.select.wqp_nemi_nwis_crosswalk.${internalOwnerName}"
+      changes:
+        - sql:
+            sql: grant select on wqp_nemi_nwis_crosswalk to ${internalOwnerName};
+        - rollback: revoke select on wqp_nemi_nwis_crosswalk from ${internalOwnerName};
+
+  - changeSet:
+      author: drsteini
+      id: "grant.select.int_qw_result.${internalOwnerName}"
+      changes:
+        - sql:
+            sql: grant select on int_qw_result to ${internalOwnerName};
+        - rollback: revoke select on int_qw_result from ${internalOwnerName};
+
+  - changeSet:
+      author: drsteini
+      id: "grant.select.int_qw_sample.${internalOwnerName}"
+      changes:
+        - sql:
+            sql: grant select on int_qw_sample to ${internalOwnerName};
+        - rollback: revoke select on int_qw_sample from ${internalOwnerName};
+
+  - changeSet:
+      author: drsteini
+      id: "grant.select.int_sitefile.${internalOwnerName}"
+      changes:
+        - sql:
+            sql: grant select on int_sitefile to ${internalOwnerName};
+        - rollback: revoke select on int_sitefile from ${internalOwnerName};
