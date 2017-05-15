@@ -4,6 +4,10 @@ databaseChangeLog:
         type: oracle
 
   - include:
+      file: "common/changeLog.yml"
+      relativeToChangelogFile: true
+
+  - include:
       file: "external/changeLog.yml"
       relativeToChangelogFile: true
 
