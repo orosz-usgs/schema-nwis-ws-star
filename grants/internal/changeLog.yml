@@ -5,24 +5,24 @@ databaseChangeLog:
 
   - changeSet:
       author: drsteini
-      id: "grant.select.int_qw_result.${externalOwnerName}"
+      id: "grant.select.int_qw_result.${internalOwnerName}"
       changes:
         - sql:
-            sql: grant select on int_qw_result to ${externalOwnerName};
-        - rollback: revoke select on int_qw_result from ${externalOwnerName};
+            sql: grant select on int_qw_result to ${internalOwnerName};
+        - rollback: revoke select on int_qw_result from ${internalOwnerName};
 
   - changeSet:
       author: drsteini
-      id: "grant.select.int_qw_sample.${externalOwnerName}"
+      id: "grant.select.int_qw_sample.${internalOwnerName}"
       changes:
         - sql:
-            sql: grant select on int_qw_sample to ${externalOwnerName};
-        - rollback: revoke select on int_qw_sample from ${externalOwnerName};
+            sql: grant select on int_qw_sample to ${internalOwnerName};
+        - rollback: revoke select on int_qw_sample from ${internalOwnerName};
 
   - changeSet:
       author: drsteini
-      id: "grant.select.int_sitefile.${externalOwnerName}"
+      id: "grant.select.int_sitefile.${internalOwnerName}"
       changes:
         - sql:
-            sql: grant select on int_sitefile to ${externalOwnerName};
-        - rollback: revoke select on int_sitefile from ${externalOwnerName};
+            sql: grant select on int_sitefile to ${internalOwnerName};
+        - rollback: revoke select on int_sitefile from ${internalOwnerName};
