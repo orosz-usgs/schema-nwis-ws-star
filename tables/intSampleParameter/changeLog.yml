@@ -1,0 +1,19 @@
+databaseChangeLog:
+  - preConditions:
+    - dbms:
+        type: oracle
+
+  - changeSet:
+      author: drsteini
+      id: "create.table.int_sample_parameter"
+      preConditions:
+        - onFail: MARK_RAN
+        - onError: HALT
+        - not:
+          - tableExists:
+              tableName: int_sample_parameter
+      changes:
+        - sqlFile:
+            path: intSampleParameter.sql
+            relativeToChangelogFile: true
+        - rollback: drop table int_sample_parameter cascade constraints purge;

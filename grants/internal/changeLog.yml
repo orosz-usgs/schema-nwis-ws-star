@@ -205,11 +205,11 @@ databaseChangeLog:
 
   - changeSet:
       author: drsteini
-      id: "grant.select.sample_parameter.${internalOwnerName}"
+      id: "grant.select.int_sample_parameter.${internalOwnerName}"
       changes:
         - sql:
-            sql: grant select on sample_parameter to ${internalOwnerName};
-        - rollback: revoke select on sample_parameter from ${internalOwnerName};
+            sql: grant select on int_sample_parameter to ${internalOwnerName};
+        - rollback: revoke select on int_sample_parameter from ${internalOwnerName};
 
   - changeSet:
       author: drsteini
