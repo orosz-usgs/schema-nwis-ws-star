@@ -52,6 +52,10 @@ databaseChangeLog:
       relativeToChangelogFile: true
 
   - include:
+      file: "intSampleParameter/changeLog.yml"
+      relativeToChangelogFile: true
+
+  - include:
       file: "intSitefile/changeLog.yml"
       relativeToChangelogFile: true
 
