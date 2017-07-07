@@ -141,14 +141,6 @@ databaseChangeLog:
 
   - changeSet:
       author: drsteini
-      id: "grant.select.nawqa_sites.${internalOwnerName}"
-      changes:
-        - sql:
-            sql: grant select on nawqa_sites to ${internalOwnerName};
-        - rollback: revoke select on nawqa_sites from ${internalOwnerName};
-
-  - changeSet:
-      author: drsteini
       id: "grant.select.nwis_district_cds_by_host.${internalOwnerName}"
       changes:
         - sql:
