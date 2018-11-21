@@ -17,6 +17,7 @@ services:
       - NWIS_WS_STAR_OWNER=${NWIS_WS_STAR_OWNER}
       - NWIS_WS_STAR_OWNER_PASSWORD=${NWIS_WS_STAR_OWNER_PASSWORD}
       - NWIS_WS_STAR_DATABASE_NAME=${NWIS_WS_STAR_DATABASE_NAME}
+      - NWIS_WS_STAR_SCHEMA_NAME=${NWIS_WS_STAR_SCHEMA_NAME}
 
     volumes:
       - ./liquibase/changeLogs:/opt/liquibase/workspace
