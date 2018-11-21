@@ -8,3 +8,16 @@ services:
     ports:
       - 5434:5432
     container_name: NWIS_WS_Star_Database
+
+  liquibase:
+    build:
+      context: ./liquibase
+    environment:
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - NWIS_WS_STAR_OWNER=${NWIS_WS_STAR_OWNER}
+      - NWIS_WS_STAR_OWNER_PASSWORD=${NWIS_WS_STAR_OWNER_PASSWORD}
+      - NWIS_WS_STAR_DATABASE_NAME=${NWIS_WS_STAR_DATABASE_NAME}
+
+    volumes:
+      - ./liquibase/changeLogs:/opt/liquibase/workspace
+      - ./liquibase/logs:/opt/liquibase/logs
