@@ -1,6 +1,7 @@
 version: '3'
 services:
   db:
+    image: wqp_nwis_db
     build:
       context: .
     environment:
@@ -10,6 +11,7 @@ services:
     container_name: NWIS_WS_Star_Database
 
   liquibase:
+    image: wqp_nwis_liquibase
     build:
       context: ./liquibase
     environment:
@@ -18,7 +20,13 @@ services:
       - NWIS_WS_STAR_OWNER_PASSWORD=${NWIS_WS_STAR_OWNER_PASSWORD}
       - NWIS_WS_STAR_DATABASE_NAME=${NWIS_WS_STAR_DATABASE_NAME}
       - NWIS_WS_STAR_SCHEMA_NAME=${NWIS_WS_STAR_SCHEMA_NAME}
+      - EXTERNAL_OWNER=${EXTERNAL_OWNER}
+      - EXTERNAL_OWNER_PASSWORD=${EXTERNAL_OWNER_PASSWORD}
+      - INTERNAL_OWNER=${INTERNAL_OWNER}
+      - INTERNAL_OWNER_PASSWORD=${INTERNAL_OWNER_PASSWORD}
 
     volumes:
       - ./liquibase/changeLogs:/opt/liquibase/workspace
       - ./liquibase/logs:/opt/liquibase/logs
+      - ./liquibase/dbInit:/docker-entrypoint-initdb.d
+

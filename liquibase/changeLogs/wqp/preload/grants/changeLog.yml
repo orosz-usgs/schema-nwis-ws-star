@@ -1,7 +1,9 @@
 databaseChangeLog:
   - preConditions:
     - dbms:
-        type: oracle
+        type: postgresql
+    -runningAs:
+        username: ${NWIS_WS_STAR_OWNER}
 
   - include:
       file: "external/changeLog.yml"

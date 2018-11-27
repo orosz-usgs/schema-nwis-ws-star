@@ -1,0 +1,14 @@
+databaseChangeLog:
+  - preConditions:
+    - dbms:
+        type: postgresql
+    - runningAs:
+        username: ${NWIS_WS_STAR_OWNER}
+
+  - include:
+      file: "grants/changeLog.yml"
+      relativeToChangelogFile: true
+
+  - include:
+      file: "tables/changeLog.yml"
+      relativeToChangelogFile: true

@@ -27,6 +27,32 @@ databaseChangeLog:
 
   - changeSet:
       author: mbucknell
+      id: "create.project.owner.role.${EXTERNAL_OWNER}"
+      preConditions:
+        - onFail: MARK_RAN
+        - onError: HALT
+        - sqlCheck:
+            expectedResult: 0
+            sql: select count(*) from pg_roles where rolname = '${EXTERNAL_OWNER}';
+      changes:
+        - sql: create role ${EXTERNAL_OWNER} with login password '${EXTERNAL_OWNER_PASSWORD}';
+        - rollback: drop role if exists ${EXTERNAL_OWNER};
+
+  - changeSet:
+      author: mbucknell
+      id: "create.project.owner.role.${INTERNAL_OWNER}"
+      preConditions:
+        - onFail: MARK_RAN
+        - onError: HALT
+        - sqlCheck:
+            expectedResult: 0
+            sql: select count(*) from pg_roles where rolname = '${INTERNAL_OWNER}';
+      changes:
+        - sql: create role ${INTERNAL_OWNER} with login password '${INTERNAL_OWNER_PASSWORD}';
+        - rollback: drop role if exists ${INTERNAL_OWNER};
+
+  - changeSet:
+      author: mbucknell
       id: "create.project.database.${NWIS_WS_STAR_DATABASE_NAME}"
       preConditions:
         - onFail: MARK_RAN
