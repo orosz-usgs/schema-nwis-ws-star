@@ -1,0 +1,21 @@
+databaseChangeLog:
+  - preConditions:
+    - dbms:
+        type: postgresql
+    -runningAs:
+        username: ${NWIS_WS_STAR_OWNER}
+
+  - changeSet:
+      author: drsteini
+      id: "create.table.county"
+      preConditions:
+        - onFail: MARK_RAN
+        - onError: HALT
+        - not:
+          - tableExists:
+              tableName: county
+      changes:
+        - sqlFile:
+            path: county.sql
+            relativeToChangelogFile: true
+        - rollback: drop table if exists county cascade;

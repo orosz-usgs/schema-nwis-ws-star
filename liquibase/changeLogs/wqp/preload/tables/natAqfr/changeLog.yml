@@ -1,0 +1,21 @@
+databaseChangeLog:
+  - preConditions:
+    - dbms:
+        type: postgresql
+    -runningAs:
+        username: ${NWIS_WS_STAR_OWNER}
+
+  - changeSet:
+      author: drsteini
+      id: "create.table.nat_aqfr"
+      preConditions:
+        - onFail: MARK_RAN
+        - onError: HALT
+        - not:
+          - tableExists:
+              tableName: nat_aqfr
+      changes:
+        - sqlFile:
+            path: natAqfr.sql
+            relativeToChangelogFile: true
+        - rollback: drop table nat_aqfr if exists cascade;

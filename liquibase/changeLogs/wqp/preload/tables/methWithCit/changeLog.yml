@@ -1,0 +1,21 @@
+databaseChangeLog:
+  - preConditions:
+    - dbms:
+        type: postgresql
+    -runningAs:
+        username: ${NWIS_WS_STAR_OWNER}
+
+  - changeSet:
+      author: drsteini
+      id: "create.table.meth_with_cit"
+      preConditions:
+        - onFail: MARK_RAN
+        - onError: HALT
+        - not:
+          - tableExists:
+              tableName: meth_with_cit
+      changes:
+        - sqlFile:
+            path: methWithCit.sql
+            relativeToChangelogFile: true
+        - rollback: drop table if exsits meth_with_cit cascade;

@@ -1,0 +1,21 @@
+databaseChangeLog:
+  - preConditions:
+    - dbms:
+        type: postgresql
+    -runningAs:
+        username: ${NWIS_WS_STAR_OWNER}
+
+  - changeSet:
+      author: drsteini
+      id: "create.table.nwis_wqx_rpt_lev_cd"
+      preConditions:
+        - onFail: MARK_RAN
+        - onError: HALT
+        - not:
+          - tableExists:
+              tableName: nwis_wqx_rpt_lev_cd
+      changes:
+        - sqlFile:
+            path: nwisWqxRptLevCd.sql
+            relativeToChangelogFile: true
+        - rollback: drop table if exists nwis_wqx_rpt_lev_cd cascade;
