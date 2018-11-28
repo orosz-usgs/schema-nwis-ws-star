@@ -2,7 +2,7 @@ databaseChangeLog:
   - preConditions:
     - dbms:
         type: postgresql
-    -runningAs:
+    - runningAs:
         username: ${NWIS_WS_STAR_OWNER}
 
   - include:

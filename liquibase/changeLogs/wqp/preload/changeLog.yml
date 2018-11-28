@@ -12,3 +12,7 @@ databaseChangeLog:
   - include:
       file: "tables/changeLog.yml"
       relativeToChangelogFile: true
+
+  - include:
+      file: "functions/changeLog.yml"
+      relativeToChangelogFile: true

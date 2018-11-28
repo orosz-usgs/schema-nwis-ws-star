@@ -18,4 +18,4 @@ databaseChangeLog:
         - sqlFile:
             path: natAqfr.sql
             relativeToChangelogFile: true
-        - rollback: drop table nat_aqfr if exists cascade;
+        - rollback: drop table if exists nat_aqfr cascade;
