@@ -44,7 +44,7 @@ ${LIQUIBASE_HOME}/liquibase \
 	--username=${NWIS_WS_STAR_OWNER} \
 	--password=${NWIS_WS_STAR_OWNER_PASSWORD} \
 	--logLevel=debug \
-	updateTestingRollback \
+	update \
 	-DNWIS_WS_STAR_OWNER=${NWIS_WS_STAR_OWNER} \
 	-DNWIS_WS_STAR_SCHEMA_NAME=${NWIS_WS_STAR_SCHEMA_NAME} \
 	-DEXTERNAL_OWNER=${EXTERNAL_OWNER} \

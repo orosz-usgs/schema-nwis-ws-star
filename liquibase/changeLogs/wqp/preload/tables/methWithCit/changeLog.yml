@@ -18,4 +18,4 @@ databaseChangeLog:
         - sqlFile:
             path: methWithCit.sql
             relativeToChangelogFile: true
-        - rollback: drop table if exsits meth_with_cit cascade;
+        - rollback: drop table if exists meth_with_cit cascade;
