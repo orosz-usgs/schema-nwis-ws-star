@@ -9,7 +9,7 @@ create or replace function ${NWIS_WS_STAR_SCHEMA_NAME}.determine_project_id
         nawqa text := ''National Water Quality Assessment Program (NAWQA)'';
         rtn text;
     begin
-        rtn = null;
+        rtn := null;
 
         if p_site_no is not null then
             --Only sites in the nawqa_sites file are eligible
