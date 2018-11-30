@@ -4,16 +4,18 @@ create or replace function ${NWIS_WS_STAR_SCHEMA_NAME}.determine_project_id
       p_71999_value       in ${NWIS_WS_STAR_SCHEMA_NAME}.qw_result.result_unrnd_va%type,
       p_sample_start_date in ${NWIS_WS_STAR_SCHEMA_NAME}.qw_sample.sample_start_dt%type,
       p_project_cd        in ${NWIS_WS_STAR_SCHEMA_NAME}.qw_sample.project_cd%type)
-        returns text as '
+        returns text
+      as $$
+
     declare
-        nawqa text := ''National Water Quality Assessment Program (NAWQA)'';
+        nawqa text := 'National Water Quality Assessment Program (NAWQA)';
         rtn text;
     begin
         rtn := null;
 
         if p_site_no is not null then
             --Only sites in the nawqa_sites file are eligible
-            if p_sample_start_date >= to_date(''2001-10-01'', ''yyyy-mm-dd'') then
+            if p_sample_start_date >= to_date('2001-10-01', 'yyyy-mm-dd') then
                 if p_71999_value = 20 then
                     rtn := nawqa;
                 else
@@ -36,5 +38,5 @@ create or replace function ${NWIS_WS_STAR_SCHEMA_NAME}.determine_project_id
         end if;
 
         return rtn;
-    end;'
-language plpgsql;
+    end;
+    $$ language plpgsql;
