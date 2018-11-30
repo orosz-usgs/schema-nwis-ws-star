@@ -1,5 +1,5 @@
 create unlogged table if not exists ${NWIS_WS_STAR_SCHEMA_NAME}.tu
-(tu_id                          integer                     primary key
+(tu_id                          integer
 ,tu_1_cd                        character varying (1)
 ,tu_1_nm                        character varying (35)
 ,tu_2_cd                        character varying (1)
@@ -22,4 +22,5 @@ create unlogged table if not exists ${NWIS_WS_STAR_SCHEMA_NAME}.tu
 ,tu_king_id                     integer
 ,tu_rnk_id                      integer
 ,tu_md                          date
+,primary key (tu_id)
 ) with (fillfactor = 100);

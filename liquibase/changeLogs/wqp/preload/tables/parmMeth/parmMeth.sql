@@ -1,5 +1,5 @@
 create unlogged table if not exists ${NWIS_WS_STAR_SCHEMA_NAME}.parm_meth
-(parm_cd                        character varying (5)    constraint nn_parm_meth_parm not null
+(parm_cd                        character varying (5)    not null
 ,meth_cd                        character varying (5)
 ,parm_meth_lgcy_cd              character varying (1)
 ,parm_meth_rnd_tx               character varying (10)

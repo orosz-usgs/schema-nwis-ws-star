@@ -1,5 +1,5 @@
 create unlogged table if not exists ${NWIS_WS_STAR_SCHEMA_NAME}.parm
-(parm_cd                        character varying (5)    primary key
+(parm_cd                        character varying (5)
 ,parm_nm                        character varying (29)
 ,parm_rmk_tx                    character varying (256)
 ,parm_unt_tx                    character varying (10)
@@ -27,4 +27,5 @@ create unlogged table if not exists ${NWIS_WS_STAR_SCHEMA_NAME}.parm
 ,wqpcrosswalk                   text
 ,srsname                        text
 ,multiplier                     character varying (6)
+,primary key (parm_cd)
 ) with (fillfactor = 100);

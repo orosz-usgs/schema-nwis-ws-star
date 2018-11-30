@@ -10,6 +10,5 @@ create unlogged table if not exists ${NWIS_WS_STAR_SCHEMA_NAME}. county
 ,county_max_alt_va              character varying (8)
 ,county_min_alt_va              character varying (8)
 ,county_md                      character varying (8)
-,constraint county_pk
-  primary key (country_cd, state_cd, county_cd)
+,primary key (country_cd, state_cd, county_cd)
 ) with (fillfactor = 100)

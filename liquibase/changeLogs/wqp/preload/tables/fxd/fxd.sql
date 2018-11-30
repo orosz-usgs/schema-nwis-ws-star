@@ -7,6 +7,5 @@ create unlogged table if not exists ${NWIS_WS_STAR_SCHEMA_NAME}.fxd
 ,fxd_init_nm                    character varying (16)
 ,fxd_rev_dt                     date
 ,fxd_rev_nm                     character varying (16)
-,constraint fxd_pk
-  primary key (parm_cd, fxd_va)
+,primary key (parm_cd, fxd_va)
 ) with (fillfactor = 100);

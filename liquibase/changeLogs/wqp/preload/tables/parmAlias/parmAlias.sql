@@ -6,6 +6,5 @@ create unlogged table if not exists ${NWIS_WS_STAR_SCHEMA_NAME}.parm_alias
 ,parm_alias_init_nm             character varying (16)
 ,parm_alias_rev_dt              date
 ,parm_alias_rev_nm              character varying (16)
-,constraint parm_alias_pk
-  primary key (parm_cd, parm_alias_cd)
+,primary key (parm_cd, parm_alias_cd)
 ) with (fillfactor = 100);
