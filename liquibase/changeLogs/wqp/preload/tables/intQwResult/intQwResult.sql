@@ -4,16 +4,16 @@ create unlogged table if not exists ${NWIS_WS_STAR_SCHEMA_NAME}.int_qw_result
 ,record_no           character varying (24)
 ,parm_cd             character varying (15)
 ,meth_cd             character varying (15)
-,result_va           double precision
+,result_va           decimal
 ,result_va_tx        character varying (60)
 ,result_sg           character varying (3)
 ,result_rd           character varying (3)
 ,remark_cd           character varying (3 )
-,rpt_lev_va          double precision
+,rpt_lev_va          decimal
 ,rpt_lev_va_tx       character varying (60)
 ,rpt_lev_sg          character varying (3)
 ,rpt_lev_cd          character varying (18 )
-,result_rnd_va       double precision
+,result_rnd_va       decimal
 ,result_rnd_va_tx    character varying (60)
 ,remark_rnd_cd       character varying (3)
 ,dqi_cd              character varying (3)
@@ -22,7 +22,7 @@ create unlogged table if not exists ${NWIS_WS_STAR_SCHEMA_NAME}.int_qw_result
 ,prep_dt             date
 ,anl_set_no          character varying (36)
 ,anl_dt              date
-,lab_std_dev_va      double precision
+,lab_std_dev_va      decimal
 ,lab_std_dev_va_tx   character varying (60)
 ,lab_std_dev_sg      character varying (3)
 ,anl_ent_cd          character varying (24)

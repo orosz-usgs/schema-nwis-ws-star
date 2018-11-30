@@ -7,8 +7,8 @@ create unlogged table if not exists ${NWIS_WS_STAR_SCHEMA_NAME}.int_sitefile
 ,station_ix                     character varying (150)
 ,lat_va                         character varying (33)
 ,long_va                        character varying (36)
-,dec_lat_va                     double precision
-,dec_long_va                    double precision
+,dec_lat_va                     decimal
+,dec_long_va                    decimal
 ,coord_meth_cd                  character varying (3)
 ,coord_acy_cd                   character varying (3)
 ,coord_datum_cd                 character varying (30)
