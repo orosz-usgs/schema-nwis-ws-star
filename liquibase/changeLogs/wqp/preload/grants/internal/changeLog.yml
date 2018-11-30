@@ -1,0 +1,14 @@
+databaseChangeLog:
+  - preConditions:
+    - dbms:
+        type: postgresql
+    -runningAs:
+        username: ${NWIS_WS_STAR_OWNER}
+
+  - changeSet:
+      author: mbucknell
+      id: "grant.select.tables.${INTERNAL_OWNER}"
+      changes:
+        - sql:
+            sql: alter default privileges in schema ${NWIS_WS_STAR_SCHEMA_NAME} grant select on tables  to ${INTERNAL_OWNER};
+        - rollback: alter default privileges in schema ${NWIS_WS_STAR_SCHEMA_NAME} revoke select on tables from ${INTERNAL_OWNER};

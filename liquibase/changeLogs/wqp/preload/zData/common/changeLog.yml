@@ -1,0 +1,82 @@
+databaseChangeLog:
+  - preConditions:
+    - dbms:
+        type: postgresql
+    -runningAs:
+        username: ${NWIS_WS_STAR_OWNER}
+
+  - changeSet:
+      id: load.${NWIS_WS_STAR_SCHEMA_NAME}.lat_long_accuracy
+      author: drsteini
+      runOnChange: true
+      changes:
+        - delete:
+            schemaName: ${NWIS_WS_STAR_SCHEMA_NAME}
+            tableName: lat_long_accuracy
+        - loadData:
+            encoding: UTF-8
+            file: lat_long_accuracy.tsv
+            relativeToChangelogFile: true
+            separator: \t
+            schemaName: ${NWIS_WS_STAR_SCHEMA_NAME}
+            tableName: lat_long_accuracy
+        - rollback: select 'no rollback - you must restore previous lat_long_accuracy.tsv and rerun manually';
+
+  - changeSet:
+      id: load.${NWIS_WS_STAR_SCHEMA_NAME}.nwis_district_cds_by_host
+      author: drsteini
+      runOnChange: true
+      changes:
+        - delete:
+            schemaName: ${NWIS_WS_STAR_SCHEMA_NAME}
+            tableName: nwis_district_cds_by_host
+        - loadData:
+            encoding: UTF-8
+            file: nwis_district_cds_by_host.tsv
+            relativeToChangelogFile: true
+            separator: \t
+            schemaName: ${NWIS_WS_STAR_SCHEMA_NAME}
+            tableName: nwis_district_cds_by_host
+            columns:
+              - column:
+                  name: LAST_UPD_DATE
+                  type: DATE
+        - rollback: select 'no rollback - you must restore previous nwis_district_cds_by_host.tsv and rerun manually';
+
+  - changeSet:
+      id: load.${NWIS_WS_STAR_SCHEMA_NAME}.nwis_wqx_medium_cd
+      author: drsteini
+      runOnChange: true
+      changes:
+        - delete:
+            schemaName: ${NWIS_WS_STAR_SCHEMA_NAME}
+            tableName: nwis_wqx_medium_cd
+        - loadData:
+            encoding: UTF-8
+            file: nwis_wqx_medium_cd.tsv
+            relativeToChangelogFile: true
+            separator: \t
+            schemaName: ${NWIS_WS_STAR_SCHEMA_NAME}
+            tableName: nwis_wqx_medium_cd
+            columns:
+              - column:
+                  name: LOAD_DATE
+                  type: DATE
+        - rollback: select 'no rollback - you must restore previous nwis_wqx_medium_cd.tsv and rerun manually';
+
+  - changeSet:
+      id: load.${NWIS_WS_STAR_SCHEMA_NAME}.nwis_wqx_rpt_lev_cd
+      author: drsteini
+      runOnChange: true
+      changes:
+        - delete:
+            schemaName: ${NWIS_WS_STAR_SCHEMA_NAME}
+            tableName: nwis_wqx_rpt_lev_cd
+        - loadData:
+            encoding: UTF-8
+            file: nwis_wqx_rpt_lev_cd.tsv
+            relativeToChangelogFile: true
+            separator: \t
+            schemaName: ${NWIS_WS_STAR_SCHEMA_NAME}
+            tableName: nwis_wqx_rpt_lev_cd
+        - rollback: select 'no rollback - you must restore previous nwis_wqx_rpt_lev_cd.tsv and rerun manually';
