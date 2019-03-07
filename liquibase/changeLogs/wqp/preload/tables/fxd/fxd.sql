@@ -1,6 +1,6 @@
 create unlogged table if not exists ${NWIS_WS_STAR_SCHEMA_NAME}.fxd
 (parm_cd                        character varying (5)
-,fxd_va                         integer
+,fxd_va                         decimal
 ,fxd_nm                         character varying (20)
 ,fxd_tx                         character varying (80)
 ,fxd_init_dt                    date
