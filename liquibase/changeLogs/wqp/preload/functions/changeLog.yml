@@ -8,3 +8,7 @@ databaseChangeLog:
     include:
         file: "etlHelper/changeLog.yml"
         relativeToChangelogFile: true
+
+    include:
+        file: "table/changeLog.yml"
+        relativeToChangelogFile: true
