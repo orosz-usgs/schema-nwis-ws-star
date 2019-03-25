@@ -1,0 +1,14 @@
+databaseChangeLog:
+  - preConditions:
+    - dbms:
+        type: postgresql
+
+  - changeSet:
+      author: mbucknell
+      id: "create.function.truncate_table"
+      changes:
+        - sqlFile:
+            path: truncateTable.sql
+            relativeToChangelogFile: true
+            splitStatements: false
+        - rollback: drop function if exists truncate_table(character varying);
