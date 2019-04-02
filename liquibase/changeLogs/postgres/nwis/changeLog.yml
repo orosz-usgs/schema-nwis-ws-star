@@ -11,10 +11,9 @@ databaseChangeLog:
       preConditions:
         - onFail: MARK_RAN
         - onError: HALT
-        - not:
-          - tableExists:
-              schemaName: public
-              tableName: databasechangelog
+        - tableExists:
+            schemaName: public
+            tableName: databasechangelog
       changes:
         - sql: grant select, insert, update, delete on public.databasechangelog to ${NWIS_SCHEMA_OWNER_USERNAME}
         - rollback: revoke select, insert, update, delete on public.databasechangelog from ${NWIS_SCHEMA_OWNER_USERNAME}
@@ -25,10 +24,9 @@ databaseChangeLog:
       preConditions:
         - onFail: MARK_RAN
         - onError: HALT
-        - not:
-          - tableExists:
-              schemaName: public
-              tableName: databasechangeloglock
+        - tableExists:
+            schemaName: public
+            tableName: databasechangeloglock
       changes:
         - sql: grant select, insert, update, delete on public.databasechangeloglock to ${NWIS_SCHEMA_OWNER_USERNAME}
         - rollback: revoke select, insert, update, delete on public.databasechangeloglock from ${NWIS_SCHEMA_OWNER_USERNAME}
