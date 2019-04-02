@@ -1,0 +1,17 @@
+databaseChangeLog:
+  - preConditions:
+    - dbms:
+        type: postgresql
+    - runningAs:
+        username: ${NWIS_SCHEMA_OWNER_USERNAME}
+
+  - changeSet:
+      author: mbucknell
+      id: "create.function.${NWIS_SCHEMA_NAME}.determine_project_id"
+      changes:
+        - sqlFile:
+            path: determineProjectId.sql
+            relativeToChangelogFile: true
+            splitStatements: false
+        - rollback: drop function if exists ${NWIS_SCHEMA_NAME}.determineProjectId;
+

@@ -6,68 +6,75 @@ databaseChangeLog:
         username: postgres
 
   - changeSet:
-      author: mbucknell
-      id: "create.project.owner.role.${NWIS_WS_STAR_OWNER}"
+      author: drsteini
+      id: "create.project.db.owner.role.${NWIS_DB_OWNER_USERNAME}"
       preConditions:
         - onFail: MARK_RAN
         - onError: HALT
         - sqlCheck:
             expectedResult: 0
-            sql: select count(*) from pg_roles where rolname = '${NWIS_WS_STAR_OWNER}';
+            sql: select count(*) from pg_roles where rolname = '${NWIS_DB_OWNER_USERNAME}';
       changes:
-        - sql: create role ${NWIS_WS_STAR_OWNER} with login password '${NWIS_WS_STAR_OWNER_PASSWORD}';
-        - rollback: drop role if exists ${NWIS_WS_STAR_OWNER};
+        - sql: create role ${NWIS_DB_OWNER_USERNAME} with login password '${NWIS_DB_OWNER_PASSWORD}';
+        - rollback: drop role if exists ${NWIS_DB_OWNER_USERNAME};
+
+  - changeSet:
+      author: drsteini
+      id: "grant.${NWIS_DB_OWNER_USERNAME}.to.postgres"
+      changes:
+        - sql: grant ${NWIS_DB_OWNER_USERNAME} to postgres;
+        - rollback: revoke ${NWIS_DB_OWNER_USERNAME} from postgres;
+
+  - changeSet:
+      author: mbucknell
+      id: "create.project.owner.role.${NWIS_SCHEMA_OWNER_USERNAME}"
+      preConditions:
+        - onFail: MARK_RAN
+        - onError: HALT
+        - sqlCheck:
+            expectedResult: 0
+            sql: select count(*) from pg_roles where rolname = '${NWIS_SCHEMA_OWNER_USERNAME}';
+      changes:
+        - sql: create role ${NWIS_SCHEMA_OWNER_USERNAME} with login password '${NWIS_SCHEMA_OWNER_PASSWORD}';
+        - rollback: drop role if exists ${NWIS_SCHEMA_OWNER_USERNAME};
 
   - changeSet:
       author: mbucknel
-      id: "grant.${NWIS_WS_STAR_OWNER}.to.postgres"
+      id: "grant.${NWIS_SCHEMA_OWNER_USERNAME}.to.postgres"
       changes:
-        - sql: grant ${NWIS_WS_STAR_OWNER} to postgres;
-        - rollback: revoke ${NWIS_WS_STAR_OWNER} from postgres;
+        - sql: grant ${NWIS_SCHEMA_OWNER_USERNAME} to postgres;
+        - rollback: revoke ${NWIS_SCHEMA_OWNER_USERNAME} from postgres;
 
   - changeSet:
       author: mbucknell
-      id: "create.project.owner.role.${EXTERNAL_OWNER}"
+      id: "create.project.owner.role.${WQP_SCHEMA_OWNER_USERNAME}"
       preConditions:
         - onFail: MARK_RAN
         - onError: HALT
         - sqlCheck:
             expectedResult: 0
-            sql: select count(*) from pg_roles where rolname = '${EXTERNAL_OWNER}';
+            sql: select count(*) from pg_roles where rolname = '${WQP_SCHEMA_OWNER_USERNAME}';
       changes:
-        - sql: create role ${EXTERNAL_OWNER} with login password '${EXTERNAL_OWNER_PASSWORD}';
-        - rollback: drop role if exists ${EXTERNAL_OWNER};
+        - sql: create role ${WQP_SCHEMA_OWNER_USERNAME} with login password '${WQP_SCHEMA_OWNER_PASSWORD}';
+        - rollback: drop role if exists ${WQP_SCHEMA_OWNER_USERNAME};
 
   - changeSet:
       author: mbucknell
-      id: "create.project.owner.role.${INTERNAL_OWNER}"
+      id: "create.project.database.${NWIS_DATABASE_NAME}"
       preConditions:
         - onFail: MARK_RAN
         - onError: HALT
         - sqlCheck:
             expectedResult: 0
-            sql: select count(*) from pg_roles where rolname = '${INTERNAL_OWNER}';
-      changes:
-        - sql: create role ${INTERNAL_OWNER} with login password '${INTERNAL_OWNER_PASSWORD}';
-        - rollback: drop role if exists ${INTERNAL_OWNER};
-
-  - changeSet:
-      author: mbucknell
-      id: "create.project.database.${NWIS_WS_STAR_DATABASE_NAME}"
-      preConditions:
-        - onFail: MARK_RAN
-        - onError: HALT
-        - sqlCheck:
-            expectedResult: 0
-            sql: select count(*) from pg_database where datname = '$NWIS_WS_STAR_DATABASE_NAME}';
+            sql: select count(*) from pg_database where datname = '${NWIS_DATABASE_NAME}';
       runInTransaction: false
       changes:
-        - sql: create database ${NWIS_WS_STAR_DATABASE_NAME} with owner = ${NWIS_WS_STAR_OWNER};
-        - rollback: drop database if exists ${NWIS_WS_STAR_DATABASE_NAME};
+        - sql: create database ${NWIS_DATABASE_NAME} with owner = ${NWIS_DB_OWNER_USERNAME};
+        - rollback: drop database if exists ${NWIS_DATABASE_NAME};
 
   - changeSet:
-      author: mbucknell
-      id: "alter.database.${NWIS_WS_STAR_DATABASE_NAME}.search_path"
+      author: drsteini
+      id: "alter.role.${NWIS_SCHEMA_OWNER_USERNAME}.search_path"
       changes:
-        - sql: alter database ${NWIS_WS_STAR_DATABASE_NAME} set search_path = "$user", ${NWIS_WS_STAR_OWNER}, public;
-        - rollback: alter database ${NWIS_WS_STAR_DATABASE_NAME} reset search_path;
+        - sql: alter role "${NWIS_SCHEMA_OWNER_USERNAME}" set search_path = "$user", ${NWIS_SCHEMA_NAME}, ${WQP_SCHEMA_NAME}, public, tiger;
+        - rollback: alter role "${NWIS_SCHEMA_OWNER_USERNAME}" reset search_path;
