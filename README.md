@@ -4,10 +4,7 @@ Liquibase scripts for creating the NWIS\_WS\_STAR database schema objects in a P
 are used for the Water Quality Portal (WQP).
 
 ## Docker
-Also included are Docker Compose scripts to:
-* Create PostgreSQL and Liquibase containers for testing the scripts.
-* Create a continuous integration PostgreSQL database container.
-* Create a PostgreSQL database container for local development containing a sampling of WQP data.
+Also included are Docker Compose scripts to create PostgreSQL and Liquibase containers for testing the scripts.
 
 ### Docker Network
 A named Docker Network is required for local running of the containers. Creating this network allows you to run all of the WQP locally in individual containers without having to maintain a massive Docker Compose script encompassing all of the required pieces. (It is also possible to run portions of the system locally against remote services.) The name of this network is provided by the __LOCAL_NETWORK_NAME__ environment variable. The following is a sample command for creating your own local network. In this example the name is wqp and the ip addresses will be 172.25.0.x
@@ -23,13 +20,13 @@ the following (shown are example values):
 ```
 POSTGRES_PASSWORD=<changeMe>
 
-NWIS_DATABASE_ADDRESS=<ars_database_host>
-NWIS_DATABASE_NAME=<ars_db>
+NWIS_DATABASE_ADDRESS=<nwis_database_host>
+NWIS_DATABASE_NAME=<nwis_db>
 NWIS_DB_OWNER_USERNAME=<wqp_core>
 NWIS_DB_OWNER_PASSWORD=<changeMe>
 
-NWIS_SCHEMA_NAME=<ars>
-NWIS_SCHEMA_OWNER_USERNAME=<ars_owner>
+NWIS_SCHEMA_NAME=<nwis>
+NWIS_SCHEMA_OWNER_USERNAME=<nwis_owner>
 NWIS_SCHEMA_OWNER_PASSWORD=<changeMe>
 
 WQP_SCHEMA_NAME=<wqp>
