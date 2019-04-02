@@ -71,3 +71,10 @@ databaseChangeLog:
       changes:
         - sql: create database ${NWIS_DATABASE_NAME} with owner = ${NWIS_DB_OWNER_USERNAME};
         - rollback: drop database if exists ${NWIS_DATABASE_NAME};
+
+  - changeSet:
+      author: drsteini
+      id: "alter.role.${NWIS_SCHEMA_OWNER_USERNAME}.search_path"
+      changes:
+        - sql: alter role "${NWIS_SCHEMA_OWNER_USERNAME}" set search_path = "$user", ${NWIS_SCHEMA_NAME}, ${WQP_SCHEMA_NAME}, public, tiger;
+        - rollback: alter role "${NWIS_SCHEMA_OWNER_USERNAME}" reset search_path;

@@ -32,6 +32,7 @@ NWIS_SCHEMA_NAME=<ars>
 NWIS_SCHEMA_OWNER_USERNAME=<ars_owner>
 NWIS_SCHEMA_OWNER_PASSWORD=<changeMe>
 
+WQP_SCHEMA_NAME=<wqp>
 WQP_SCHEMA_OWNER_USERNAME=<wqp_core>
 WQP_SCHEMA_OWNER_PASSWORD=<changeMe>
 
@@ -58,6 +59,7 @@ JDBC_JAR=<postgresql-42.2.5.jar>
 * **NWIS_SCHEMA_OWNER_USERNAME** - Role will own the database objects.
 * **NWIS_SCHEMA_OWNER_PASSWORD** - Password for the **NWIS_SCHEMA_OWNER_USERNAME** role.
 
+* **WQP_SCHEMA_NAME** - Name of the schema for the WQP objects.
 * **WQP_SCHEMA_OWNER_USERNAME** - Role which owns the WQP database objects.
 * **WQP_SCHEMA_OWNER_PASSWORD** - Password for the **WQP_SCHEMA_OWNER_USERNAME** role.
 
