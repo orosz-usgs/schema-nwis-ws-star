@@ -9,6 +9,8 @@ ${LIQUIBASE_HOME}/liquibase \
 	--username=postgres \
 	--password=${POSTGRES_PASSWORD} \
 	--logLevel=debug \
+	--liquibaseCatalogName=public \
+	--liquibaseSchemaName=public \
 	update \
 	-DPOSTGRES_PASSWORD=${POSTGRES_PASSWORD} \
 	-DNWIS_DATABASE_NAME=${NWIS_DATABASE_NAME} \
@@ -30,6 +32,8 @@ ${LIQUIBASE_HOME}/liquibase \
 	--username=postgres \
 	--password=${POSTGRES_PASSWORD} \
 	--logLevel=debug \
+	--liquibaseCatalogName=public \
+	--liquibaseSchemaName=public \
 	update \
 	-DPOSTGRES_PASSWORD=${POSTGRES_PASSWORD} \
 	-DNWIS_SCHEMA_OWNER_USERNAME=${NWIS_SCHEMA_OWNER_USERNAME} \
