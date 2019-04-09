@@ -6,21 +6,13 @@ databaseChangeLog:
         username: ${NWIS_SCHEMA_OWNER_USERNAME}
 
   - include:
-      file: "grants/changeLog.yml"
+      file: "fullCountry/changeLog.yml"
       relativeToChangelogFile: true
 
   - include:
-      file: "tables/changeLog.yml"
+      file: "fullState/changeLog.yml"
       relativeToChangelogFile: true
 
   - include:
-      file: "views/changeLog.yml"
-      relativeToChangelogFile: true
-
-  - include:
-      file: "functions/changeLog.yml"
-      relativeToChangelogFile: true
-
-  - include:
-      file: "zData/changeLog.yml"
+      file: "fullCounty/changeLog.yml"
       relativeToChangelogFile: true
