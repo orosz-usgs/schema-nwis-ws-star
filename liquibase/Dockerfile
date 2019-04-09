@@ -1,6 +1,6 @@
 FROM usgswma/openjdk:debian-stretch-openjdk-11
 
-MAINTAINER Mary Bucknell <mbucknell@usgs.gov
+LABEL maintainer="[gs-w_eto_eb_federal_employees@usgs.gov](mailto:gs-w_eto_eb_federal_employees@usgs.gov)"
 
 ############################################
 # Install Liquibase
