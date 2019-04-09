@@ -74,7 +74,15 @@ databaseChangeLog:
       relativeToChangelogFile: true
 
   - include:
+      file: "nwisStationLocal/changeLog.yml"
+      relativeToChangelogFile: true
+
+  - include:
       file: "nwisDistrictCdsByHost/changeLog.yml"
+      relativeToChangelogFile: true
+
+  - include:
+      file: "nwisStationLocal/changeLog.yml"
       relativeToChangelogFile: true
 
   - include:
