@@ -6,4 +6,5 @@ create unlogged table if not exists ${NWIS_SCHEMA_NAME}.nwis_station_local
 ,huc                character varying (12)
 ,calculated_huc_12  character varying (12)
 ,geom               geometry(point,4269)
-) with (fillfactor = 100);
+,primary key (station_id)
+);
