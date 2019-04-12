@@ -7,6 +7,34 @@ databaseChangeLog:
 
   - changeSet:
       author: mbucknell
+      id: "create.extension.postgis"
+      changes:
+        - sql: create extension if not exists postgis;
+        - rollback: drop extension if exists postgis;
+
+  - changeSet:
+      author: mbucknell
+      id: "create.extension.postgis_topology"
+      changes:
+        - sql: create extension if not exists postgis_topology;
+        - rollback: drop extension if exists postgis_topology;
+
+  - changeSet:
+      author: mbucknell
+      id: "create.extension.fuzzystrmatch"
+      changes:
+        - sql: create extension if not exists fuzzystrmatch;
+        - rollback: drop extension if exists fuzzystrmatch;
+
+  - changeSet:
+      author: mbucknell
+      id: "create.extension.postgis_tiger_geocoder"
+      changes:
+        - sql: create extension if not exists postgis_tiger_geocoder;
+        - rollback: drop extension if exists postgis_tiger_geocoder;
+
+  - changeSet:
+      author: mbucknell
       id: "create.project.schema_${NWIS_SCHEMA_NAME}"
       preConditions:
         - onFail: MARK_RAN
