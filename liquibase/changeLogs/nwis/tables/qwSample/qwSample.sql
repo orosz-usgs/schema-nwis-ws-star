@@ -6,7 +6,7 @@ create unlogged table if not exists ${NWIS_SCHEMA_NAME}.qw_sample
 ,db_no                          character varying (2)
 ,qw_db_no                       character varying (2)
 ,sample_web_cd                  boolean
-,sample_start_dt                date
+,sample_start_dt                timestamp
 ,sample_start_display_dt        character varying (19)
 ,sample_start_sg                character varying (1)
 ,sample_end_dt                  character varying (19)
