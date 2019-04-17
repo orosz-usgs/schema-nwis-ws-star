@@ -3,7 +3,7 @@
 # postgres to postgres db scripts
 ${LIQUIBASE_HOME}/liquibase \
 	--classpath=${LIQUIBASE_HOME}/lib/${JDBC_JAR} \
-	--changeLogFile=${LIQUIBASE_WORKSPACE}/postgres/postgres/changeLog.yml \
+	--changeLogFile=${LIQUIBASE_WORKSPACE_NWIS}/postgres/postgres/changeLog.yml \
 	--driver=org.postgresql.Driver \
 	--url=jdbc:postgresql://${NWIS_DATABASE_ADDRESS}:5432/postgres \
 	--username=postgres \
@@ -26,7 +26,7 @@ ${LIQUIBASE_HOME}/liquibase \
 # postgres to nwis db scripts
 ${LIQUIBASE_HOME}/liquibase \
 	--classpath=${LIQUIBASE_HOME}/lib/${JDBC_JAR} \
-	--changeLogFile=${LIQUIBASE_WORKSPACE}/postgres/nwis/changeLog.yml \
+	--changeLogFile=${LIQUIBASE_WORKSPACE_NWIS}/postgres/nwis/changeLog.yml \
 	--driver=org.postgresql.Driver \
 	--url=jdbc:postgresql://${NWIS_DATABASE_ADDRESS}:5432/${NWIS_DATABASE_NAME} \
 	--username=postgres \
