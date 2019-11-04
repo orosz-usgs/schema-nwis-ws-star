@@ -6,6 +6,14 @@ databaseChangeLog:
         username: ${NWIS_SCHEMA_OWNER_USERNAME}
 
   - include:
+      file: "agency/changeLog.yml"
+      relativeToChangelogFile: true
+
+  - include:
+      file: "altitudeDatum/changeLog.yml"
+      relativeToChangelogFile: true
+
+  - include:
       file: "altitudeMethod/changeLog.yml"
       relativeToChangelogFile: true
 
@@ -34,7 +42,15 @@ databaseChangeLog:
       relativeToChangelogFile: true
 
   - include:
+      file: "dataReliability/changeLog.yml"
+      relativeToChangelogFile: true
+
+  - include:
       file: "fxd/changeLog.yml"
+      relativeToChangelogFile: true
+
+  - include:
+      file: "huc/changeLog.yml"
       relativeToChangelogFile: true
 
   - include:
@@ -63,6 +79,10 @@ databaseChangeLog:
 
   - include:
       file: "methWithCit/changeLog.yml"
+      relativeToChangelogFile: true
+
+  - include:
+      file: "monitoringLocation/changeLog.yml"
       relativeToChangelogFile: true
 
   - include:
@@ -127,6 +147,10 @@ databaseChangeLog:
 
   - include:
       file: "state/changeLog.yml"
+      relativeToChangelogFile: true
+
+  - include:
+      file: "topographicSetting/changeLog.yml"
       relativeToChangelogFile: true
 
   - include:
