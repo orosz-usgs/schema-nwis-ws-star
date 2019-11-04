@@ -20,3 +20,21 @@ databaseChangeLog:
             path: sitefile.sql
             relativeToChangelogFile: true
         - rollback: drop table if exists ${NWIS_SCHEMA_NAME}.sitefile cascade;
+
+  - changeSet:
+      author: drsteini
+      id: "alter.table.${NWIS_SCHEMA_NAME}.sitefile.IOW-113"
+      preConditions:
+        - onFail: MARK_RAN
+        - onError: HALT
+        - tableExists:
+            schemaName: ${NWIS_SCHEMA_NAME}
+            tableName: sitefile
+      changes:
+        - sqlFile:
+            path: sitefile-IOW-113.sql
+            relativeToChangelogFile: true
+        - rollback:
+            - sqlFile:
+                path: sitefile-IOW-113-rollback.sql
+                relativeToChangelogFile: true

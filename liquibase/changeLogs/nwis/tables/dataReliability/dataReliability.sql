@@ -1,4 +1,4 @@
-create unlogged table if not exists ${NWIS_SCHEMA_NAME}.altitude_method
+create unlogged table if not exists ${NWIS_SCHEMA_NAME}.data_reliability
 (code                           character varying (25)
 ,name                           character varying (16)
 ,sort_order                     integer
