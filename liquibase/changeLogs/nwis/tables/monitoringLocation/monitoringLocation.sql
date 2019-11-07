@@ -68,4 +68,5 @@ create table if not exists ${NWIS_SCHEMA_NAME}.monitoring_location
 ,depth_src_cd                            character varying (1)
 ,geom                                    geometry(point,4269)
 ,primary key (monitoring_location_id)
+,unique (agency_cd, site_identification_number)
 )
