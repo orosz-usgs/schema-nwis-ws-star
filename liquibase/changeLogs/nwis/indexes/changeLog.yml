@@ -1,0 +1,20 @@
+databaseChangeLog:
+  - preConditions:
+    - dbms:
+        type: postgresql
+    -runningAs:
+        username: ${NWIS_SCHEMA_OWNER_USERNAME}
+
+  - changeSet:
+      author: eorosz
+      id: "create.index.${NWIS_SCHEMA_NAME}.monitoring_location_geom"
+      preConditions:
+        - onFail: MARK_RAN
+        - onError: HALT
+        - not:
+          - indexExists:
+              NWIS_SCHEMA_NAME: ${NWIS_SCHEMA_NAME}
+              indexName: monitoring_location_geom
+      changes:
+        - sql: create index monitoring_location_geo on ${NWIS_SCHEMA_NAME}.monitoring_location using gist (geom) with (fillfactor = 100);
+        - rollback: drop index if exists ${WQP_SCHEMA_NAME}.monitoring_location_geo;
