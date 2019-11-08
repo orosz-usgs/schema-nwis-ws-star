@@ -10,5 +10,5 @@ databaseChangeLog:
               NWIS_SCHEMA_NAME: ${NWIS_SCHEMA_NAME}
               indexName: monitoring_location_geom
       changes:
-        - sql: create index monitoring_location_geo on ${NWIS_SCHEMA_NAME}.monitoring_location using gist (geom);
-        - rollback: drop index if exists ${NWIS_SCHEMA_NAME}.monitoring_location_geo;
+        - sql: create index monitoring_location_geom on ${NWIS_SCHEMA_NAME}.monitoring_location using gist (geom);
+        - rollback: drop index if exists ${NWIS_SCHEMA_NAME}.monitoring_location_geom;
