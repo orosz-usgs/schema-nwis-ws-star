@@ -1,0 +1,14 @@
+databaseChangeLog:
+  - changeSet:
+      author: eorosz
+      id: "create.index.${NWIS_SCHEMA_NAME}.monitoring_location_geom"
+      preConditions:
+        - onFail: MARK_RAN
+        - onError: HALT
+        - not:
+          - indexExists:
+              NWIS_SCHEMA_NAME: ${NWIS_SCHEMA_NAME}
+              indexName: monitoring_location_geom
+      changes:
+        - sql: create index monitoring_location_geom on ${NWIS_SCHEMA_NAME}.monitoring_location using gist (geom);
+        - rollback: drop index if exists ${NWIS_SCHEMA_NAME}.monitoring_location_geom;
