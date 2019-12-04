@@ -78,3 +78,24 @@ databaseChangeLog:
       changes:
         - sql: alter role "${NWIS_SCHEMA_OWNER_USERNAME}" set search_path = "$user", ${NWIS_SCHEMA_NAME}, ${WQP_SCHEMA_NAME}, public, tiger;
         - rollback: alter role "${NWIS_SCHEMA_OWNER_USERNAME}" reset search_path;
+
+  - changeSet:
+      author: drsteini
+      id: "create.project.user.role.${WDFN_DB_READ_ONLY_USERNAME}"
+      preConditions:
+        - onFail: MARK_RAN
+        - onError: HALT
+        - sqlCheck:
+            expectedResult: 0
+            sql: select count(*) from pg_roles where rolname = '${WDFN_DB_READ_ONLY_USERNAME}';
+      changes:
+        - sql: create role ${WDFN_DB_READ_ONLY_USERNAME} with login password '${WDFN_DB_READ_ONLY_PASSWORD}';
+        - rollback: drop role if exists ${WDFN_DB_READ_ONLY_USERNAME};
+
+  - changeSet:
+      author: drsteini
+      id: "alter.role.${WDFN_DB_READ_ONLY_USERNAME}.search_path"
+      changes:
+        - sql: alter role "${WDFN_DB_READ_ONLY_USERNAME}" set search_path = "$user", ${NWIS_SCHEMA_NAME}, ${WQP_SCHEMA_NAME}, public, tiger;
+        - rollback: alter role "${WDFN_DB_READ_ONLY_USERNAME}" reset search_path;
+
