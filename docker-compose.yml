@@ -36,6 +36,8 @@ services:
       - WQP_SCHEMA_NAME=${WQP_SCHEMA_NAME}
       - WQP_SCHEMA_OWNER_USERNAME=${WQP_SCHEMA_OWNER_USERNAME}
       - WQP_SCHEMA_OWNER_PASSWORD=${WQP_SCHEMA_OWNER_PASSWORD}
+      - WDFN_DB_READ_ONLY_USERNAME=${WDFN_DB_READ_ONLY_USERNAME}
+      - WDFN_DB_READ_ONLY_PASSWORD=${WDFN_DB_READ_ONLY_PASSWORD}
     volumes:
       - ./liquibase/changeLogs:/home/java/workspace/nwis
       - ./liquibase/scripts:/docker-entrypoint-initdb.d

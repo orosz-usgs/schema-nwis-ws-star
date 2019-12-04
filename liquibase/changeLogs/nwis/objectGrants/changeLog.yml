@@ -1,0 +1,14 @@
+databaseChangeLog:
+  - preConditions:
+    - dbms:
+        type: postgresql
+    -runningAs:
+        username: ${NWIS_SCHEMA_OWNER_USERNAME}
+
+  - changeSet:
+      author: mbucknell
+      id: "grant.select.${NWIS_SCHEMA_NAME}.monitoring_location.${WDFN_DB_READ_ONLY_USERNAME}"
+      changes:
+        - sql:
+            sql: grant select on ${NWIS_SCHEMA_NAME}.monitoring_location to ${WDFN_DB_READ_ONLY_USERNAME};
+        - rollback: revoke select on ${NWIS_SCHEMA_NAME}.monitoring_location from ${WDFN_DB_READ_ONLY_USERNAME};

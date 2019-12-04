@@ -6,7 +6,7 @@ databaseChangeLog:
         username: ${NWIS_SCHEMA_OWNER_USERNAME}
 
   - include:
-      file: "grants/changeLog.yml"
+      file: "schemaGrants/changeLog.yml"
       relativeToChangelogFile: true
 
   - include:
@@ -27,4 +27,8 @@ databaseChangeLog:
 
   - include:
       file: "zData/changeLog.yml"
+      relativeToChangelogFile: true
+
+  - include:
+      file: "objectGrants/changeLog.yml"
       relativeToChangelogFile: true
