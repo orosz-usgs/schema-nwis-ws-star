@@ -20,3 +20,19 @@ databaseChangeLog:
             path: monitoringLocation.sql
             relativeToChangelogFile: true
         - rollback: drop table if exists ${NWIS_SCHEMA_NAME}.monitoring_location cascade;
+
+  - changeSet:
+      author: drsteini
+      id: "alter.table.${NWIS_SCHEMA_NAME}.monitoring_location.add.monitoring_location_identifier"
+      preConditions:
+        - onFail: MARK_RAN
+        - onError: HALT
+        - not:
+          - columnExists:
+              schemaName: ${NWIS_SCHEMA_NAME}
+              tableName: monitoring_location
+              columnName: monitoring_location_identifier
+      changes:
+        - sql:
+            sql: alter table if exists ${NWIS_SCHEMA_NAME}.monitoring_location add column if not exists monitoring_location_identifier character varying(21);
+        - rollback: alter table if exists ${NWIS_SCHEMA_NAME}.monitoring_location drop column if exists monitoring_location_identifier;
