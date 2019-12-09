@@ -92,6 +92,22 @@ databaseChangeLog:
   - include:
       file: "nawqaSites/changeLog.yml"
       relativeToChangelogFile: true
+      
+  - include:
+      file: "network/changeLog.yml"
+      relativeToChangelogFile: true
+      
+  - include:
+      file: "network_site_rel/changeLog.yml"
+      relativeToChangelogFile: true
+      
+  - include:
+      file: "network_site_rel_staging/changeLog.yml"
+      relativeToChangelogFile: true
+      
+  - include:
+      file: "network_staging/changeLog.yml"
+      relativeToChangelogFile: true
 
   - include:
       file: "nwisDistrictCdsByHost/changeLog.yml"

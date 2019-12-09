@@ -1,0 +1,22 @@
+databaseChangeLog:
+  - preConditions:
+    - dbms:
+        type: postgresql
+    -runningAs:
+        username: ${NWIS_SCHEMA_OWNER_USERNAME}
+
+  - changeSet:
+      author: ajmccart
+      id: "create.table.${NWIS_SCHEMA_NAME}.network_site_rel_staging"
+      preConditions:
+        - onFail: MARK_RAN
+        - onError: HALT
+        - not:
+          - tableExists:
+              schemaName: ${NWIS_SCHEMA_NAME}
+              tableName: network_site_rel_staging
+      changes:
+        - sqlFile:
+            path: network_site_rel_staging.sql
+            relativeToChangelogFile: true
+        - rollback: drop table if exists ${NWIS_SCHEMA_NAME}.network_site_rel_staging cascade;
