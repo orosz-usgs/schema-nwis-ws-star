@@ -3,5 +3,5 @@ create table if not exists ${NWIS_SCHEMA_NAME}.network_site_rel
 ,network_id                              integer
 ,monitoring_location_id                  integer
 ,primary key (network_site_rel_id )
-,constraint network_uk1 unique (network_id, monitoring_location_id)
-)
+,constraint network_mon_loc_uk unique (network_id, monitoring_location_id)
+);
