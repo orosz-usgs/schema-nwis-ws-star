@@ -7,16 +7,16 @@ databaseChangeLog:
 
   - changeSet:
       author: ajmccart
-      id: "create.table.${NWIS_SCHEMA_NAME}.network_staging"
+      id: "create.table.${NWIS_SCHEMA_NAME}.network_sites"
       preConditions:
         - onFail: MARK_RAN
         - onError: HALT
         - not:
           - tableExists:
               schemaName: ${NWIS_SCHEMA_NAME}
-              tableName: network_staging
+              tableName: network_sites
       changes:
         - sqlFile:
-            path: network_staging.sql
+            path: networkSites.sql
             relativeToChangelogFile: true
-        - rollback: drop table if exists ${NWIS_SCHEMA_NAME}.network_staging cascade;
+        - rollback: drop table if exists ${NWIS_SCHEMA_NAME}.network_sites cascade;

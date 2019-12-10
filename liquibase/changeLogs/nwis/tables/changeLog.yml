@@ -98,15 +98,15 @@ databaseChangeLog:
       relativeToChangelogFile: true
       
   - include:
-      file: "network_site_rel/changeLog.yml"
+      file: "networkSites/changeLog.yml"
       relativeToChangelogFile: true
       
   - include:
-      file: "network_site_rel_staging/changeLog.yml"
+      file: "networkSitesStaging/changeLog.yml"
       relativeToChangelogFile: true
       
   - include:
-      file: "network_staging/changeLog.yml"
+      file: "networkStaging/changeLog.yml"
       relativeToChangelogFile: true
 
   - include:
