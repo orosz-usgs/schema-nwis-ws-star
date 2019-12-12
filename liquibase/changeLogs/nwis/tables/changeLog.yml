@@ -50,6 +50,10 @@ databaseChangeLog:
       relativeToChangelogFile: true
 
   - include:
+      file: "groundwaterDailyValue/changeLog.yml"
+      relativeToChangelogFile: true
+
+  - include:
       file: "huc/changeLog.yml"
       relativeToChangelogFile: true
 
