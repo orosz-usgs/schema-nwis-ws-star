@@ -12,6 +12,10 @@ databaseChangeLog:
   - include:
       file: "tables/changeLog.yml"
       relativeToChangelogFile: true
+      
+  - include:
+      file: "foreignKeys/changeLog.yml"
+      relativeToChangelogFile: true
 
   - include:
       file: "views/changeLog.yml"
