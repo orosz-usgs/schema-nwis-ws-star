@@ -4,11 +4,9 @@ create table if not exists ${NWIS_SCHEMA_NAME}.groundwater_daily_value
 ,time_series_unique_id                   character varying (32)
 ,monitoring_location_id                  integer
 ,monitoring_location_identifier          character varying (21)
-,geom                                    geometry (point,4269)
 ,observered_property_id                  character varying (5)
 ,observered_property_name                text
 ,observered_property_reference           text
-,sampling_feature_name                   character varying (50)
 ,statistic_id                            character varying (5)
 ,statistic                               text
 ,statistic_reference                     text
@@ -18,8 +16,8 @@ create table if not exists ${NWIS_SCHEMA_NAME}.groundwater_daily_value
 ,unit_of_measure_reference               text
 ,result                                  text
 ,nil_reason                              text
-,approvals                               text
-,qualifiers                              text
-,grades                                  text
+,approvals                               jsonb
+,qualifiers                              jsonb
+,grades                                  jsonb
 ,primary key (groundwater_daily_value_id)
 )
