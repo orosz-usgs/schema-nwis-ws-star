@@ -20,4 +20,5 @@ create table if not exists ${NWIS_SCHEMA_NAME}.groundwater_daily_value
 ,qualifiers                              jsonb
 ,grades                                  jsonb
 ,primary key (groundwater_daily_value_id)
+,constraint groundwater_daily_value_ak unique (time_series_unique_id, time_step)
 )
