@@ -1,31 +1,31 @@
 databaseChangeLog:
   - changeSet:
       author: ajmccart
-      id: "create.foreignKeyConstraint.${NWIS_SCHEMA_NAME}.network_sites_fk_1"
+      id: "create.foreignKeyConstraint.${NWIS_SCHEMA_NAME}.network_sites_fk_network"
       preConditions:
         - onFail: MARK_RAN
         - onError: HALT
         - not:
           - foreignKeyConstraintExists:
               NWIS_SCHEMA_NAME: ${NWIS_SCHEMA_NAME}
-              foreignKeyName: network_sites_fk_1
+              foreignKeyName: network_sites_fk_network
       changes:
-        - sql: alter table network_sites add constraint network_sites_fk_1 foreign key (network_id) references ${NWIS_SCHEMA_NAME}.network(network_id);
-        - rollback: drop constraint if exists ${NWIS_SCHEMA_NAME}.network_sites_fk_1;
+        - sql: alter table network_sites add constraint network_sites_fk_network foreign key (network_id) references ${NWIS_SCHEMA_NAME}.network(network_id);
+        - rollback: drop constraint if exists ${NWIS_SCHEMA_NAME}.network_sites_fk_network;
         
   - changeSet:
       author: ajmccart
-      id: "create.foreignKeyConstraint.${NWIS_SCHEMA_NAME}.network_sites_fk_2"
+      id: "create.foreignKeyConstraint.${NWIS_SCHEMA_NAME}.networks_sites_fk_monitoring_location"
       preConditions:
         - onFail: MARK_RAN
         - onError: HALT
         - not:
           - foreignKeyConstraintExists:
               NWIS_SCHEMA_NAME: ${NWIS_SCHEMA_NAME}
-              foreignKeyName: network_sites_fk_2
+              foreignKeyName: networks_sites_fk_monitoring_location
       changes:
-        - sql: alter table network_sites add constraint network_sites_fk_2 foreign key (monitoring_location_id) references ${NWIS_SCHEMA_NAME}.monitoring_location(monitoring_location_id);
-        - rollback: drop constraint if exists ${NWIS_SCHEMA_NAME}.network_sites_fk_2;        
+        - sql: alter table network_sites add constraint networks_sites_fk_monitoring_location foreign key (monitoring_location_id) references ${NWIS_SCHEMA_NAME}.monitoring_location(monitoring_location_id);
+        - rollback: drop constraint if exists ${NWIS_SCHEMA_NAME}.networks_sites_fk_monitoring_location;        
         
         
         
