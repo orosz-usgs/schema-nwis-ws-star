@@ -6,5 +6,9 @@ databaseChangeLog:
         username: ${NWIS_SCHEMA_OWNER_USERNAME}
 
   - include:
+    - file: "groundwaterDailyValue.yml"
+    - relativeToChangelogFile: "true"
+
+  - include:
     - file: "monitoringLocation.yml"
     - relativeToChangelogFile: "true"

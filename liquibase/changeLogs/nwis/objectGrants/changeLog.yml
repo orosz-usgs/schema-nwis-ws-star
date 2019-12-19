@@ -12,3 +12,11 @@ databaseChangeLog:
         - sql:
             sql: grant select on ${NWIS_SCHEMA_NAME}.monitoring_location to ${WDFN_DB_READ_ONLY_USERNAME};
         - rollback: revoke select on ${NWIS_SCHEMA_NAME}.monitoring_location from ${WDFN_DB_READ_ONLY_USERNAME};
+
+  - changeSet:
+      author: drsteini
+      id: "grant.select.${NWIS_SCHEMA_NAME}.groundwater_daily_value.${WDFN_DB_READ_ONLY_USERNAME}"
+      changes:
+        - sql:
+            sql: grant select on ${NWIS_SCHEMA_NAME}.groundwater_daily_value to ${WDFN_DB_READ_ONLY_USERNAME};
+        - rollback: revoke select on ${NWIS_SCHEMA_NAME}.groundwater_daily_value from ${WDFN_DB_READ_ONLY_USERNAME};
