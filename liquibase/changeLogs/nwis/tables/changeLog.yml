@@ -166,6 +166,10 @@ databaseChangeLog:
       relativeToChangelogFile: true
 
   - include:
+      file: "timeSeriesDescription/changeLog.yml"
+      relativeToChangelogFile: true
+
+  - include:
       file: "topographicSetting/changeLog.yml"
       relativeToChangelogFile: true
 
