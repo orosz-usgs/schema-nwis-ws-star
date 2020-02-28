@@ -20,3 +20,50 @@ databaseChangeLog:
             path: network.sql
             relativeToChangelogFile: true
         - rollback: drop table if exists ${NWIS_SCHEMA_NAME}.network cascade;
+
+  - changeSet:
+      author: ajmccart
+      id: "add.description_column.${NWIS_SCHEMA_NAME}.network"
+      preConditions:
+        - onFail: MARK_RAN
+        - onError: HALT
+        - not:
+          - columnExists:
+              schemaName: ${NWIS_SCHEMA_NAME}
+              tableName: network
+              columnName: description
+      changes:
+      - addColumn:
+          catalogName: ${NWIS_SCHEMA_NAME}
+          columns:
+          - column:
+              name: description
+              type: text
+          schemaName: ${NWIS_SCHEMA_NAME}
+          tableName: network
+      - rollback: alter table ${NWIS_SCHEMA_NAME}.network drop column if exists description;
+        
+  - changeSet:
+      author: ajmccart
+      id: "add.contactinfo_column.${NWIS_SCHEMA_NAME}.network"
+      preConditions:
+        - onFail: MARK_RAN
+        - onError: HALT
+        - not:
+          - columnExists:
+              schemaName: ${NWIS_SCHEMA_NAME}
+              tableName: network
+              columnName: contact_info
+      changes:
+      - addColumn:
+          catalogName: ${NWIS_SCHEMA_NAME}
+          columns:
+          - column:
+              name: contact_info
+              type: jsonb
+          schemaName: ${NWIS_SCHEMA_NAME}
+          tableName: network
+      - rollback: alter table ${NWIS_SCHEMA_NAME}.network drop column if exists contact_info;
+        
+        
+        
