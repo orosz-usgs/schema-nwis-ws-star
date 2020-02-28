@@ -27,21 +27,12 @@ databaseChangeLog:
       preConditions:
         - onFail: MARK_RAN
         - onError: HALT
-        - not:
-          - columnExists:
+        - tableExists:
               schemaName: ${NWIS_SCHEMA_NAME}
               tableName: network
-              columnName: description
       changes:
-      - addColumn:
-          catalogName: ${NWIS_SCHEMA_NAME}
-          columns:
-          - column:
-              name: description
-              type: text
-          schemaName: ${NWIS_SCHEMA_NAME}
-          tableName: network
-      - rollback: alter table ${NWIS_SCHEMA_NAME}.network drop column if exists description;
+        - sql : alter table ${NWIS_SCHEMA_NAME}.network add column if not exists description text;
+        - rollback: alter table ${NWIS_SCHEMA_NAME}.network drop column description;
         
   - changeSet:
       author: ajmccart
@@ -49,21 +40,12 @@ databaseChangeLog:
       preConditions:
         - onFail: MARK_RAN
         - onError: HALT
-        - not:
-          - columnExists:
+        - tableExists:
               schemaName: ${NWIS_SCHEMA_NAME}
               tableName: network
-              columnName: contact_info
       changes:
-      - addColumn:
-          catalogName: ${NWIS_SCHEMA_NAME}
-          columns:
-          - column:
-              name: contact_info
-              type: jsonb
-          schemaName: ${NWIS_SCHEMA_NAME}
-          tableName: network
-      - rollback: alter table ${NWIS_SCHEMA_NAME}.network drop column if exists contact_info;
+        - sql : alter table ${NWIS_SCHEMA_NAME}.network add column if not exists contact_info jsonb;
+        - rollback: alter table ${NWIS_SCHEMA_NAME}.network drop column contact_info;
         
         
         

@@ -27,21 +27,12 @@ databaseChangeLog:
       preConditions:
         - onFail: MARK_RAN
         - onError: HALT
-        - not:
-          - columnExists:
+        - tableExists:
               schemaName: ${NWIS_SCHEMA_NAME}
               tableName: network_staging
-              columnName: description
       changes:
-      - addColumn:
-          catalogName: ${NWIS_SCHEMA_NAME}
-          columns:
-          - column:
-              name: description
-              type: varchar
-          schemaName: ${NWIS_SCHEMA_NAME}
-          tableName: network_staging
-      - rollback: alter table ${NWIS_SCHEMA_NAME}.network_staging drop column if exists description;
+      - sql : alter table ${NWIS_SCHEMA_NAME}.network_staging add column if not exists description varchar;
+      - rollback: alter table ${NWIS_SCHEMA_NAME}.network_staging drop column description;
         
   - changeSet:
       author: ajmccart
@@ -49,21 +40,12 @@ databaseChangeLog:
       preConditions:
         - onFail: MARK_RAN
         - onError: HALT
-        - not:
-          - columnExists:
+        - tableExists:
               schemaName: ${NWIS_SCHEMA_NAME}
               tableName: network_staging
-              columnName: contact_info
       changes:
-      - addColumn:
-          catalogName: ${NWIS_SCHEMA_NAME}
-          columns:
-          - column:
-              name: contact_info
-              type: varchar
-          schemaName: ${NWIS_SCHEMA_NAME}
-          tableName: network_staging
-      - rollback: alter table ${NWIS_SCHEMA_NAME}.network_staging drop column if exists contact_info;
+      - sql : alter table ${NWIS_SCHEMA_NAME}.network_staging add column if not exists contact_info varchar;
+      - rollback: alter table ${NWIS_SCHEMA_NAME}.network_staging drop column contact_info;
             
             
             
