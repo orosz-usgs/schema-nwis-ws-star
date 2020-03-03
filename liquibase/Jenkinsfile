@@ -1,0 +1,104 @@
+pipeline {
+  agent {
+    node {
+      label 'project:any'
+    }
+  }
+  stages {
+    stage('Set Build Description') {
+      steps {
+        script {
+          currentBuild.description = "Deploy to ${env.DEPLOY_STAGE}"
+        }
+      }
+    }
+    stage('Clean Workspace') {
+      steps {
+        cleanWs()
+      }
+    }
+    stage('Git Clone') {
+      steps {
+        checkout([
+			$class: 'GitSCM', 
+			branches: [[name: '*/master']], 
+			doGenerateSubmoduleConfigurations: false, 
+			extensions: [], 
+			submoduleCfg: [], 
+			userRemoteConfigs: [[credentialsId: 'CIDA-Jenkins-GitHub', 
+			url: 'https://github.com/NWQMC/schema-nwis-ws-star.git']]])
+      }
+    }
+    stage('Download liquibase jar') {
+      steps {
+        sh '''mkdir $WORKSPACE/nwis
+        if [ ! -f nldi/liquibase ]; then
+          /usr/local/bin/aws s3 cp s3://owi-common-resources/resources/InstallFiles/liquibase/liquibase-$LIQUIBASE_VERSION-bin.tar.gz $WORKSPACE/nwis/liquibase.tar.gz
+          /usr/bin/tar xzf $WORKSPACE/nwis/liquibase.tar.gz --overwrite -C $WORKSPACE/nwis
+          /usr/local/bin/aws s3 cp s3://owi-common-resources/resources/InstallFiles/postgres/$JDBC_JAR $WORKSPACE/nwis/lib/$JDBC_JAR
+        fi
+        '''
+      }
+    }
+	
+    stage('Run liquibase') {
+      steps {
+        withCredentials([
+			string(credentialsId: 'WQP_EXT_POSTGRES_PASSWORD_PROD_EXTERNAL', variable: 'POSTGRES_PASSWORD_TEST'),
+			string(credentialsId: 'WQP_NWIS_WS_STAR_OWNER_PASSWORD',         variable: 'NWIS_SCHEMA_OWNER_PASSWORD_TEST'),
+			string(credentialsId: 'WQP_EXT_DATA_OWNER_PASSWORD_TEST',        variable: 'WQP_SCHEMA_OWNER_PASSWORD_TEST'),
+
+			string(credentialsId: 'WQP_EXT_POSTGRES_PASSWORD_PROD_EXTERNAL', variable: 'POSTGRES_PASSWORD_QA'),
+			string(credentialsId: 'WQP_NWIS_WS_STAR_OWNER_PASSWORD',         variable: 'NWIS_SCHEMA_OWNER_PASSWORD_QA'),
+			string(credentialsId: 'WQP_EXT_DATA_OWNER_PASSWORD_TEST',        variable: 'WQP_SCHEMA_OWNER_PASSWORD_TEST'),
+
+			string(credentialsId: 'WQP_EXT_POSTGRES_PASSWORD_PROD_EXTERNAL', variable: 'POSTGRES_PASSWORD_PROD_EXTERNAL'),
+			string(credentialsId: 'WQP_NWIS_WS_STAR_OWNER_PASSWORD',         variable: 'NWIS_SCHEMA_OWNER_PASSWORD_PROD'),
+			string(credentialsId: 'WQP_EXT_DATA_OWNER_PASSWORD_TEST',        variable: 'WQP_SCHEMA_OWNER_PASSWORD_PROD'),
+
+			string(credentialsId: 'WDFN_READ_ONLY_PASSWROD', variable: 'WDFN_READ_ONLY_PASSWROD')
+			]) {
+			
+          sh '''DB_HOST=".c8adwxz9sely.us-west-2.rds.amazonaws.com"	  
+ 
+          if [ $DEPLOY_STAGE == "test" ];
+          then
+            export POSTGRES_PASSWORD=$POSTGRES_PASSWORD_TEST
+            export NWIS_SCHEMA_OWNER_PASSWORD=$NWIS_SCHEMA_OWNER_PASSWORD_TEST
+            export NWIS_DB_OWNER_PASSWORD=$WQP_SCHEMA_OWNER_PASSWORD_TEST
+            export WQP_SCHEMA_OWNER_PASSWORD=$WQP_SCHEMA_OWNER_PASSWORD_TEST
+          elif [ $DEPLOY_STAGE == "qa" ];
+          then
+	        export POSTGRES_PASSWORD=$POSTGRES_PASSWORD_QA
+            export NWIS_SCHEMA_OWNER_PASSWORD=$NWIS_SCHEMA_OWNER_PASSWORD_QA
+            export NWIS_DB_OWNER_PASSWORD=$WQP_SCHEMA_OWNER_PASSWORD_QA
+	        export WQP_SCHEMA_OWNER_PASSWORD=$WQP_SCHEMA_OWNER_PASSWORD_QA
+          elif [ $DEPLOY_STAGE == "prod-external" ]
+          then
+            export POSTGRES_PASSWORD=$POSTGRES_PASSWORD_PROD_EXTERNAL
+            export NWIS_SCHEMA_OWNER_PASSWORD=$NWIS_SCHEMA_OWNER_PASSWORD_PROD
+            export NWIS_DB_OWNER_PASSWORD=$WQP_SCHEMA_OWNER_PASSWORD_PROD
+            export WQP_SCHEMA_OWNER_PASSWORD=$WQP_SCHEMA_OWNER_PASSWORD_PROD
+          fi
+          export NWIS_DATABASE_ADDRESS="wqp-external-$DEPLOY_STAGE$DB_HOST"
+          export NWIS_DATABASE_NAME=nwqmc_wqp_external
+          export NWIS_DB_OWNER_USERNAME=wqp_core
+          export NWIS_SCHEMA_NAME=nwis
+          export NWIS_SCHEMA_OWNER_USERNAME=nwis_ws_star_owner
+          export WQP_SCHEMA_NAME=wqp
+          export WDFN_DB_READ_ONLY_PASSWORD=$WDFN_READ_ONLY_PASSWROD
+          export WDFN_DB_READ_ONLY_USERNAME=wdfn_user
+	  export WQP_SCHEMA_OWNER_USERNAME=wqp_core
+	  export LIQUIBASE_HOME=$WORKSPACE/nwis
+	  export LIQUIBASE_WORKSPACE_NWIS=$WORKSPACE/liquibase/changeLogs
+
+          chmod +x $WORKSPACE/liquibase/scripts/z1_postgres_liquibase.sh
+          chmod +x $WORKSPACE/liquibase/scripts/z2_nwis_liquibase.sh
+          $WORKSPACE/liquibase/scripts/z1_postgres_liquibase.sh
+          $WORKSPACE/liquibase/scripts/z2_nwis_liquibase.sh
+          '''
+        }
+      }
+    }
+  }
+}
