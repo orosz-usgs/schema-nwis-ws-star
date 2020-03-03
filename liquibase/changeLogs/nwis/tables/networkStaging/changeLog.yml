@@ -27,10 +27,11 @@ databaseChangeLog:
       preConditions:
         - onFail: MARK_RAN
         - onError: HALT
-        - columnExists:
-              schemaName: ${NWIS_SCHEMA_NAME}
-              tableName: network_staging
-              columnName: description
+        - not:
+          - columnExists:
+                schemaName: ${NWIS_SCHEMA_NAME}
+                tableName: network_staging
+                columnName: description
       changes:
       - sql : alter table ${NWIS_SCHEMA_NAME}.network_staging add column if not exists description varchar;
       - rollback: alter table ${NWIS_SCHEMA_NAME}.network_staging drop column description;
@@ -41,10 +42,11 @@ databaseChangeLog:
       preConditions:
         - onFail: MARK_RAN
         - onError: HALT
-        - columnExists:
-              schemaName: ${NWIS_SCHEMA_NAME}
-              tableName: network_staging
-              columnName: contact_info
+        - not:
+          - columnExists:
+                schemaName: ${NWIS_SCHEMA_NAME}
+                tableName: network_staging
+                columnName: contact_info
       changes:
       - sql : alter table ${NWIS_SCHEMA_NAME}.network_staging add column if not exists contact_info varchar;
       - rollback: alter table ${NWIS_SCHEMA_NAME}.network_staging drop column contact_info;
