@@ -27,10 +27,11 @@ databaseChangeLog:
       preConditions:
         - onFail: MARK_RAN
         - onError: HALT
-        - columnExists:
-              schemaName: ${NWIS_SCHEMA_NAME}
-              tableName: network
-              columnName: description
+        - not: 
+          - columnExists:
+                schemaName: ${NWIS_SCHEMA_NAME}
+                tableName: network
+                columnName: description
       changes:
         - sql : alter table ${NWIS_SCHEMA_NAME}.network add column if not exists description text;
         - rollback: alter table ${NWIS_SCHEMA_NAME}.network drop column description;
@@ -41,10 +42,11 @@ databaseChangeLog:
       preConditions:
         - onFail: MARK_RAN
         - onError: HALT
-        - columnExists:
-              schemaName: ${NWIS_SCHEMA_NAME}
-              tableName: network
-              columnName: contact_info
+        - not: 
+          - columnExists:
+                schemaName: ${NWIS_SCHEMA_NAME}
+                tableName: network
+                columnName: contact_info
       changes:
         - sql : alter table ${NWIS_SCHEMA_NAME}.network add column if not exists contact_info jsonb;
         - rollback: alter table ${NWIS_SCHEMA_NAME}.network drop column contact_info;
