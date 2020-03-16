@@ -20,3 +20,19 @@ databaseChangeLog:
         - sql:
             sql: grant select on ${NWIS_SCHEMA_NAME}.groundwater_daily_value to ${WDFN_DB_READ_ONLY_USERNAME};
         - rollback: revoke select on ${NWIS_SCHEMA_NAME}.groundwater_daily_value from ${WDFN_DB_READ_ONLY_USERNAME};
+
+  - changeSet:
+      author: eorosz
+      id: "grant.select.${NWIS_SCHEMA_NAME}.network.${WDFN_DB_READ_ONLY_USERNAME}"
+      changes:
+        - sql:
+            sql: grant select on ${NWIS_SCHEMA_NAME}.network to ${WDFN_DB_READ_ONLY_USERNAME};
+        - rollback: revoke select on ${NWIS_SCHEMA_NAME}.network from ${WDFN_DB_READ_ONLY_USERNAME};
+
+  - changeSet:
+      author: eorosz
+      id: "grant.select.${NWIS_SCHEMA_NAME}.network_sites.${WDFN_DB_READ_ONLY_USERNAME}"
+      changes:
+        - sql:
+            sql: grant select on ${NWIS_SCHEMA_NAME}.network_sites to ${WDFN_DB_READ_ONLY_USERNAME};
+        - rollback: revoke select on ${NWIS_SCHEMA_NAME}.network_sites from ${WDFN_DB_READ_ONLY_USERNAME};
