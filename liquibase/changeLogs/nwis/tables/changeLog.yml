@@ -162,11 +162,11 @@ databaseChangeLog:
       relativeToChangelogFile: true
 
   - include:
-      file: "state/changeLog.yml"
+      file: "stat/changeLog.yml"
       relativeToChangelogFile: true
 
   - include:
-      file: "timeSeriesDescription/changeLog.yml"
+      file: "state/changeLog.yml"
       relativeToChangelogFile: true
 
   - include:

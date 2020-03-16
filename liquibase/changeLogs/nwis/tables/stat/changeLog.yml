@@ -7,16 +7,16 @@ databaseChangeLog:
 
   - changeSet:
       author: drsteini
-      id: "create.table.${NWIS_SCHEMA_NAME}.time_series_description"
+      id: "create.table.${NWIS_SCHEMA_NAME}.stat"
       preConditions:
         - onFail: MARK_RAN
         - onError: HALT
         - not:
           - tableExists:
               schemaName: ${NWIS_SCHEMA_NAME}
-              tableName: time_series_description
+              tableName: stat
       changes:
         - sqlFile:
-            path: timeSeriesDescription.sql
+            path: stat.sql
             relativeToChangelogFile: true
-        - rollback: drop table if exists ${NWIS_SCHEMA_NAME}.time_series_description cascade;
+        - rollback: drop table if exists ${NWIS_SCHEMA_NAME}.stat cascade;
