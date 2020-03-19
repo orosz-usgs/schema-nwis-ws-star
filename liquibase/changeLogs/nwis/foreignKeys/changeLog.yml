@@ -8,3 +8,7 @@ databaseChangeLog:
   - include:
     - file: "networkSites.yml"
     - relativeToChangelogFile: "true"
+    
+  - include:
+    - file: "cooperatorNetworks.yml"
+    - relativeToChangelogFile: "true"

@@ -1,0 +1,33 @@
+databaseChangeLog:
+  - changeSet:
+      author: ajmccart
+      id: "create.foreignKeyConstraint.${NWIS_SCHEMA_NAME}.cooperator_networks_fk_cooperator"
+      preConditions:
+        - onFail: MARK_RAN
+        - onError: HALT
+        - not:
+          - foreignKeyConstraintExists:
+              NWIS_SCHEMA_NAME: ${NWIS_SCHEMA_NAME}
+              foreignKeyName: cooperator_networks_fk_cooperator
+      changes:
+        - sql: alter table cooperator_networks add constraint cooperator_networks_fk_cooperator foreign key (cooperator_id) references ${NWIS_SCHEMA_NAME}.cooperators(cooperator_id);
+        - rollback: drop constraint if exists ${NWIS_SCHEMA_NAME}.cooperator_networks_fk_cooperator;
+        
+  - changeSet:
+      author: ajmccart
+      id: "create.foreignKeyConstraint.${NWIS_SCHEMA_NAME}.cooperator_networks_fk_network_id"
+      preConditions:
+        - onFail: MARK_RAN
+        - onError: HALT
+        - not:
+          - foreignKeyConstraintExists:
+              NWIS_SCHEMA_NAME: ${NWIS_SCHEMA_NAME}
+              foreignKeyName: cooperator_networks_fk_network_id
+      changes:
+        - sql: alter table cooperator_networks add constraint cooperator_networks_fk_network_id foreign key (network_id) references ${NWIS_SCHEMA_NAME}.network(network_id);
+        - rollback: drop constraint if exists ${NWIS_SCHEMA_NAME}.cooperator_networks_fk_network_id;        
+        
+        
+        
+
+        
