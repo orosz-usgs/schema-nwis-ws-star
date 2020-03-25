@@ -36,3 +36,17 @@ databaseChangeLog:
         - sql:
             sql: alter table if exists ${NWIS_SCHEMA_NAME}.monitoring_location add column if not exists monitoring_location_identifier character varying(21);
         - rollback: alter table if exists ${NWIS_SCHEMA_NAME}.monitoring_location drop column if exists monitoring_location_identifier;
+
+  - changeSet:
+      author: drsteini
+      id: "alter.table.${NWIS_SCHEMA_NAME}.monitoring_location.add.monitoring_location_ak_2"
+      preConditions:
+        - onFail: MARK_RAN
+        - onError: HALT
+        - sqlCheck:
+            expectedResult: 0
+            sql: select count(*) from pg_indexes where schemaname = '${NWIS_SCHEMA_NAME}' and tablename = 'monitoring_location' and indexname = 'monitoring_location_ak_2';
+      changes:
+        - sql:
+            sql: alter table if exists ${NWIS_SCHEMA_NAME}.monitoring_location add constraint monitoring_location_ak_2 unique (monitoring_location_identifier);
+        - rollback: alter table if exists ${NWIS_SCHEMA_NAME}.monitoring_location drop constraint if exists monitoring_location_ak_2;
