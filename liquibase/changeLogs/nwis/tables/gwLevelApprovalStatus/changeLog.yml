@@ -1,0 +1,22 @@
+databaseChangeLog:
+  - preConditions:
+    - dbms:
+        type: postgresql
+    -runningAs:
+        username: ${NWIS_SCHEMA_OWNER_USERNAME}
+
+  - changeSet:
+      author: drsteini
+      id: "create.table.${NWIS_SCHEMA_NAME}.gw_level_approval_status"
+      preConditions:
+        - onFail: MARK_RAN
+        - onError: HALT
+        - not:
+          - tableExists:
+              schemaName: ${NWIS_SCHEMA_NAME}
+              tableName: gw_level_approval_status
+      changes:
+        - sqlFile:
+            path: gwLevelApprovalStatus.sql
+            relativeToChangelogFile: true
+        - rollback: drop table if exists ${NWIS_SCHEMA_NAME}.gw_level_approval_status cascade;
