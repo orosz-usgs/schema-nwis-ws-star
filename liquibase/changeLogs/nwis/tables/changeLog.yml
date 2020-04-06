@@ -70,6 +70,30 @@ databaseChangeLog:
       relativeToChangelogFile: true
 
   - include:
+      file: "gwLevelApprovalStatus/changeLog.yml"
+      relativeToChangelogFile: true
+
+  - include:
+      file: "gwLevelDateTimeAccuracy/changeLog.yml"
+      relativeToChangelogFile: true
+
+  - include:
+      file: "gwLevelMethod/changeLog.yml"
+      relativeToChangelogFile: true
+
+  - include:
+      file: "gwLevelSiteStatus/changeLog.yml"
+      relativeToChangelogFile: true
+
+  - include:
+      file: "gwLevelSource/changeLog.yml"
+      relativeToChangelogFile: true
+
+  - include:
+      file: "gwReflist/changeLog.yml"
+      relativeToChangelogFile: true
+
+  - include:
       file: "huc/changeLog.yml"
       relativeToChangelogFile: true
 
