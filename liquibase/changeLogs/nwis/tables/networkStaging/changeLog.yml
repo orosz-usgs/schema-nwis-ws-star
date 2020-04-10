@@ -38,7 +38,7 @@ databaseChangeLog:
         
   - changeSet:
       author: ajmccart
-      id: "add.contactinfo_column.${NWIS_SCHEMA_NAME}.network_staging"
+      id: "add.contact_name_column.${NWIS_SCHEMA_NAME}.network_staging"
       preConditions:
         - onFail: MARK_RAN
         - onError: HALT
@@ -46,10 +46,25 @@ databaseChangeLog:
           - columnExists:
                 schemaName: ${NWIS_SCHEMA_NAME}
                 tableName: network_staging
-                columnName: contact_info
+                columnName: contact_name
       changes:
-      - sql : alter table ${NWIS_SCHEMA_NAME}.network_staging add column if not exists contact_info varchar;
-      - rollback: alter table ${NWIS_SCHEMA_NAME}.network_staging drop column contact_info;
+      - sql : alter table ${NWIS_SCHEMA_NAME}.network_staging add column if not exists contact_name varchar(255);
+      - rollback: alter table ${NWIS_SCHEMA_NAME}.network_staging drop column contact_name;
+      
+  - changeSet:
+      author: ajmccart
+      id: "add.contact_email_column.${NWIS_SCHEMA_NAME}.network_staging"
+      preConditions:
+        - onFail: MARK_RAN
+        - onError: HALT
+        - not:
+          - columnExists:
+                schemaName: ${NWIS_SCHEMA_NAME}
+                tableName: network_staging
+                columnName: contact_email
+      changes:
+      - sql : alter table ${NWIS_SCHEMA_NAME}.network_staging add column if not exists contact_email varchar(255);
+      - rollback: alter table ${NWIS_SCHEMA_NAME}.network_staging drop column contact_email;
             
             
             

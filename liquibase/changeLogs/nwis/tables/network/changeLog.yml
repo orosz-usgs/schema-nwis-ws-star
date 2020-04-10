@@ -38,7 +38,7 @@ databaseChangeLog:
         
   - changeSet:
       author: ajmccart
-      id: "add.contactinfo_column.${NWIS_SCHEMA_NAME}.network"
+      id: "add.properties_column.${NWIS_SCHEMA_NAME}.network"
       preConditions:
         - onFail: MARK_RAN
         - onError: HALT
@@ -46,10 +46,10 @@ databaseChangeLog:
           - columnExists:
                 schemaName: ${NWIS_SCHEMA_NAME}
                 tableName: network
-                columnName: contact_info
+                columnName: properties
       changes:
-        - sql : alter table ${NWIS_SCHEMA_NAME}.network add column if not exists contact_info jsonb;
-        - rollback: alter table ${NWIS_SCHEMA_NAME}.network drop column contact_info;
+        - sql : alter table ${NWIS_SCHEMA_NAME}.network add column if not exists properties jsonb;
+        - rollback: alter table ${NWIS_SCHEMA_NAME}.network drop column properties;
         
         
         
