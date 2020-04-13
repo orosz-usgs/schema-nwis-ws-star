@@ -1,0 +1,3 @@
+code	name	sort_order	description	valid_flag
+A	Approved	1	Approved for publication -- Processing and review completed.	true
+P	Provisional	2	Provisional data subject to revision.	true

@@ -80,3 +80,20 @@ databaseChangeLog:
             schemaName: ${NWIS_SCHEMA_NAME}
             tableName: nwis_wqx_rpt_lev_cd
         - rollback: select 'no rollback - you must restore previous nwis_wqx_rpt_lev_cd.tsv and rerun manually';
+
+  - changeSet:
+      id: load.${NWIS_SCHEMA_NAME}.gw_level_approval_status
+      author: drsteini
+      runOnChange: true
+      changes:
+        - delete:
+            schemaName: ${NWIS_SCHEMA_NAME}
+            tableName: gw_level_approval_status
+        - loadData:
+            encoding: UTF-8
+            file: gw_level_approval_status.tsv
+            relativeToChangelogFile: true
+            separator: \t
+            schemaName: ${NWIS_SCHEMA_NAME}
+            tableName: gw_level_approval_status
+        - rollback: select 'no rollback - you must restore previous gw_level_approval_status.tsv and rerun manually';
