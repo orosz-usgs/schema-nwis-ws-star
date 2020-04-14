@@ -36,3 +36,11 @@ databaseChangeLog:
         - sql:
             sql: grant select on ${NWIS_SCHEMA_NAME}.network_sites to ${WDFN_DB_READ_ONLY_USERNAME};
         - rollback: revoke select on ${NWIS_SCHEMA_NAME}.network_sites from ${WDFN_DB_READ_ONLY_USERNAME};
+
+  - changeSet:
+      author: drsteini
+      id: "grant.select.${NWIS_SCHEMA_NAME}.discrete_ground_water.${WDFN_DB_READ_ONLY_USERNAME}"
+      changes:
+        - sql:
+            sql: grant select on ${NWIS_SCHEMA_NAME}.discrete_ground_water to ${WDFN_DB_READ_ONLY_USERNAME};
+        - rollback: revoke select on ${NWIS_SCHEMA_NAME}.discrete_ground_water from ${WDFN_DB_READ_ONLY_USERNAME};

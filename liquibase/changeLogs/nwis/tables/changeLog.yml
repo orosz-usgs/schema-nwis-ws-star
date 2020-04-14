@@ -62,11 +62,19 @@ databaseChangeLog:
       relativeToChangelogFile: true
 
   - include:
+      file: "discreteGroundWater/changeLog.yml"
+      relativeToChangelogFile: true
+
+  - include:
       file: "fxd/changeLog.yml"
       relativeToChangelogFile: true
 
   - include:
       file: "groundwaterDailyValue/changeLog.yml"
+      relativeToChangelogFile: true
+
+  - include:
+      file: "gwLevelAccuracy/changeLog.yml"
       relativeToChangelogFile: true
 
   - include:
@@ -79,6 +87,10 @@ databaseChangeLog:
 
   - include:
       file: "gwLevelMethod/changeLog.yml"
+      relativeToChangelogFile: true
+
+  - include:
+      file: "gwLevels/changeLog.yml"
       relativeToChangelogFile: true
 
   - include:
