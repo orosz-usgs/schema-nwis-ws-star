@@ -16,6 +16,7 @@ create unlogged table if not exists ${NWIS_SCHEMA_NAME}.discrete_ground_water
 ,local_aquifer_type                      character varying (255)
 ,date_measured_raw                       timestamp
 ,timezone_code                           character varying (6)
+,timezone_offset                         character varying (6)
 ,parameter_code                          character varying (5)
 ,date_measured                           character varying (10)
 ,time_measured_utc                       character varying (8)

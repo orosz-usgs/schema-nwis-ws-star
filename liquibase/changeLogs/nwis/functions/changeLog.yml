@@ -2,13 +2,13 @@ databaseChangeLog:
   - preConditions:
     - dbms:
         type: postgresql
-    -runningAs:
+    - runningAs:
         username: ${NWIS_SCHEMA_OWNER_USERNAME}
 
-    include:
-        file: "etlHelper/changeLog.yml"
+  - include:
+        file: "table/changeLog.yml"
         relativeToChangelogFile: true
 
-    include:
-        file: "table/changeLog.yml"
+  - include:
+        file: "getUtcTimestampUsingOffset/changeLog.yml"
         relativeToChangelogFile: true
