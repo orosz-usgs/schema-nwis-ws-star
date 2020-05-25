@@ -20,3 +20,21 @@ databaseChangeLog:
             path: cooperators.sql
             relativeToChangelogFile: true
         - rollback: drop table if exists ${NWIS_SCHEMA_NAME}.cooperators cascade;
+        
+  - changeSet:
+      author: ajmccart
+      id: "add.logo_image_filename_column.${NWIS_SCHEMA_NAME}.cooperators"
+      preConditions:
+        - onFail: MARK_RAN
+        - onError: HALT
+        - not:
+          - columnExists:
+                schemaName: ${NWIS_SCHEMA_NAME}
+                tableName: cooperators
+                columnName: logo_image_filename
+      changes:
+      - sql : alter table ${NWIS_SCHEMA_NAME}.cooperators add column if not exists logo_image_filename varchar(255);
+      - rollback: alter table ${NWIS_SCHEMA_NAME}.cooperators drop column logo_image_filename;
+      
+      
+     
