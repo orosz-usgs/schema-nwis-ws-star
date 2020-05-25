@@ -66,5 +66,18 @@ databaseChangeLog:
         - sql : alter table ${NWIS_SCHEMA_NAME}.network add column if not exists properties jsonb;
         - rollback: alter table ${NWIS_SCHEMA_NAME}.network drop column properties;
         
+  - changeSet:
+      author: ajmccart
+      id: "remove.contactinfo_column.${NWIS_SCHEMA_NAME}.network"
+      preConditions:
+        - onFail: MARK_RAN
+        - onError: HALT 
+        - columnExists:
+              schemaName: ${NWIS_SCHEMA_NAME}
+              tableName: network
+              columnName: contact_info
+      changes:
+        - sql : alter table ${NWIS_SCHEMA_NAME}.network drop column contact_info; 
+        - rollback: alter table ${NWIS_SCHEMA_NAME}.network add column if not exists contact_info jsonb;    
         
         
