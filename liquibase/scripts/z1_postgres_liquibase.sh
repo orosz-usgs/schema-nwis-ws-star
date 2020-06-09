@@ -14,7 +14,6 @@ ${LIQUIBASE_HOME}/liquibase \
 	--url=jdbc:postgresql://${NWIS_DATABASE_ADDRESS}:5432/postgres \
 	--username=postgres \
 	--password=${POSTGRES_PASSWORD} \
-	--logLevel=debug \
 	--liquibaseCatalogName=public \
 	--liquibaseSchemaName=public \
 	update \
@@ -39,10 +38,10 @@ ${LIQUIBASE_HOME}/liquibase \
 	--url=jdbc:postgresql://${NWIS_DATABASE_ADDRESS}:5432/${NWIS_DATABASE_NAME} \
 	--username=postgres \
 	--password=${POSTGRES_PASSWORD} \
-	--logLevel=debug \
 	--liquibaseCatalogName=public \
 	--liquibaseSchemaName=public \
 	update \
 	-DPOSTGRES_PASSWORD=${POSTGRES_PASSWORD} \
 	-DNWIS_SCHEMA_OWNER_USERNAME=${NWIS_SCHEMA_OWNER_USERNAME} \
-	-DNWIS_SCHEMA_NAME=${NWIS_SCHEMA_NAME}
+	-DNWIS_SCHEMA_NAME=${NWIS_SCHEMA_NAME} \
+	-DOBSERVATION_SCHEMA_NAME=${OBSERVATION_SCHEMA_NAME}

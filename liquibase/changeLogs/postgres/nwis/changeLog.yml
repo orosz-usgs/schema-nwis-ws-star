@@ -45,3 +45,16 @@ databaseChangeLog:
       changes:
         - sql: create schema ${NWIS_SCHEMA_NAME} authorization ${NWIS_SCHEMA_OWNER_USERNAME};
         - rollback: drop schema if exists ${NWIS_SCHEMA_NAME} cascade;
+
+  - changeSet:
+      author: drsteini
+      id: "create.project.schema_${OBSERVATION_SCHEMA_NAME}"
+      preConditions:
+        - onFail: MARK_RAN
+        - onError: HALT
+        - sqlCheck:
+            expectedResult: 0
+            sql: select count(*) from pg_namespace where nspname = '${OBSERVATION_SCHEMA_NAME}';
+      changes:
+        - sql: create schema ${OBSERVATION_SCHEMA_NAME} authorization ${NWIS_SCHEMA_OWNER_USERNAME};
+        - rollback: drop schema if exists ${OBSERVATION_SCHEMA_NAME} cascade;

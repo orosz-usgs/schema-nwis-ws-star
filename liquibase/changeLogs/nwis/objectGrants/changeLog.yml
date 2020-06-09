@@ -5,6 +5,10 @@ databaseChangeLog:
     -runningAs:
         username: ${NWIS_SCHEMA_OWNER_USERNAME}
 
+  - include:
+      file: "observation/changeLog.yml"
+      relativeToChangelogFile: true
+
   - changeSet:
       author: mbucknell
       id: "grant.select.${NWIS_SCHEMA_NAME}.monitoring_location.${WDFN_DB_READ_ONLY_USERNAME}"

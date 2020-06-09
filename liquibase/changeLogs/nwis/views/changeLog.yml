@@ -6,7 +6,35 @@ databaseChangeLog:
         username: ${NWIS_SCHEMA_OWNER_USERNAME}
 
   - include:
+      file: "assemblage/changeLog.yml"
+      relativeToChangelogFile: true
+
+  - include:
+      file: "charName/changeLog.yml"
+      relativeToChangelogFile: true
+
+  - include:
+      file: "charType/changeLog.yml"
+      relativeToChangelogFile: true
+
+  - include:
+      file: "country/changeLog.yml"
+      relativeToChangelogFile: true
+
+  - include:
+      file: "county/changeLog.yml"
+      relativeToChangelogFile: true
+
+  - include:
+      file: "dataSource/changeLog.yml"
+      relativeToChangelogFile: true
+
+  - include:
       file: "fullCountry/changeLog.yml"
+      relativeToChangelogFile: true
+
+  - include:
+      file: "fullCounty/changeLog.yml"
       relativeToChangelogFile: true
 
   - include:
@@ -14,5 +42,33 @@ databaseChangeLog:
       relativeToChangelogFile: true
 
   - include:
-      file: "fullCounty/changeLog.yml"
+      file: "lastEtl/changeLog.yml"
+      relativeToChangelogFile: true
+
+  - include:
+      file: "monitoringLoc/changeLog.yml"
+      relativeToChangelogFile: true
+
+  - include:
+      file: "organization/changeLog.yml"
+      relativeToChangelogFile: true
+
+  - include:
+      file: "project/changeLog.yml"
+      relativeToChangelogFile: true
+
+  - include:
+      file: "sampleMedia/changeLog.yml"
+      relativeToChangelogFile: true
+
+  - include:
+      file: "siteType/changeLog.yml"
+      relativeToChangelogFile: true
+
+  - include:
+      file: "state/changeLog.yml"
+      relativeToChangelogFile: true
+
+  - include:
+      file: "taxaName/changeLog.yml"
       relativeToChangelogFile: true
