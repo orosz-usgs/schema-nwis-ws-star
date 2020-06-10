@@ -32,11 +32,9 @@ pipeline {
     stage('Download liquibase jar') {
       steps {
         sh '''mkdir $WORKSPACE/nwis
-        if [ ! -f nldi/liquibase ]; then
           /usr/local/bin/aws s3 cp s3://owi-common-resources/resources/InstallFiles/liquibase/liquibase-$LIQUIBASE_VERSION.tar.gz $WORKSPACE/nwis/liquibase.tar.gz
           /usr/bin/tar xzf $WORKSPACE/nwis/liquibase.tar.gz --overwrite -C $WORKSPACE/nwis
           /usr/local/bin/aws s3 cp s3://owi-common-resources/resources/InstallFiles/postgres/$JDBC_JAR $WORKSPACE/nwis/lib/$JDBC_JAR
-        fi
         '''
       }
     }
