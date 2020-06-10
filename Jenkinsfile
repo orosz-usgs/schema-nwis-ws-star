@@ -40,7 +40,6 @@ pipeline {
         '''
       }
     }
-    
     stage('Run liquibase') {
       steps {
         script {
@@ -59,6 +58,7 @@ pipeline {
           env.WQP_SCHEMA_OWNER_USERNAME = secretsJson.WQP_SCHEMA_OWNER_USERNAME
           env.WQP_SCHEMA_OWNER_PASSWORD = secretsJson.WQP_SCHEMA_OWNER_PASSWORD
           env.POSTGRES_PASSWORD = secretsJson.POSTGRES_PASSWORD
+          env.OBSERVATION_SCHEMA_NAME = secretsJson.OBSERVATION_SCHEMA_NAME
           
           sh '''
            
