@@ -1,0 +1,116 @@
+databaseChangeLog:
+  - preConditions:
+    - dbms:
+        type: postgresql
+
+  - changeSet:
+      author: drsteini
+      id: "grant.select.${OBSERVATION_SCHEMA_NAME}.assemblage.${WDFN_DB_READ_ONLY_USERNAME}"
+      changes:
+        - sql:
+            sql: grant select on ${OBSERVATION_SCHEMA_NAME}.assemblage to ${WDFN_DB_READ_ONLY_USERNAME};
+        - rollback: revoke select on ${OBSERVATION_SCHEMA_NAME}.assemblage from ${WDFN_DB_READ_ONLY_USERNAME};
+
+  - changeSet:
+      author: drsteini
+      id: "grant.select.${OBSERVATION_SCHEMA_NAME}.char_name.${WDFN_DB_READ_ONLY_USERNAME}"
+      changes:
+        - sql:
+            sql: grant select on ${OBSERVATION_SCHEMA_NAME}.char_name to ${WDFN_DB_READ_ONLY_USERNAME};
+        - rollback: revoke select on ${OBSERVATION_SCHEMA_NAME}.char_name from ${WDFN_DB_READ_ONLY_USERNAME};
+
+  - changeSet:
+      author: drsteini
+      id: "grant.select.${OBSERVATION_SCHEMA_NAME}.char_type.${WDFN_DB_READ_ONLY_USERNAME}"
+      changes:
+        - sql:
+            sql: grant select on ${OBSERVATION_SCHEMA_NAME}.char_type to ${WDFN_DB_READ_ONLY_USERNAME};
+        - rollback: revoke select on ${OBSERVATION_SCHEMA_NAME}.char_type from ${WDFN_DB_READ_ONLY_USERNAME};
+
+  - changeSet:
+      author: drsteini
+      id: "grant.select.${OBSERVATION_SCHEMA_NAME}.country.${WDFN_DB_READ_ONLY_USERNAME}"
+      changes:
+        - sql:
+            sql: grant select on ${OBSERVATION_SCHEMA_NAME}.country to ${WDFN_DB_READ_ONLY_USERNAME};
+        - rollback: revoke select on ${OBSERVATION_SCHEMA_NAME}.country from ${WDFN_DB_READ_ONLY_USERNAME};
+
+  - changeSet:
+      author: drsteini
+      id: "grant.select.${OBSERVATION_SCHEMA_NAME}.county.${WDFN_DB_READ_ONLY_USERNAME}"
+      changes:
+        - sql:
+            sql: grant select on ${OBSERVATION_SCHEMA_NAME}.county to ${WDFN_DB_READ_ONLY_USERNAME};
+        - rollback: revoke select on ${OBSERVATION_SCHEMA_NAME}.county from ${WDFN_DB_READ_ONLY_USERNAME};
+
+  - changeSet:
+      author: drsteini
+      id: "grant.select.${OBSERVATION_SCHEMA_NAME}.data_source.${WDFN_DB_READ_ONLY_USERNAME}"
+      changes:
+        - sql:
+            sql: grant select on ${OBSERVATION_SCHEMA_NAME}.data_source to ${WDFN_DB_READ_ONLY_USERNAME};
+        - rollback: revoke select on ${OBSERVATION_SCHEMA_NAME}.data_source from ${WDFN_DB_READ_ONLY_USERNAME};
+
+  - changeSet:
+      author: drsteini
+      id: "grant.select.${OBSERVATION_SCHEMA_NAME}.last_etl.${WDFN_DB_READ_ONLY_USERNAME}"
+      changes:
+        - sql:
+            sql: grant select on ${OBSERVATION_SCHEMA_NAME}.last_etl to ${WDFN_DB_READ_ONLY_USERNAME};
+        - rollback: revoke select on ${OBSERVATION_SCHEMA_NAME}.last_etl from ${WDFN_DB_READ_ONLY_USERNAME};
+
+  - changeSet:
+      author: drsteini
+      id: "grant.select.${OBSERVATION_SCHEMA_NAME}.monitoring_loc.${WDFN_DB_READ_ONLY_USERNAME}"
+      changes:
+        - sql:
+            sql: grant select on ${OBSERVATION_SCHEMA_NAME}.monitoring_loc to ${WDFN_DB_READ_ONLY_USERNAME};
+        - rollback: revoke select on ${OBSERVATION_SCHEMA_NAME}.monitoring_loc from ${WDFN_DB_READ_ONLY_USERNAME};
+
+  - changeSet:
+      author: drsteini
+      id: "grant.select.${OBSERVATION_SCHEMA_NAME}.organization.${WDFN_DB_READ_ONLY_USERNAME}"
+      changes:
+        - sql:
+            sql: grant select on ${OBSERVATION_SCHEMA_NAME}.organization to ${WDFN_DB_READ_ONLY_USERNAME};
+        - rollback: revoke select on ${OBSERVATION_SCHEMA_NAME}.organization from ${WDFN_DB_READ_ONLY_USERNAME};
+
+  - changeSet:
+      author: drsteini
+      id: "grant.select.${OBSERVATION_SCHEMA_NAME}.project.${WDFN_DB_READ_ONLY_USERNAME}"
+      changes:
+        - sql:
+            sql: grant select on ${OBSERVATION_SCHEMA_NAME}.project to ${WDFN_DB_READ_ONLY_USERNAME};
+        - rollback: revoke select on ${OBSERVATION_SCHEMA_NAME}.project from ${WDFN_DB_READ_ONLY_USERNAME};
+
+  - changeSet:
+      author: drsteini
+      id: "grant.select.${OBSERVATION_SCHEMA_NAME}.sample_media.${WDFN_DB_READ_ONLY_USERNAME}"
+      changes:
+        - sql:
+            sql: grant select on ${OBSERVATION_SCHEMA_NAME}.sample_media to ${WDFN_DB_READ_ONLY_USERNAME};
+        - rollback: revoke select on ${OBSERVATION_SCHEMA_NAME}.sample_media from ${WDFN_DB_READ_ONLY_USERNAME};
+
+  - changeSet:
+      author: drsteini
+      id: "grant.select.${OBSERVATION_SCHEMA_NAME}.site_type.${WDFN_DB_READ_ONLY_USERNAME}"
+      changes:
+        - sql:
+            sql: grant select on ${OBSERVATION_SCHEMA_NAME}.site_type to ${WDFN_DB_READ_ONLY_USERNAME};
+        - rollback: revoke select on ${OBSERVATION_SCHEMA_NAME}.site_type from ${WDFN_DB_READ_ONLY_USERNAME};
+
+  - changeSet:
+      author: drsteini
+      id: "grant.select.${OBSERVATION_SCHEMA_NAME}.state.${WDFN_DB_READ_ONLY_USERNAME}"
+      changes:
+        - sql:
+            sql: grant select on ${OBSERVATION_SCHEMA_NAME}.state to ${WDFN_DB_READ_ONLY_USERNAME};
+        - rollback: revoke select on ${OBSERVATION_SCHEMA_NAME}.state from ${WDFN_DB_READ_ONLY_USERNAME};
+
+  - changeSet:
+      author: drsteini
+      id: "grant.select.${OBSERVATION_SCHEMA_NAME}.taxa_name.${WDFN_DB_READ_ONLY_USERNAME}"
+      changes:
+        - sql:
+            sql: grant select on ${OBSERVATION_SCHEMA_NAME}.taxa_name to ${WDFN_DB_READ_ONLY_USERNAME};
+        - rollback: revoke select on ${OBSERVATION_SCHEMA_NAME}.taxa_name from ${WDFN_DB_READ_ONLY_USERNAME};

@@ -96,6 +96,6 @@ databaseChangeLog:
       author: drsteini
       id: "alter.role.${WDFN_DB_READ_ONLY_USERNAME}.search_path"
       changes:
-        - sql: alter role "${WDFN_DB_READ_ONLY_USERNAME}" set search_path = "$user", ${NWIS_SCHEMA_NAME}, ${WQP_SCHEMA_NAME}, public, tiger;
+        - sql: alter role "${WDFN_DB_READ_ONLY_USERNAME}" set search_path = "$user", ${OBSERVATION_SCHEMA_NAME}, ${NWIS_SCHEMA_NAME}, ${WQP_SCHEMA_NAME}, public, tiger;
         - rollback: alter role "${WDFN_DB_READ_ONLY_USERNAME}" reset search_path;
 
