@@ -66,6 +66,10 @@ databaseChangeLog:
       relativeToChangelogFile: true
 
   - include:
+      file: "discreteGroundWaterAQTS/changeLog.yml"
+      relativeToChangelogFile: true
+
+  - include:
       file: "fxd/changeLog.yml"
       relativeToChangelogFile: true
 
