@@ -5,11 +5,51 @@ databaseChangeLog:
 
   - changeSet:
       author: drsteini
+      id: "grant.select.${OBSERVATION_SCHEMA_NAME}.activity.${WDFN_DB_READ_ONLY_USERNAME}"
+      changes:
+        - sql:
+            sql: grant select on ${OBSERVATION_SCHEMA_NAME}.activity to ${WDFN_DB_READ_ONLY_USERNAME};
+        - rollback: revoke select on ${OBSERVATION_SCHEMA_NAME}.activity from ${WDFN_DB_READ_ONLY_USERNAME};
+
+  - changeSet:
+      author: drsteini
+      id: "grant.select.${OBSERVATION_SCHEMA_NAME}.activity_object.${WDFN_DB_READ_ONLY_USERNAME}"
+      changes:
+        - sql:
+            sql: grant select on ${OBSERVATION_SCHEMA_NAME}.activity_object to ${WDFN_DB_READ_ONLY_USERNAME};
+        - rollback: revoke select on ${OBSERVATION_SCHEMA_NAME}.activity_object from ${WDFN_DB_READ_ONLY_USERNAME};
+
+  - changeSet:
+      author: drsteini
+      id: "grant.select.${OBSERVATION_SCHEMA_NAME}.activity_sum.${WDFN_DB_READ_ONLY_USERNAME}"
+      changes:
+        - sql:
+            sql: grant select on ${OBSERVATION_SCHEMA_NAME}.activity_sum to ${WDFN_DB_READ_ONLY_USERNAME};
+        - rollback: revoke select on ${OBSERVATION_SCHEMA_NAME}.activity_sum from ${WDFN_DB_READ_ONLY_USERNAME};
+
+  - changeSet:
+      author: drsteini
+      id: "grant.select.${OBSERVATION_SCHEMA_NAME}.act_metric.${WDFN_DB_READ_ONLY_USERNAME}"
+      changes:
+        - sql:
+            sql: grant select on ${OBSERVATION_SCHEMA_NAME}.act_metric to ${WDFN_DB_READ_ONLY_USERNAME};
+        - rollback: revoke select on ${OBSERVATION_SCHEMA_NAME}.act_metric from ${WDFN_DB_READ_ONLY_USERNAME};
+
+  - changeSet:
+      author: drsteini
       id: "grant.select.${OBSERVATION_SCHEMA_NAME}.assemblage.${WDFN_DB_READ_ONLY_USERNAME}"
       changes:
         - sql:
             sql: grant select on ${OBSERVATION_SCHEMA_NAME}.assemblage to ${WDFN_DB_READ_ONLY_USERNAME};
         - rollback: revoke select on ${OBSERVATION_SCHEMA_NAME}.assemblage from ${WDFN_DB_READ_ONLY_USERNAME};
+
+  - changeSet:
+      author: drsteini
+      id: "grant.select.${OBSERVATION_SCHEMA_NAME}.bio_hab_metric.${WDFN_DB_READ_ONLY_USERNAME}"
+      changes:
+        - sql:
+            sql: grant select on ${OBSERVATION_SCHEMA_NAME}.bio_hab_metric to ${WDFN_DB_READ_ONLY_USERNAME};
+        - rollback: revoke select on ${OBSERVATION_SCHEMA_NAME}.bio_hab_metric from ${WDFN_DB_READ_ONLY_USERNAME};
 
   - changeSet:
       author: drsteini
@@ -61,11 +101,27 @@ databaseChangeLog:
 
   - changeSet:
       author: drsteini
+      id: "grant.select.${OBSERVATION_SCHEMA_NAME}.ml_grouping.${WDFN_DB_READ_ONLY_USERNAME}"
+      changes:
+        - sql:
+            sql: grant select on ${OBSERVATION_SCHEMA_NAME}.ml_grouping to ${WDFN_DB_READ_ONLY_USERNAME};
+        - rollback: revoke select on ${OBSERVATION_SCHEMA_NAME}.ml_grouping from ${WDFN_DB_READ_ONLY_USERNAME};
+
+  - changeSet:
+      author: drsteini
       id: "grant.select.${OBSERVATION_SCHEMA_NAME}.monitoring_loc.${WDFN_DB_READ_ONLY_USERNAME}"
       changes:
         - sql:
             sql: grant select on ${OBSERVATION_SCHEMA_NAME}.monitoring_loc to ${WDFN_DB_READ_ONLY_USERNAME};
         - rollback: revoke select on ${OBSERVATION_SCHEMA_NAME}.monitoring_loc from ${WDFN_DB_READ_ONLY_USERNAME};
+
+  - changeSet:
+      author: drsteini
+      id: "grant.select.${OBSERVATION_SCHEMA_NAME}.org_data.${WDFN_DB_READ_ONLY_USERNAME}"
+      changes:
+        - sql:
+            sql: grant select on ${OBSERVATION_SCHEMA_NAME}.org_data to ${WDFN_DB_READ_ONLY_USERNAME};
+        - rollback: revoke select on ${OBSERVATION_SCHEMA_NAME}.org_data from ${WDFN_DB_READ_ONLY_USERNAME};
 
   - changeSet:
       author: drsteini
@@ -77,11 +133,83 @@ databaseChangeLog:
 
   - changeSet:
       author: drsteini
+      id: "grant.select.${OBSERVATION_SCHEMA_NAME}.organization_sum.${WDFN_DB_READ_ONLY_USERNAME}"
+      changes:
+        - sql:
+            sql: grant select on ${OBSERVATION_SCHEMA_NAME}.organization_sum to ${WDFN_DB_READ_ONLY_USERNAME};
+        - rollback: revoke select on ${OBSERVATION_SCHEMA_NAME}.organization_sum from ${WDFN_DB_READ_ONLY_USERNAME};
+
+  - changeSet:
+      author: drsteini
+      id: "grant.select.${OBSERVATION_SCHEMA_NAME}.prj_ml_weighting.${WDFN_DB_READ_ONLY_USERNAME}"
+      changes:
+        - sql:
+            sql: grant select on ${OBSERVATION_SCHEMA_NAME}.prj_ml_weighting to ${WDFN_DB_READ_ONLY_USERNAME};
+        - rollback: revoke select on ${OBSERVATION_SCHEMA_NAME}.prj_ml_weighting from ${WDFN_DB_READ_ONLY_USERNAME};
+
+  - changeSet:
+      author: drsteini
       id: "grant.select.${OBSERVATION_SCHEMA_NAME}.project.${WDFN_DB_READ_ONLY_USERNAME}"
       changes:
         - sql:
             sql: grant select on ${OBSERVATION_SCHEMA_NAME}.project to ${WDFN_DB_READ_ONLY_USERNAME};
         - rollback: revoke select on ${OBSERVATION_SCHEMA_NAME}.project from ${WDFN_DB_READ_ONLY_USERNAME};
+
+  - changeSet:
+      author: drsteini
+      id: "grant.select.${OBSERVATION_SCHEMA_NAME}.project_dim.${WDFN_DB_READ_ONLY_USERNAME}"
+      changes:
+        - sql:
+            sql: grant select on ${OBSERVATION_SCHEMA_NAME}.project_dim to ${WDFN_DB_READ_ONLY_USERNAME};
+        - rollback: revoke select on ${OBSERVATION_SCHEMA_NAME}.project_dim from ${WDFN_DB_READ_ONLY_USERNAME};
+
+  - changeSet:
+      author: drsteini
+      id: "grant.select.${OBSERVATION_SCHEMA_NAME}.project_data.${WDFN_DB_READ_ONLY_USERNAME}"
+      changes:
+        - sql:
+            sql: grant select on ${OBSERVATION_SCHEMA_NAME}.project_data to ${WDFN_DB_READ_ONLY_USERNAME};
+        - rollback: revoke select on ${OBSERVATION_SCHEMA_NAME}.project_data from ${WDFN_DB_READ_ONLY_USERNAME};
+
+  - changeSet:
+      author: drsteini
+      id: "grant.select.${OBSERVATION_SCHEMA_NAME}.project_object.${WDFN_DB_READ_ONLY_USERNAME}"
+      changes:
+        - sql:
+            sql: grant select on ${OBSERVATION_SCHEMA_NAME}.project_object to ${WDFN_DB_READ_ONLY_USERNAME};
+        - rollback: revoke select on ${OBSERVATION_SCHEMA_NAME}.project_object from ${WDFN_DB_READ_ONLY_USERNAME};
+
+  - changeSet:
+      author: drsteini
+      id: "grant.select.${OBSERVATION_SCHEMA_NAME}.r_detect_qnt_lmt.${WDFN_DB_READ_ONLY_USERNAME}"
+      changes:
+        - sql:
+            sql: grant select on ${OBSERVATION_SCHEMA_NAME}.r_detect_qnt_lmt to ${WDFN_DB_READ_ONLY_USERNAME};
+        - rollback: revoke select on ${OBSERVATION_SCHEMA_NAME}.r_detect_qnt_lmt from ${WDFN_DB_READ_ONLY_USERNAME};
+
+  - changeSet:
+      author: drsteini
+      id: "grant.select.${OBSERVATION_SCHEMA_NAME}.result.${WDFN_DB_READ_ONLY_USERNAME}"
+      changes:
+        - sql:
+            sql: grant select on ${OBSERVATION_SCHEMA_NAME}.result to ${WDFN_DB_READ_ONLY_USERNAME};
+        - rollback: revoke select on ${OBSERVATION_SCHEMA_NAME}.result from ${WDFN_DB_READ_ONLY_USERNAME};
+
+  - changeSet:
+      author: drsteini
+      id: "grant.select.${OBSERVATION_SCHEMA_NAME}.result_object.${WDFN_DB_READ_ONLY_USERNAME}"
+      changes:
+        - sql:
+            sql: grant select on ${OBSERVATION_SCHEMA_NAME}.result_object to ${WDFN_DB_READ_ONLY_USERNAME};
+        - rollback: revoke select on ${OBSERVATION_SCHEMA_NAME}.result_object from ${WDFN_DB_READ_ONLY_USERNAME};
+
+  - changeSet:
+      author: drsteini
+      id: "grant.select.${OBSERVATION_SCHEMA_NAME}.result_sum.${WDFN_DB_READ_ONLY_USERNAME}"
+      changes:
+        - sql:
+            sql: grant select on ${OBSERVATION_SCHEMA_NAME}.result_sum to ${WDFN_DB_READ_ONLY_USERNAME};
+        - rollback: revoke select on ${OBSERVATION_SCHEMA_NAME}.result_sum from ${WDFN_DB_READ_ONLY_USERNAME};
 
   - changeSet:
       author: drsteini
@@ -109,8 +237,40 @@ databaseChangeLog:
 
   - changeSet:
       author: drsteini
+      id: "grant.select.${OBSERVATION_SCHEMA_NAME}.station.${WDFN_DB_READ_ONLY_USERNAME}"
+      changes:
+        - sql:
+            sql: grant select on ${OBSERVATION_SCHEMA_NAME}.station to ${WDFN_DB_READ_ONLY_USERNAME};
+        - rollback: revoke select on ${OBSERVATION_SCHEMA_NAME}.station from ${WDFN_DB_READ_ONLY_USERNAME};
+
+  - changeSet:
+      author: drsteini
+      id: "grant.select.${OBSERVATION_SCHEMA_NAME}.station_object.${WDFN_DB_READ_ONLY_USERNAME}"
+      changes:
+        - sql:
+            sql: grant select on ${OBSERVATION_SCHEMA_NAME}.station_object to ${WDFN_DB_READ_ONLY_USERNAME};
+        - rollback: revoke select on ${OBSERVATION_SCHEMA_NAME}.station_object from ${WDFN_DB_READ_ONLY_USERNAME};
+
+  - changeSet:
+      author: drsteini
+      id: "grant.select.${OBSERVATION_SCHEMA_NAME}.station_sum.${WDFN_DB_READ_ONLY_USERNAME}"
+      changes:
+        - sql:
+            sql: grant select on ${OBSERVATION_SCHEMA_NAME}.station_sum to ${WDFN_DB_READ_ONLY_USERNAME};
+        - rollback: revoke select on ${OBSERVATION_SCHEMA_NAME}.station_sum from ${WDFN_DB_READ_ONLY_USERNAME};
+
+  - changeSet:
+      author: drsteini
       id: "grant.select.${OBSERVATION_SCHEMA_NAME}.taxa_name.${WDFN_DB_READ_ONLY_USERNAME}"
       changes:
         - sql:
             sql: grant select on ${OBSERVATION_SCHEMA_NAME}.taxa_name to ${WDFN_DB_READ_ONLY_USERNAME};
         - rollback: revoke select on ${OBSERVATION_SCHEMA_NAME}.taxa_name from ${WDFN_DB_READ_ONLY_USERNAME};
+
+  - changeSet:
+      author: drsteini
+      id: "grant.insert.select.update.${OBSERVATION_SCHEMA_NAME}.web_service_log.${WDFN_DB_READ_ONLY_USERNAME}"
+      changes:
+        - sql:
+            sql: grant insert,select,update on ${OBSERVATION_SCHEMA_NAME}.web_service_log to ${WDFN_DB_READ_ONLY_USERNAME};
+        - rollback: revoke insert,select,update on ${OBSERVATION_SCHEMA_NAME}.web_service_log from ${WDFN_DB_READ_ONLY_USERNAME};
