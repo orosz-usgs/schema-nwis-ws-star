@@ -6,7 +6,27 @@ databaseChangeLog:
         username: ${NWIS_SCHEMA_OWNER_USERNAME}
 
   - include:
+      file: "activity/changeLog.yml"
+      relativeToChangelogFile: true
+
+  - include:
+      file: "activityObject/changeLog.yml"
+      relativeToChangelogFile: true
+
+  - include:
+      file: "activitySum/changeLog.yml"
+      relativeToChangelogFile: true
+
+  - include:
+      file: "actMetric/changeLog.yml"
+      relativeToChangelogFile: true
+
+  - include:
       file: "assemblage/changeLog.yml"
+      relativeToChangelogFile: true
+
+  - include:
+      file: "bioHabMetric/changeLog.yml"
       relativeToChangelogFile: true
 
   - include:
@@ -46,6 +66,10 @@ databaseChangeLog:
       relativeToChangelogFile: true
 
   - include:
+      file: "mlGrouping/changeLog.yml"
+      relativeToChangelogFile: true
+
+  - include:
       file: "monitoringLoc/changeLog.yml"
       relativeToChangelogFile: true
 
@@ -54,7 +78,47 @@ databaseChangeLog:
       relativeToChangelogFile: true
 
   - include:
+      file: "organizationSum/changeLog.yml"
+      relativeToChangelogFile: true
+
+  - include:
+      file: "orgData/changeLog.yml"
+      relativeToChangelogFile: true
+
+  - include:
+      file: "prjMlWeighting/changeLog.yml"
+      relativeToChangelogFile: true
+
+  - include:
       file: "project/changeLog.yml"
+      relativeToChangelogFile: true
+
+  - include:
+      file: "projectData/changeLog.yml"
+      relativeToChangelogFile: true
+
+  - include:
+      file: "projectDim/changeLog.yml"
+      relativeToChangelogFile: true
+
+  - include:
+      file: "projectObject/changeLog.yml"
+      relativeToChangelogFile: true
+
+  - include:
+      file: "rDetectQntLmt/changeLog.yml"
+      relativeToChangelogFile: true
+
+  - include:
+      file: "result/changeLog.yml"
+      relativeToChangelogFile: true
+
+  - include:
+      file: "resultObject/changeLog.yml"
+      relativeToChangelogFile: true
+
+  - include:
+      file: "resultSum/changeLog.yml"
       relativeToChangelogFile: true
 
   - include:
@@ -67,6 +131,18 @@ databaseChangeLog:
 
   - include:
       file: "state/changeLog.yml"
+      relativeToChangelogFile: true
+
+  - include:
+      file: "station/changeLog.yml"
+      relativeToChangelogFile: true
+
+  - include:
+      file: "stationObject/changeLog.yml"
+      relativeToChangelogFile: true
+
+  - include:
+      file: "stationSum/changeLog.yml"
       relativeToChangelogFile: true
 
   - include:
