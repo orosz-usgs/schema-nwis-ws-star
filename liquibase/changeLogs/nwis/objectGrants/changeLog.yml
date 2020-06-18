@@ -6,6 +6,7 @@ databaseChangeLog:
         username: ${NWIS_SCHEMA_OWNER_USERNAME}
 
   - include:
+      context: "!skipWQP"
       file: "observation/changeLog.yml"
       relativeToChangelogFile: true
 

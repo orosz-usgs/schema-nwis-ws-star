@@ -38,6 +38,8 @@ OBSERVATION_SCHEMA_NAME=<obs>
 WDFN_DB_READ_ONLY_USERNAME=<wdfn>
 WDFN_DB_READ_ONLY_PASSWORD=<changeMe>
 
+CONTEXTS=<skipWQP>
+
 LOCAL_NETWORK_NAME=<wqp>
 
 DB_IPV4=<172.25.0.2>
@@ -64,6 +66,13 @@ JDBC_JAR=<postgresql-42.2.5.jar>
 * **WQP_SCHEMA_NAME** - Name of the schema for the WQP objects.
 * **WQP_SCHEMA_OWNER_USERNAME** - Role which owns the WQP database objects.
 * **WQP_SCHEMA_OWNER_PASSWORD** - Password for the **WQP_SCHEMA_OWNER_USERNAME** role.
+
+* **OBSERVATION_SCHEMA_NAME** - Name of the schema to create for holding WDFN specific objects.
+
+* **WDFN_DB_READ_ONLY_USERNAME** - Role which has limited access to WDFN objects.
+* **WDFN_DB_READ_ONLY_PASSWORD** - Password for the **WDFN_DB_READ_ONLY_PASSWORD** role.
+
+* **CONTEXTS** - Either empty to run all scripts or **skipWQP** to not run scripts for objects in other schema.
 
 * **LOCAL_NETWORK_NAME** - The name of the local Docker Network you have created for using these images/containers.
 

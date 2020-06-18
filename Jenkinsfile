@@ -60,6 +60,7 @@ pipeline {
           
           sh '''
            
+            export CONTEXTS=$CONTEXTS
             export LIQUIBASE_HOME=$WORKSPACE/nwis
             export LIQUIBASE_WORKSPACE_NWIS=$WORKSPACE/liquibase/changeLogs
 
