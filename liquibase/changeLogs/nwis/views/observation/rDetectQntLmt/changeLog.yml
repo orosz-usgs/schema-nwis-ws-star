@@ -1,0 +1,22 @@
+databaseChangeLog:
+  - preConditions:
+    - dbms:
+        type: postgresql
+    -runningAs:
+        username: ${NWIS_SCHEMA_OWNER_USERNAME}
+
+  - changeSet:
+      author: drsteini
+      id: "create.view.${OBSERVATION_SCHEMA_NAME}.r_detect_qnt_lmt"
+      preConditions:
+        - onFail: MARK_RAN
+        - onError: HALT
+        - not:
+          - viewExists:
+              schemaName: ${OBSERVATION_SCHEMA_NAME}
+              viewName: r_detect_qnt_lmt
+      changes:
+        - sqlFile:
+            path: rDetectQntLmt.sql
+            relativeToChangelogFile: true
+        - rollback: drop view if exists ${OBSERVATION_SCHEMA_NAME}.r_detect_qnt_lmt cascade;

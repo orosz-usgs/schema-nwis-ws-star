@@ -238,5 +238,9 @@ databaseChangeLog:
       relativeToChangelogFile: true
 
   - include:
+      file: "webServiceLog/changeLog.yml"
+      relativeToChangelogFile: true
+
+  - include:
       file: "wqpNemiNwisCrosswalk/changeLog.yml"
       relativeToChangelogFile: true

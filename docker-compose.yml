@@ -39,6 +39,7 @@ services:
       - OBSERVATION_SCHEMA_NAME=${OBSERVATION_SCHEMA_NAME}
       - WDFN_DB_READ_ONLY_USERNAME=${WDFN_DB_READ_ONLY_USERNAME}
       - WDFN_DB_READ_ONLY_PASSWORD=${WDFN_DB_READ_ONLY_PASSWORD}
+      - CONTEXTS=${CONTEXTS}
     volumes:
       - ./liquibase/changeLogs:/home/java/workspace/nwis
       - ./liquibase/scripts:/docker-entrypoint-initdb.d
