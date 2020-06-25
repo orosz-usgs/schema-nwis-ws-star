@@ -1,5 +1,6 @@
 create unlogged table if not exists ${NWIS_SCHEMA_NAME}.discrete_ground_water_aqts
 (monitoring_location_id                  integer
+,field_visit_identifier                  character varying (255)
 ,agency_code                             character varying (5)
 ,agency                                  character varying (64)
 ,site_identification_number              character varying (15)
