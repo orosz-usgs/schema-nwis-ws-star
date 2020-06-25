@@ -39,5 +39,5 @@ create unlogged table if not exists ${NWIS_SCHEMA_NAME}.discrete_ground_water_aq
 ,measurement_method                      character varying (255)
 ,approval_status_code                    character varying (1)
 ,approval_status                         character varying (255)
-,primary key (monitoring_location_id, date_measured_raw, date_time_accuracy_code, timezone_code)
+,primary key (monitoring_location_id, date_measured_raw, field_visit_identifier, timezone_code)
 ) with (fillfactor = 100);
