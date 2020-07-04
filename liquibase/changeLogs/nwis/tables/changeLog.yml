@@ -154,6 +154,10 @@ databaseChangeLog:
       relativeToChangelogFile: true
       
   - include:
+      file: "networkNarrativeStaging/changeLog.yml"
+      relativeToChangelogFile: true      
+      
+  - include:
       file: "networkSites/changeLog.yml"
       relativeToChangelogFile: true
       
