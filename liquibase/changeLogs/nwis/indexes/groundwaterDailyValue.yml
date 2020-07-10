@@ -13,3 +13,17 @@ databaseChangeLog:
       changes:
         - sql: create index groundwater_daily_value_identifier on ${NWIS_SCHEMA_NAME}.groundwater_daily_value (groundwater_daily_value_identifier);
         - rollback: drop index if exists ${NWIS_SCHEMA_NAME}.groundwater_daily_value_identifier;
+
+  - changeSet:
+      author: eorosz
+      id: "create.index.${NWIS_SCHEMA_NAME}.groundwater_daily_value_mon_loc_id"
+      preConditions:
+        - onFail: MARK_RAN
+        - onError: HALT
+        - not:
+          - indexExists:
+              NWIS_SCHEMA_NAME: ${NWIS_SCHEMA_NAME}
+              indexName: groundwater_daily_value_mon_loc_id
+      changes:
+        - sql: create index groundwater_daily_value_mon_loc_id on ${NWIS_SCHEMA_NAME}.groundwater_daily_value (monitoring_location_id);
+        - rollback: drop index if exists ${NWIS_SCHEMA_NAME}.groundwater_daily_value_mon_loc_id;
