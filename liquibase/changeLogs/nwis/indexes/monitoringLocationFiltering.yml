@@ -1,0 +1,87 @@
+databaseChangeLog:
+  - changeSet:
+      author: kkehl
+      id: "create.index.${NWIS_SCHEMA_NAME}.monitoring_location_hydrological_unit"
+      preConditions:
+        - onFail: MARK_RAN
+        - onError: HALT
+        - not:
+          - indexExists:
+              NWIS_SCHEMA_NAME: ${NWIS_SCHEMA_NAME}
+              indexName: monitoring_location_hydrological_unit
+      changes:
+        - sql: create index monitoring_location_hydrological_unit on ${NWIS_SCHEMA_NAME}.monitoring_location(calculated_huc_12);
+        - rollback: drop index if exists ${NWIS_SCHEMA_NAME}.monitoring_location_hydrological_unit;
+
+  - changeSet:
+      author: kkehl
+      id: "create.index.${NWIS_SCHEMA_NAME}.monitoring_location_nat_aqfr_cd"
+      preConditions:
+        - onFail: MARK_RAN
+        - onError: HALT
+        - not:
+            - indexExists:
+                NWIS_SCHEMA_NAME: ${NWIS_SCHEMA_NAME}
+                indexName: monitoring_location_nat_aqfr_cd
+      changes:
+        - sql: create index monitoring_location_nat_aqfr_cd on ${NWIS_SCHEMA_NAME}.monitoring_location(nat_aqfr_cd);
+        - rollback: drop index if exists ${NWIS_SCHEMA_NAME}.monitoring_location_nat_aqfr_cd;
+
+
+  - changeSet:
+      author: kkehl
+      id: "create.index.${NWIS_SCHEMA_NAME}.monitoring_location_county_cd"
+      preConditions:
+        - onFail: MARK_RAN
+        - onError: HALT
+        - not:
+            - indexExists:
+                NWIS_SCHEMA_NAME: ${NWIS_SCHEMA_NAME}
+                indexName: monitoring_location_county_cd
+      changes:
+        - sql: create index monitoring_location_county_cd on ${NWIS_SCHEMA_NAME}.monitoring_location(county_cd);
+        - rollback: drop index if exists ${NWIS_SCHEMA_NAME}.monitoring_location_county_cd;
+
+
+  - changeSet:
+      author: kkehl
+      id: "create.index.${NWIS_SCHEMA_NAME}.monitoring_state_cd"
+      preConditions:
+        - onFail: MARK_RAN
+        - onError: HALT
+        - not:
+            - indexExists:
+                NWIS_SCHEMA_NAME: ${NWIS_SCHEMA_NAME}
+                indexName: monitoring_location_state_cd
+      changes:
+        - sql: create index monitoring_location_state_cd on ${NWIS_SCHEMA_NAME}.monitoring_location(state_cd);
+        - rollback: drop index if exists ${NWIS_SCHEMA_NAME}.monitoring_location_state_cd;
+
+
+  - changeSet:
+      author: kkehl
+      id: "create.index.${NWIS_SCHEMA_NAME}.monitoring_location_identifier"
+      preConditions:
+        - onFail: MARK_RAN
+        - onError: HALT
+        - not:
+            - indexExists:
+                NWIS_SCHEMA_NAME: ${NWIS_SCHEMA_NAME}
+                indexName: monitoring_location_monitoring_location_identifier
+      changes:
+        - sql: create index monitoring_location_monitoring_location_identifier on ${NWIS_SCHEMA_NAME}.monitoring_location(monitoring_location_identifier);
+        - rollback: drop index if exists ${NWIS_SCHEMA_NAME}.monitoring_location_monitoring_location_identifier;
+
+  - changeSet:
+      author: kkehl
+      id: "create.index.${NWIS_SCHEMA_NAME}.site_type"
+      preConditions:
+        - onFail: MARK_RAN
+        - onError: HALT
+        - not:
+            - indexExists:
+                NWIS_SCHEMA_NAME: ${NWIS_SCHEMA_NAME}
+                indexName: monitoring_location_site_type
+      changes:
+        - sql: create index monitoring_location_site_type on ${NWIS_SCHEMA_NAME}.monitoring_location(site_type);
+        - rollback: drop index if exists ${NWIS_SCHEMA_NAME}.monitoring_location_site_type;

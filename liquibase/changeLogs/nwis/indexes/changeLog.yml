@@ -5,6 +5,7 @@ databaseChangeLog:
     -runningAs:
         username: ${NWIS_SCHEMA_OWNER_USERNAME}
 
+
   - include:
     - file: "groundwaterDailyValue.yml"
     - relativeToChangelogFile: "true"
@@ -12,3 +13,8 @@ databaseChangeLog:
   - include:
     - file: "monitoringLocation.yml"
     - relativeToChangelogFile: "true"
+
+  - include:
+      - file: "monitoringLocationFiltering.yml"
+      - relativeToChangelogFile: "true"
+
