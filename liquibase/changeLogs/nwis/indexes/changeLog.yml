@@ -12,3 +12,8 @@ databaseChangeLog:
   - include:
     - file: "monitoringLocation.yml"
     - relativeToChangelogFile: "true"
+
+  - include:
+      - file: "monitoringLocationFiltering.yml"
+      - relativeToChangelogFile: "true"
+
