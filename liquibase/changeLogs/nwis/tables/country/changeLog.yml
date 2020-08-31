@@ -20,3 +20,21 @@ databaseChangeLog:
             path: country.sql
             relativeToChangelogFile: true
         - rollback: drop table if exists ${NWIS_SCHEMA_NAME}.country cascade;
+
+  - changeSet:
+      author: eorosz
+      id: "alter.table.${NWIS_SCHEMA_NAME}.country.set.logged"
+      preConditions:
+        - onFail: MARK_RAN
+        - onError: HALT
+        - sqlCheck:
+          - sql: "SELECT count(*) from pg_catalog.pg_class AS c
+                      join pg_catalog.pg_namespace AS ns
+                      on c.relnamespace = ns.oid
+                  WHERE nspname = '${NWIS_SCHEMA_NAME}' and relname = 'country'
+                     and relkind = 'r' and relpersistence = 'u'"
+          - expectedResult: "1"
+      changes:
+        - sql: alter table if exists ${NWIS_SCHEMA_NAME}.country set logged
+        - rollback: alter table if exists ${NWIS_SCHEMA_NAME}.country set unlogged
+

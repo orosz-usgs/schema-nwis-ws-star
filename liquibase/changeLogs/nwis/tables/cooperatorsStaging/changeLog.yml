@@ -38,3 +38,20 @@ databaseChangeLog:
       
       
       
+  - changeSet:
+      author: eorosz
+      id: "alter.table.${NWIS_SCHEMA_NAME}.cooperators_staging.set.logged"
+      preConditions:
+        - onFail: MARK_RAN
+        - onError: HALT
+        - sqlCheck:
+          - sql: "SELECT count(*) from pg_catalog.pg_class AS c
+                      join pg_catalog.pg_namespace AS ns
+                      on c.relnamespace = ns.oid
+                  WHERE nspname = '${NWIS_SCHEMA_NAME}' and relname = 'cooperators_staging'
+                     and relkind = 'r' and relpersistence = 'u'"
+          - expectedResult: "1"
+      changes:
+        - sql: alter table if exists ${NWIS_SCHEMA_NAME}.cooperators_staging set logged
+        - rollback: alter table if exists ${NWIS_SCHEMA_NAME}.cooperators_staging set unlogged
+

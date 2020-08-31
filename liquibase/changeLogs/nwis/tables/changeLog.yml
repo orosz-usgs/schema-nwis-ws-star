@@ -32,19 +32,19 @@ databaseChangeLog:
   - include:
       file: "citMeth/changeLog.yml"
       relativeToChangelogFile: true
-    
-  - include:
-      file: "cooperatorNetworks/changeLog.yml"
-      relativeToChangelogFile: true
-      
-  - include:
-      file: "cooperatorNetworksStaging/changeLog.yml"
-      relativeToChangelogFile: true
-          
+
   - include:
       file: "cooperators/changeLog.yml"
       relativeToChangelogFile: true
-      
+ 
+  - include:
+      file: "cooperatorNetworks/changeLog.yml"
+      relativeToChangelogFile: true
+
+  - include:
+      file: "cooperatorNetworksStaging/changeLog.yml"
+      relativeToChangelogFile: true
+
   - include:
       file: "cooperatorsStaging/changeLog.yml"
       relativeToChangelogFile: true
