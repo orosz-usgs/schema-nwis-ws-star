@@ -17,6 +17,7 @@ ${LIQUIBASE_HOME}/liquibase \
 	--contexts=${CONTEXTS} \
 	--liquibaseCatalogName=${NWIS_SCHEMA_NAME} \
 	--liquibaseSchemaName=${NWIS_SCHEMA_NAME} \
+	--logLevel=debug \
 	update \
 	-DNWIS_SCHEMA_OWNER_USERNAME=${NWIS_SCHEMA_OWNER_USERNAME} \
 	-DNWIS_SCHEMA_NAME=${NWIS_SCHEMA_NAME} \
