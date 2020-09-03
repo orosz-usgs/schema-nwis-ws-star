@@ -16,6 +16,7 @@ ${LIQUIBASE_HOME}/liquibase \
 	--password=${POSTGRES_PASSWORD} \
 	--liquibaseCatalogName=public \
 	--liquibaseSchemaName=public \
+	--logLevel=debug \
 	update \
 	-DPOSTGRES_PASSWORD=${POSTGRES_PASSWORD} \
 	-DNWIS_DATABASE_NAME=${NWIS_DATABASE_NAME} \
@@ -41,6 +42,7 @@ ${LIQUIBASE_HOME}/liquibase \
 	--password=${POSTGRES_PASSWORD} \
 	--liquibaseCatalogName=public \
 	--liquibaseSchemaName=public \
+	--logLevel=debug \
 	update \
 	-DPOSTGRES_PASSWORD=${POSTGRES_PASSWORD} \
 	-DNWIS_SCHEMA_OWNER_USERNAME=${NWIS_SCHEMA_OWNER_USERNAME} \
