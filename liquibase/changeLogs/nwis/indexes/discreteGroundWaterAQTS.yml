@@ -13,5 +13,3 @@ databaseChangeLog:
       changes:
         - sql: create index discrete_ground_water_aqts_monitoring_location_identifier on ${NWIS_SCHEMA_NAME}.discrete_ground_water_aqts (monitoring_location_identifier);
         - rollback: drop index if exists ${NWIS_SCHEMA_NAME}.discrete_ground_water_aqts_monitoring_location_identifier;
-
-discrete_ground_water_aqts_monitoring_location_identifier
