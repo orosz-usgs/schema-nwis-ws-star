@@ -95,3 +95,32 @@ databaseChangeLog:
       changes:
         - sql: alter table ${NWIS_SCHEMA_NAME}.discrete_ground_water_aqts add constraint discrete_ground_water_aqts_ak_v3 unique (field_visit_identifier, date_measured_raw, vertical_datum, parameter_code);
         - rollback: alter table ${NWIS_SCHEMA_NAME}.discrete_ground_water_aqts drop constraint discrete_ground_water_aqts_ak_v3;
+
+  - changeSet:
+      author: ssoper
+      id: "alter.table.${NWIS_SCHEMA_NAME}.discrete_ground_water_aqts.drop.constraint.if.exists.discrete_ground_water_aqts_ak_v3"
+      preConditions:
+        - onFail: MARK_RAN
+        - onError: HALT
+        - constraintExists:
+            schemaName: ${NWIS_SCHEMA_NAME}
+            tableName: discrete_ground_water_aqts
+            constraintName: discrete_ground_water_aqts_ak_v3
+      changes:
+        - sql: alter table ${NWIS_SCHEMA_NAME}.discrete_ground_water_aqts drop constraint if exists discrete_ground_water_aqts_ak_v3;
+        - rollback: alter table ${NWIS_SCHEMA_NAME}.discrete_ground_water_aqts add constraint discrete_ground_water_aqts_ak_v3 unique (field_visit_identifier, date_measured_raw, vertical_datum, parameter_code);
+
+  - changeSet:
+      author: ssoper
+      id: "alter.table.${NWIS_SCHEMA_NAME}.discrete_ground_water_aqts.add.constraint.discrete_ground_water_aqts_ak_v4"
+      preConditions:
+        - onFail: MARK_RAN
+        - onError: HALT
+        - not:
+            - constraintExists:
+                schemaName: ${NWIS_SCHEMA_NAME}
+                tableName: discrete_ground_water_aqts
+                constraintName: discrete_ground_water_aqts_ak_v4
+      changes:
+        - sql: alter table ${NWIS_SCHEMA_NAME}.discrete_ground_water_aqts add constraint discrete_ground_water_aqts_ak_v4 unique (field_visit_identifier, date_measured_raw, vertical_datum_code, parameter_code);
+        - rollback: alter table ${NWIS_SCHEMA_NAME}.discrete_ground_water_aqts drop constraint discrete_ground_water_aqts_ak_v4;
