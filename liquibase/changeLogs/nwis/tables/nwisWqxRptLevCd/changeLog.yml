@@ -36,5 +36,4 @@ databaseChangeLog:
           - expectedResult: "1"
       changes:
         - sql: alter table if exists ${NWIS_SCHEMA_NAME}.nwis_wqx_rpt_lev_cd set logged
-        - rollback: alter table if exists ${NWIS_SCHEMA_NAME}.nwis_wqx_rpt_lev_cd set unlogged
 

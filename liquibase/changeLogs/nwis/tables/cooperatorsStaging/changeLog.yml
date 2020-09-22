@@ -53,5 +53,4 @@ databaseChangeLog:
           - expectedResult: "1"
       changes:
         - sql: alter table if exists ${NWIS_SCHEMA_NAME}.cooperators_staging set logged
-        - rollback: alter table if exists ${NWIS_SCHEMA_NAME}.cooperators_staging set unlogged
 

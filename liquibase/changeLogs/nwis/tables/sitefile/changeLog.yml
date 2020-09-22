@@ -54,5 +54,4 @@ databaseChangeLog:
           - expectedResult: "1"
       changes:
         - sql: alter table if exists ${NWIS_SCHEMA_NAME}.sitefile set logged
-        - rollback: alter table if exists ${NWIS_SCHEMA_NAME}.sitefile set unlogged
 

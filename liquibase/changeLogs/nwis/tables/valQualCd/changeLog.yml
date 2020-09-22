@@ -36,5 +36,4 @@ databaseChangeLog:
           - expectedResult: "1"
       changes:
         - sql: alter table if exists ${NWIS_SCHEMA_NAME}.val_qual_cd set logged
-        - rollback: alter table if exists ${NWIS_SCHEMA_NAME}.val_qual_cd set unlogged
 

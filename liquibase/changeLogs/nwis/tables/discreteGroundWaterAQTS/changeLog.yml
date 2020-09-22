@@ -36,7 +36,6 @@ databaseChangeLog:
           - expectedResult: "1"
       changes:
         - sql: alter table if exists ${NWIS_SCHEMA_NAME}.discrete_ground_water_aQTS set logged
-        - rollback: alter table if exists ${NWIS_SCHEMA_NAME}.discrete_ground_water_aqts set unlogged
 
   - changeSet:
       author: ssoper
