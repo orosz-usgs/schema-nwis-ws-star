@@ -123,3 +123,12 @@ databaseChangeLog:
       changes:
         - sql: alter table ${NWIS_SCHEMA_NAME}.discrete_ground_water_aqts add constraint discrete_ground_water_aqts_ak_v4 unique (field_visit_identifier, date_measured_raw, vertical_datum_code, parameter_code);
         - rollback: alter table ${NWIS_SCHEMA_NAME}.discrete_ground_water_aqts drop constraint discrete_ground_water_aqts_ak_v4;
+
+  - changeSet:
+      author: ssoper
+      id: "alter.table.${NWIS_SCHEMA_NAME}.discrete_ground_water_aqts.alter.column.type.varchar(50)"
+      preConditions:
+        - onFail: MARK_RAN
+        - onError: HALT
+      changes:
+        - sql: alter table ${NWIS_SCHEMA_NAME}.discrete_ground_water_aqts alter column vertical_datum_code type varchar(50);
