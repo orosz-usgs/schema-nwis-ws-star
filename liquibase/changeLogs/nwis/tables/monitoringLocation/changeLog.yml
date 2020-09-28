@@ -50,3 +50,18 @@ databaseChangeLog:
         - sql:
             sql: alter table if exists ${NWIS_SCHEMA_NAME}.monitoring_location add constraint monitoring_location_ak_2 unique (monitoring_location_identifier);
         - rollback: alter table if exists ${NWIS_SCHEMA_NAME}.monitoring_location drop constraint if exists monitoring_location_ak_2;
+
+  - changeSet:
+      author: dsiemon
+      id: "alter.table.${NWIS_SCHEMA_NAME}.monitoring_location.add.site_active"
+      preConditions:
+        - onFail: MARK_RAN
+        - onError: HALT
+        - not:
+          - columnExists:
+              schemaName: ${NWIS_SCHEMA_NAME}
+              tableName: monitoring_location
+              columnName: site_active
+      changes:
+        - sql:
+            sql: alter table if exists ${NWIS_SCHEMA_NAME}.monitoring_location add column if not exists site_active boolean;

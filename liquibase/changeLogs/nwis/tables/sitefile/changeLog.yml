@@ -55,3 +55,17 @@ databaseChangeLog:
       changes:
         - sql: alter table if exists ${NWIS_SCHEMA_NAME}.sitefile set logged
 
+  - changeSet:
+      author: dsiemon
+      id: "alter.table.${NWIS_SCHEMA_NAME}.sitefile.IOW-587"
+      preConditions:
+        - onFail: MARK_RAN
+        - onError: HALT
+        - tableExists:
+            schemaName: ${NWIS_SCHEMA_NAME}
+            tableName: sitefile
+      changes:
+        - sqlFile:
+            path: sitefile-IOW-587.sql
+            relativeToChangelogFile: true
+
