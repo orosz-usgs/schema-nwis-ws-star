@@ -26,7 +26,7 @@ pipeline {
             extensions: [], 
             submoduleCfg: [], 
             userRemoteConfigs: [[credentialsId: 'CIDA-Jenkins-GitHub', 
-            url: 'https://github.com/NWQMC/schema-nwis-ws-star.git']]])
+            url: 'https://github.com/usgs-orosz/schema-nwis-ws-star.git']]])
       }
     }
     stage('Download liquibase jar') {
@@ -43,7 +43,6 @@ pipeline {
         script {
           def secretsString = sh(script: '/usr/local/bin/aws ssm get-parameter --name "/aws/reference/secretsmanager/WQP-EXTERNAL-$DEPLOY_STAGE" --query "Parameter.Value" --with-decryption --output text --region "us-west-2"', returnStdout: true).trim()
           def secretsJson =  readJSON text: secretsString
-          env.NWIS_DATABASE_ADDRESS = secretsJson.DATABASE_ADDRESS
           env.NWIS_DATABASE_NAME = secretsJson.DATABASE_NAME
           env.NWIS_DB_OWNER_USERNAME = secretsJson.DB_OWNER_USERNAME
           env.NWIS_DB_OWNER_PASSWORD = secretsJson.DB_OWNER_PASSWORD
