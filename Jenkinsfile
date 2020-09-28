@@ -26,7 +26,7 @@ pipeline {
             extensions: [], 
             submoduleCfg: [], 
             userRemoteConfigs: [[credentialsId: 'CIDA-Jenkins-GitHub', 
-            url: 'https://github.com/usgs-orosz/schema-nwis-ws-star.git']]])
+            url: 'https://github.com/orosz-usgs/schema-nwis-ws-star.git']]])
       }
     }
     stage('Download liquibase jar') {
