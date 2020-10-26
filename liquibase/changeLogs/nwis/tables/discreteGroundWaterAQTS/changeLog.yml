@@ -135,7 +135,7 @@ databaseChangeLog:
 
   - changeSet:
       author: eeverman
-      id: "alter.table.${NWIS_SCHEMA_NAME}.discrete_ground_water_aqts.add.column.result_qualifiers"
+      id: "alter.table.${NWIS_SCHEMA_NAME}.discrete_ground_water_aqts.add.column.result_measure_qualifiers"
       preConditions:
         - onFail: MARK_RAN
         - onError: HALT
@@ -143,7 +143,7 @@ databaseChangeLog:
             - columnExists:
                 schemaName: ${NWIS_SCHEMA_NAME}
                 tableName: discrete_ground_water_aqts
-                columnName: result_qualifiers
+                columnName: result_measure_qualifiers
       changes:
-        - sql: alter table ${NWIS_SCHEMA_NAME}.discrete_ground_water_aqts add column if not exists result_qualifiers jsonb;
-        - rollback: alter table ${NWIS_SCHEMA_NAME}.discrete_ground_water_aqts drop column result_qualifiers;
+        - sql: alter table ${NWIS_SCHEMA_NAME}.discrete_ground_water_aqts add column if not exists result_measure_qualifiers jsonb;
+        - rollback: alter table ${NWIS_SCHEMA_NAME}.discrete_ground_water_aqts drop column result_measure_qualifiers;
