@@ -13,3 +13,16 @@ databaseChangeLog:
       changes:
         - sql: create index discrete_ground_water_aqts_monitoring_location_identifier on ${NWIS_SCHEMA_NAME}.discrete_ground_water_aqts (monitoring_location_identifier);
         - rollback: drop index if exists ${NWIS_SCHEMA_NAME}.discrete_ground_water_aqts_monitoring_location_identifier;
+
+  - changeSet:
+      author: eorosz
+      id: "create.index.${NWIS_SCHEMA_NAME}.discrete_ground_water_aqts_district_cd"
+      preConditions:
+        - onFail: MARK_RAN
+        - onError: HALT
+        - not:
+            - indexExists:
+                NWIS_SCHEMA_NAME: ${NWIS_SCHEMA_NAME}
+                indexName: discrete_ground_water_aqts_district_cd
+      changes:
+        - sql: create index discrete_ground_water_aqts_district_cd on ${NWIS_SCHEMA_NAME}.discrete_ground_water_aqts (district_cd);
