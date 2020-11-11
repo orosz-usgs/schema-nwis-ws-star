@@ -147,3 +147,17 @@ databaseChangeLog:
       changes:
         - sql: alter table ${NWIS_SCHEMA_NAME}.discrete_ground_water_aqts add column if not exists result_measure_qualifiers jsonb;
         - rollback: alter table ${NWIS_SCHEMA_NAME}.discrete_ground_water_aqts drop column result_measure_qualifiers;
+
+  - changeSet:
+      author: eorosz
+      id: "alter.table.${NWIS_SCHEMA_NAME}.discrete_ground_water_aqts.add.column.district_cd"
+      preConditions:
+        - onFail: MARK_RAN
+        - onError: HALT
+        - not:
+            - columnExists:
+                schemaName: ${NWIS_SCHEMA_NAME}
+                tableName: discrete_ground_water_aqts
+                columnName: district_cd
+      changes:
+        - sql: alter table ${NWIS_SCHEMA_NAME}.discrete_ground_water_aqts add column if not exists district_cd varchar(3);
